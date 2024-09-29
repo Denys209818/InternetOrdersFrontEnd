@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkinternetordersfrondend=self.webpackChunkinternetordersfrondend||[]).push([[595],{595:(e,r,n)=>{n.r(r),n.d(r,{default:()=>t});var d=n(579);const t=()=>(0,d.jsx)(d.Fragment,{children:"Product Page"})}}]);
+//# sourceMappingURL=595.e01fa962.chunk.js.map
