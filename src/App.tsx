@@ -1,9 +1,13 @@
+import { Provider } from "react-redux";
 import { Root } from "./Root";
+import { store } from "./redux/store";
 
 
 const App = () => {
   return (
-    <Root />
+    <Provider store={store}>
+      <Root />
+    </Provider>
   );
 }
 
