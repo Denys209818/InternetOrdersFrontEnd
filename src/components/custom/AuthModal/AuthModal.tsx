@@ -45,6 +45,12 @@ export const AuthModal: React.ForwardRefExoticComponent<React.RefAttributes<unkn
         }
     }));
 
+    const onClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close();
+        }
+    }
+
     return (createPortal(<dialog
             ref={dialogRef}
             className={modalStyles}
@@ -68,12 +74,14 @@ export const AuthModal: React.ForwardRefExoticComponent<React.RefAttributes<unkn
                         sizeBtn="huge"
                         title={leftBtnText}
                         background="white"
+                        onClickHandler={onClose}
                     />
 
                     <Button
                         sizeBtn="huge"
                         title={rightBtnText}
                         background="black"
+                        onClickHandler={onClose}
                     />
                 </div>
             </div>
