@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Oswald";
+    src: url("./Oswald/Oswald-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Literata";
+    src: url("./Literata/Literata-Italic-VariableFont_opsz\,wght.ttf");
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("./Lato/Lato-Medium.ttf");
+}

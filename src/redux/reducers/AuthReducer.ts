@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { LoginAction, RegisterAction } from "../../actions/AuthActions";
 
 export interface UserType {
     id: number;
@@ -6,6 +7,8 @@ export interface UserType {
     secondName: string;
     email: string;
     token: string;
+    isLoading: boolean;
+    error: string;
 }
 
 export interface UserLogin {
@@ -26,20 +29,51 @@ const initialUser: UserType = {
     secondName: '',
     email: '',
     token: '',
+    isLoading: false,
+    error: '',
 }
 
 const authSlice = createSlice({
     name: 'auth',
     initialState: initialUser,
-    reducers: {
-        login(state: UserType, action: PayloadAction<UserLogin>) {
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(LoginAction.pending, (state) => {
+            state.isLoading = true;
+        });
 
-        },
+        builder.addCase(LoginAction.fulfilled, (state, action) => {
+            const body = action.payload as Omit<UserType, 'isLoading' | 'error'>;
 
-        register(state: UserType, action: PayloadAction<UserRegister>) {
+            state = {
+                ...body,
+                isLoading: false,
+                error: '',
+            }
+        });
 
-        }
-    }
+        builder.addCase(LoginAction.rejected, (state, action) => {
+            state.error = 'Error happened when data was receiving! Text: ' + action.error.message;
+        });
+
+        builder.addCase(RegisterAction.pending, (state) => {
+            state.isLoading = true;
+        });
+
+        builder.addCase(RegisterAction.fulfilled, (state, action) => {
+            const body = action.payload as Omit<UserType, 'isLoading' | 'error'>;
+
+            state = {
+                ...body,
+                isLoading: false,
+                error: '',
+            }
+        });
+
+        builder.addCase(RegisterAction.rejected, (state, action) => {
+            state.error = 'Error happened when data was receiving! Text: ' + action.error.message;
+        });
+    },
 });
 
 export const { actions, reducer  } = authSlice;
