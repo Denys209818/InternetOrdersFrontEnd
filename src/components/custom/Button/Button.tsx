@@ -41,7 +41,7 @@ export const Button:React.FC<ButtonType> = ({
     };
 
     const btnStyle = `block border disabled:bg-[#9AA5B1] disabled:border-0 ` + 
-    
+    ` hover:bg-[#BBEE85] outline-black transition duration-300 ease-in-out` + 
     `border-black ${btnStyles[background].background} ${btnStyles[sizeBtn]}`;
 
     return (<button

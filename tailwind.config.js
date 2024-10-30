@@ -31,6 +31,7 @@ module.exports = {
         gray: '#525A63',
         silver_gray: '#E4E7EE',
         disabled: '#9AA5B1',
+        red: '#B20508'
       },
       spacing: {
         '100%': '100%',

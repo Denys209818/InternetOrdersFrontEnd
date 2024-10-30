@@ -11,13 +11,14 @@ import AuthModal from "../custom/AuthModal";
 import { ModalRefType } from "../custom/AuthModal/AuthModal";
 import { createPortal } from "react-dom";
 import MaskedInput from "../custom/MaskedInput";
+import * as Yup from 'yup';
 
 export type ModeType = 'login' | 'register' | 'phone';
 
 const AuthPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [authErrors, setAuthErrors] = useState<string[]>([]);
+    const [authErrors, setAuthErrors] = useState<{[key: string]: string[]}>({});
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
     const [phone, setPhone] = useState('');
@@ -63,7 +64,7 @@ const AuthPage: React.FC = () => {
                 const validatedData = await loginSchema.validate({
                     email,
                     password
-                });
+                }, { abortEarly: false });
                 
                 if (modalRef.current) {
                     modalRef.current.showModal({
@@ -76,6 +77,13 @@ const AuthPage: React.FC = () => {
                 // dispatch(LoginAction(validatedData));
             } 
             else if (mode === 'register') {
+                const validatedData = await registerSchema.validate({
+                    email,
+                    password,
+                    firstName,
+                    secondName
+                }, { abortEarly: false });
+
                 const urlSearch = new URLSearchParams(search.toString());
 
                 urlSearch.set('mode', 'phone')
@@ -105,10 +113,23 @@ const AuthPage: React.FC = () => {
             }
 
         } catch(err: any) {
-            const errors = err.errors as string[];
+            const errors: {[key: string]: string[]} = {};
+
+            err.inner.forEach((item: Yup.ValidationError) => {
+                if (item.path) {
+                    errors[item.path] = item.errors;
+                }
+            });
 
             setAuthErrors(errors);
         }
+    }
+
+    const discardErrors = (type: string) => {
+        setAuthErrors(prev => ({
+            ...prev,
+            [type]: []
+        }));
     }
 
     return (<main className="block pt-6 px-10 pb-20">
@@ -129,12 +150,14 @@ const AuthPage: React.FC = () => {
 
                     <form onSubmit={authHandler}>
                         <div className="flex flex-col gap-3 pt-6">
-                            {mode === 'register' && (<><Input
+                            {mode === 'register' && (<>
+                            <Input
                                 value={firstName}
                                 placeholder="Ім'я"
                                 type="text"
                                 name="firstName"
-                                setValue={(arg) => setFirstName(arg)}
+                                setValue={(arg) => { setFirstName(arg); discardErrors('firstName'); }}
+                                errors={authErrors.firstName || []}
                             />
 
                             <Input
@@ -142,23 +165,27 @@ const AuthPage: React.FC = () => {
                                 placeholder="Прізвище"
                                 type="text"
                                 name="secondName"
-                                setValue={(arg) => setSecondName(arg)}
+                                setValue={(arg) => { setSecondName(arg); discardErrors('secondName'); }}
+                                errors={authErrors.secondName || []}
                             /></>)}
 
-                            {mode !== 'phone' && <><Input
+                            {mode !== 'phone' && <>
+                            <Input
                                 value={email}
                                 placeholder="Електронна пошта"
                                 type="text"
-                                name="password"
-                                setValue={(arg) => setEmail(arg)}
+                                name="email"
+                                setValue={(arg) => { setEmail(arg); discardErrors('email'); }}
+                                errors={authErrors.email || []}
                             />
 
                             <Input
                                 value={password}
                                 placeholder="Пароль"
                                 type="password"
-                                name="email"
-                                setValue={(arg) => setPassword(arg)}
+                                name="password"
+                                setValue={(arg) => { setPassword(arg); discardErrors('password'); }}
+                                errors={authErrors.password || []}
                             /></>}
 
                             {mode === 'phone' && (
@@ -168,7 +195,8 @@ const AuthPage: React.FC = () => {
                                     type="text"
                                     name="phone"
                                     mask={"+38 000 000 00 00"}
-                                    setValue={(arg: string) => setPhone(arg)}
+                                    setValue={(arg: string) => { setPhone(arg); discardErrors('phone'); }}
+                                    errors={authErrors.phone || []}
                                 />
                             )}
                         </div>

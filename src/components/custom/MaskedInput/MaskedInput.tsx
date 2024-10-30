@@ -7,6 +7,7 @@ type InputType = {
     name: string;
     value: string;
     setValue: (arg: string) => void;
+    errors: string[];
 };
 
 export const MaskedInput = IMaskMixin(({ inputRef, ...props }) => {
@@ -33,7 +34,8 @@ export const MaskedInput = IMaskMixin(({ inputRef, ...props }) => {
                 "font-base " +
                 "text-[#525A63] " +
                 "outline-none " +
-                "border border-[#E4E7EE]"
+                "border-2 border-[#E4E7EE] " +
+                "focus:border-2 focus:border-black " 
             }
         />
     )
