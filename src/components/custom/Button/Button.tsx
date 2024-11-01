@@ -34,15 +34,15 @@ export const Button:React.FC<ButtonType> = ({
             color: 'text-black',
         },
         huge: 'px-6 py-4 w-full',
-        small: 'p-2 size-10',
+        small: "size-10 hover:border-white",
         google: {
             additionalImage: "bg-[url('/src/images/EnterIcon.svg')]",
         }
     };
 
-    const btnStyle = `block border disabled:bg-[#9AA5B1] disabled:border-0 min-[744px]:col-span-1` + 
-    ` hover:bg-[#BBEE85] outline-black transition duration-300 ease-in-out min-[375px]:col-span-2 ` + 
-    `border-black ${btnStyles[background].background} ${btnStyles[sizeBtn]}`;
+    const btnStyle = `relative block border disabled:bg-[#9AA5B1] disabled:border-0 min-[744px]:col-span-1` + 
+    ` hover:bg-[#BBEE85] outline-black min-[375px]:col-span-2 transition duration-300 ease-in-out` + 
+    `border-black ${btnStyles[background].background} ${btnStyles[sizeBtn]} group`;
 
     return (<button
         type={type}
@@ -62,10 +62,40 @@ export const Button:React.FC<ButtonType> = ({
             </div>
         )}
 
-        {image && (
-            <div className="relative block w-full pb-[100%]">
-                <div className={`absolute block size-full bg-[url('/src/images/Back.svg')] bg-cover`}></div>
+        {image && (<>
+            <div className={`
+                absolute 
+                top-[50%]
+                left-[50%]
+                transform 
+                -translate-x-1/2 
+                -translate-y-1/2
+                block 
+                size-6 
+                bg-[url('/src/images/Back.svg')] 
+                bg-cover
+                transition duration-300 ease-in-out
+                opacity-100
+                group-hover:opacity-0
+                `}>
             </div>
-        )}
+
+            <div className={`
+                absolute 
+                top-[50%]
+                left-[50%]
+                transform 
+                -translate-x-1/2 
+                -translate-y-1/2
+                block 
+                size-6 
+                bg-[url('/src/images/Back-hover.svg')] 
+                bg-cover
+                transition duration-300 ease-in-out
+                opacity-0
+                group-hover:opacity-100
+                `}>
+            </div>
+        </>)}
     </button>);
 }

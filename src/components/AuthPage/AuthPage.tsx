@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { loginSchema } from "./validation/loginValidation";
 import { LoginAction, RegisterAction } from "../../actions/AuthActions";
 import { useAppDispatch, useAppSelector } from "../../redux/tools/hooks";
-import { Link, URLSearchParamsInit, useSearchParams } from "react-router-dom";
+import { Link, URLSearchParamsInit, useNavigate, useSearchParams } from "react-router-dom";
 import { registerSchema } from "./validation/registerValidation";
 import Button from "../custom/Button";
 import Input from "../custom/Input";
@@ -25,6 +25,8 @@ const AuthPage: React.FC = () => {
     const [phone, setPhone] = useState('');
 
     const modalRef = useRef<ModalRefType>();
+
+    const navigate = useNavigate();
     
     const auth = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
@@ -134,6 +136,10 @@ const AuthPage: React.FC = () => {
         }));
     }
 
+    const goBack = () => {
+        navigate('..');
+    }
+
     return (<main className={
         `${Styles.largeMainStyle} 
         ${Styles.mainStyle} 
@@ -142,7 +148,7 @@ const AuthPage: React.FC = () => {
         ${Styles.tabletMainStyle}`}
         >
         <section>
-            <Button image="Back.svg" background="transparent" />
+            <Button image="Back.svg" background="transparent" onClickHandler={goBack} />
         </section>
 
         <section>

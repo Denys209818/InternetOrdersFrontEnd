@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'back': "url('/src/images/Back.svg')",
+        'backhover': "url('/src/images/Back-hover.svg')",
         'patato': "url('/src/images/Patato.svg')",
         'enter': "url('/src/images/EnterIcon.svg')",
         'hend': "url('/src/images/Hendcheese.svg')",
@@ -68,7 +69,7 @@ module.exports = {
         'tablet': '744px',
         'pc': '1000px',
         'large-pc': '1440px',
-      },
+      }
     },
   },
   plugins: [],
