@@ -12,7 +12,7 @@ type RegisterActionType = {
     password: string;
 }
 
-export const serverUrl = 'http://localhost:8080';
+export const serverUrl = 'http://localhost:8088';
 
 export const LoginAction = createAsyncThunk('auth/loginUser', 
     async (login: LoginActionType) => {

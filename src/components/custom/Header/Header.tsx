@@ -8,11 +8,11 @@ export const Header: React.FC = () => {
             <nav className="block w-full">
                 <ul className="flex list-none m-0 py-px justify-between items-center">
                     <li>
-                        <Link to='' className="text-[20px] font-normal font-lato tracking-tighter">Меню</Link>
+                        <Link to='' className="text-[20px] font-normal font-lato tracking-tighter min-[375px]:hidden min-[744px]:inline">Меню</Link>
                     </li>
 
                     <li>
-                        <ul className="flex list-none m-0 p-0 gap-8">
+                        <ul className="flex items-center list-none m-0 p-0 gap-8">
                             <li className="flex gap-2 items-center">
                                 <Link to='/' className="block text-[20px] font-normal font-lato tracking-tighter">Кошик</Link>  
 
@@ -23,8 +23,14 @@ export const Header: React.FC = () => {
                                 </div>
                             </li>
 
-                            <li className="px-1 border-b border-black">
+                            <li className="px-1 border-b border-black min-[375px]:hidden min-[744px]:inline">
                                 <Link to='/auth?mode=login' className="text-[20px] font-normal font-lato tracking-tighter">Увійти</Link>
+                            </li>
+
+                            <li className="min-[375px]:inline min-[744px]:hidden">
+                                {<div className="relative block size-6">
+                                    <div className={`absolute block size-full bg-[url('/src/images/Menu.svg')] bg-cover`}></div>
+                                </div>}
                             </li>
                         </ul>
                     </li>

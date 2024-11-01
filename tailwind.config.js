@@ -26,6 +26,15 @@ module.exports = {
       },
       fontSize: {
         menu: ['20px', '20px'],
+        btn: ['20px', {
+          lineHeight: '20px',
+          letterSpacing: '0.8px',
+          fontWeight: '600',
+        }],
+        input: ['16px', {
+          lineHeight: '17.6px',
+          fontWeight: '400',
+        }],
       },
       colors: {
         gray: '#525A63',
@@ -35,16 +44,28 @@ module.exports = {
       },
       spacing: {
         '100%': '100%',
+        '50%': '50%',
         '-100%': '-100%',
         '-110%': '-110%',
         '-70%': '-70%',
         '-50%': '-50%',
         '-30%': '-30%',
         '-40px': '-40px',
-        'negative-top': 'calc(100% - 67px)'
+        'negative-top': 'calc(100% - 67px)',
+        'negative-top-pc': 'calc(100% - 62px)',
+        'negative-top-tablet': 'calc(100% - 18px)',
+        'negative-top-phone': 'calc(100% - 126px)',
       },
       translate: {
         'negative': 'calc(-100% - 40px)',
+        'negative-phone': '-50%',
+      },
+      screens: {
+        'small-phone': '375px',
+        'phone': '480px',
+        'tablet': '744px',
+        'pc': '1000px',
+        'large-pc': '1440px',
       },
     },
   },

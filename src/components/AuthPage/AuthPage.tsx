@@ -12,6 +12,7 @@ import { ModalRefType } from "../custom/AuthModal/AuthModal";
 import { createPortal } from "react-dom";
 import MaskedInput from "../custom/MaskedInput";
 import * as Yup from 'yup';
+import * as Styles from './styles';
 
 export type ModeType = 'login' | 'register' | 'phone';
 
@@ -31,7 +32,8 @@ const AuthPage: React.FC = () => {
     const [search, setSearchParams] = useSearchParams();
     
     const mode: ModeType = search.get('mode') as ModeType;
-    const bottomLinkStyles = 'block font-normal font-lato text-xl';
+    const bottomLinkStyles = 'block font-medium font-lato text-xl';
+    const bottomLinkStylesTablet = 'min-[375px]:block min-[375px]:font-lato';
     const link = {
         login: 'register',
         register: 'login',
@@ -74,7 +76,7 @@ const AuthPage: React.FC = () => {
                     });
                 }
     
-                // dispatch(LoginAction(validatedData));
+                dispatch(LoginAction(validatedData));
             } 
             else if (mode === 'register') {
                 const validatedData = await registerSchema.validate({
@@ -132,24 +134,60 @@ const AuthPage: React.FC = () => {
         }));
     }
 
-    return (<main className="block pt-6 px-10 pb-20">
+    return (<main className={
+        `${Styles.largeMainStyle} 
+        ${Styles.mainStyle} 
+        ${Styles.phoneMainStyle} 
+        ${Styles.smallphoneMainStyle} 
+        ${Styles.tabletMainStyle}`}
+        >
         <section>
             <Button image="Back.svg" background="transparent" />
         </section>
 
         <section>
-            <div className="grid grid-cols-12 gap-x-5 size-full">
-                <div className="col-start-5 col-end-9">
-                    <h1 className="uppercase font-medium tracking-tight font-oswald text-3xl">
+            <div className={`
+                ${Styles.gridStyle} 
+                ${Styles.largeGridStyle} 
+                ${Styles.phoneGridStyle} 
+                ${Styles.tabletGridStyle} 
+                ${Styles.smallphoneGridStyle}`}
+            >
+                <div className={`
+                    ${Styles.gridContainerStyle}
+                    ${Styles.largeGridContainerStyle}
+                    ${Styles.smallphoneGridContainerStyle}
+                    ${Styles.phoneGridContainerStyle} 
+                    ${Styles.tabletGridContainerStyle}`}
+                    >
+                    <h1 className={`
+                        ${Styles.titleStyle}
+                        ${Styles.largeTitleStyle}
+                        ${Styles.tabletTitleStyle}
+                        ${Styles.phoneTitleStyle}
+                        ${Styles.smallphoneTitleStyle}
+                        `}>
                         {title[mode].title}
                     </h1>
 
-                    <p className="block pt-2 font-semibold text-base font-lato text-[#525A63]">
+                    <p className={`
+                        ${Styles.descStyle}
+                        ${Styles.largeDescStyle}
+                        ${Styles.tabletDescStyle}
+                        ${Styles.phoneDescStyle}
+                        ${Styles.smallphoneDescStyle}
+                        `}>
                         {title[mode].description}
                     </p>
 
                     <form onSubmit={authHandler}>
-                        <div className="flex flex-col gap-3 pt-6">
+                        <div className={`
+                            ${Styles.formStyle}
+                            ${Styles.largeFormStyle}
+                            ${Styles.tabletFormStyle}
+                            ${Styles.phoneFormStyle}
+                            ${Styles.smallphoneFormStyle}
+                            `}>
                             {mode === 'register' && (<>
                             <Input
                                 value={firstName}
@@ -202,12 +240,24 @@ const AuthPage: React.FC = () => {
                         </div>
 
                         {mode === 'login' && <p
-                            className="block pt-1 text-right font-medium text-base font-lato"
+                            className={`
+                                ${Styles.fpStyle}
+                                ${Styles.largeFPStyle}
+                                ${Styles.tabletFPStyle}
+                                ${Styles.phoneFPStyle}
+                                ${Styles.smallphoneFPStyle}
+                                `}
                         >
                             Забули пароль?
                         </p>}
 
-                        <div className="flex flex-col gap-3 pt-6">
+                        <div className={`
+                            ${Styles.btnStyle}
+                            ${Styles.largeBtnStyle}
+                            ${Styles.tabletBtnStyle}
+                            ${Styles.phoneBtnStyle}
+                            ${Styles.smallphoneBtnStyle}
+                            `}>
                             {(mode === 'login' || mode === 'register') && <>
                             <Button
                                 title="Продовжити"
@@ -236,10 +286,16 @@ const AuthPage: React.FC = () => {
                         </div>
                     </form>
 
-                    {mode !== 'phone' && <div className="flex pt-6 gap-2 justify-center">
-                        <p className={bottomLinkStyles}>Немає аккаунта?</p>
+                    {mode !== 'phone' && <div className={`
+                        ${Styles.aaStyle}
+                        ${Styles.largeAAStyle}
+                        ${Styles.tabletAAStyle}
+                        ${Styles.phoneAAStyle}
+                        ${Styles.smallphoneAAStyle}
+                        `}>
+                        <p className={bottomLinkStyles + " " + bottomLinkStylesTablet + " min-[375px]:text-input"}>Немає аккаунта?</p>
 
-                        <Link className={bottomLinkStyles} to={`/auth?mode=${link[mode]}`}>
+                        <Link className={bottomLinkStyles + " " + bottomLinkStylesTablet + " min-[375px]:text-btn"} to={`/auth?mode=${link[mode]}`}>
                             {mode === 'login' ? 'Зареєеструватися' : 'Увійти'}
                         </Link>
                     </div>}
@@ -250,15 +306,39 @@ const AuthPage: React.FC = () => {
                 ref={modalRef}
             />
 
-            {createPortal(<div className="fixed left-[100%] top-negative-top translate-x-negative translate-y-[-100%]  w-52">
-                <div className="relative flex flex-col gap-2 w-full">
-                    <div className="block px-10 w-full">
+            {createPortal(<div className={`
+                ${Styles.dialogStyle}
+                ${Styles.largeDialogStyle}
+                ${Styles.tabletDialogStyle}
+                ${Styles.phoneDialogStyle}
+                ${Styles.smallphoneDialogStyle}
+                `}>
+                <div className={`
+                    ${Styles.drStyle}
+                    ${Styles.largeDRStyle}
+                    ${Styles.tabletDRStyle}
+                    ${Styles.phoneDRStyle}
+                    ${Styles.smallphoneDRStyle}
+                    `}>
+                    <div className={`
+                        ${Styles.dsStyle}
+                        ${Styles.largeDSStyle}
+                        ${Styles.tabletDSStyle}
+                        ${Styles.phoneDSStyle}
+                        ${Styles.smallphoneDSStyle}
+                        `}>
                         <div className="relative block w-full pb-[169%]">
                             <div className="absolute size-full bg-[url('/src/images/Patato.svg')] bg-cover"></div>
                         </div>
                     </div>
 
-                    <p className="block font-normal font-base font-oswald text-center">
+                    <p className={`
+                        ${Styles.dtStyle}
+                        ${Styles.largeDTStyle}
+                        ${Styles.tabletDTStyle}
+                        ${Styles.phoneDTStyle}
+                        ${Styles.smallphoneDTStyle}
+                        `}>
                         Псс...Картопля фрі вже чекає!
                     </p>
                 </div>

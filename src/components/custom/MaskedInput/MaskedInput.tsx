@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { LegacyRef } from 'react';
 import { IMaskMixin } from 'react-imask';
 
@@ -11,7 +12,9 @@ type InputType = {
 };
 
 export const MaskedInput = IMaskMixin(({ inputRef, ...props }) => {
-    const { type, placeholder, name, value, setValue } = props as InputType;
+    const { type, placeholder, name, value, setValue, errors } = props as InputType;
+
+    const isInvalid = errors.length > 0;
 
     return (
         <input
@@ -23,19 +26,20 @@ export const MaskedInput = IMaskMixin(({ inputRef, ...props }) => {
             id={name} 
             value={value} 
             onChange={e => setValue(e.target.value)}
-            className={
+            className={classNames(
                 "block " +
                 "size-full " + 
                 "px-6 " +
-                "py-5 " +
+                "py-4 " +
                 "bg-white " +
                 "font-lato " +
-                "font-medium " +
-                "font-base " +
+                "text-input " +
                 "text-[#525A63] " +
                 "outline-none " +
-                "border-2 border-[#E4E7EE] " +
-                "focus:border-2 focus:border-black " 
+                "focus:border-2 focus:border-black ", 
+                { 'border-2 border-[#E4E7EE]' : !isInvalid },
+                { 'border-2 border-[#B20508]': isInvalid }
+                )
             }
         />
     )

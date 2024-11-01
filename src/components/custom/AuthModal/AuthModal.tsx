@@ -69,7 +69,7 @@ export const AuthModal: React.ForwardRefExoticComponent<React.RefAttributes<unkn
                     )}
                 </div>
 
-                <div className="grid grid-cols-2 gap-x-3">
+                <div className="grid grid-cols-2 gap-x-3 min-[375px]:gap-y-3">
                     <Button
                         sizeBtn="huge"
                         title={leftBtnText}

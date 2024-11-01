@@ -25,11 +25,10 @@ export const Input: React.FC<InputType> = ({ type, placeholder, name, value, set
                 "block " +
                 "size-full " + 
                 "px-6 " +
-                "py-5 " +
+                "py-4 " +
                 "bg-white " +
                 "font-lato " +
-                "font-medium " +
-                "font-base " +
+                "text-input " +
                 "text-[#525A63] " +
                 "outline-none " +
                 "focus:border-2 focus:border-black ", 

@@ -33,15 +33,15 @@ export const Button:React.FC<ButtonType> = ({
             background: 'bg-white',
             color: 'text-black',
         },
-        huge: 'px-6 py-5 w-full',
+        huge: 'px-6 py-4 w-full',
         small: 'p-2 size-10',
         google: {
             additionalImage: "bg-[url('/src/images/EnterIcon.svg')]",
         }
     };
 
-    const btnStyle = `block border disabled:bg-[#9AA5B1] disabled:border-0 ` + 
-    ` hover:bg-[#BBEE85] outline-black transition duration-300 ease-in-out` + 
+    const btnStyle = `block border disabled:bg-[#9AA5B1] disabled:border-0 min-[744px]:col-span-1` + 
+    ` hover:bg-[#BBEE85] outline-black transition duration-300 ease-in-out min-[375px]:col-span-2 ` + 
     `border-black ${btnStyles[background].background} ${btnStyles[sizeBtn]}`;
 
     return (<button
@@ -52,7 +52,7 @@ export const Button:React.FC<ButtonType> = ({
         >
         {title && (
             <div className="flex justify-center items-center gap-2">
-                <p className={`block text-xl text-nowrap ${btnStyles[background].color}`}>
+                <p className={`block text-btn text-nowrap ${btnStyles[background].color}`}>
                     {title}
                 </p>
 
