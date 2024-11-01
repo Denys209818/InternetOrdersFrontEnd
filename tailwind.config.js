@@ -59,6 +59,8 @@ module.exports = {
       translate: {
         'negative': 'calc(-100% - 40px)',
         'negative-phone': '-50%',
+        'negative-x-eye': 'calc(-100% - 16px)',
+        'positive-y-eye': 'calc(50% + 4px)',
       },
       screens: {
         'small-phone': '375px',

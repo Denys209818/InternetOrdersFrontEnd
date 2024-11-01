@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useState } from 'react';
 
 type InputType = {
     type: string;
@@ -12,10 +13,14 @@ type InputType = {
 export const Input: React.FC<InputType> = ({ type, placeholder, name, value, setValue, errors }) => {
     const isInvalid = errors.length > 0;
 
+    const isPassword = type === 'password';
+
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
-    <div>
+    <div className='relative'>
         <input 
-            type={type} 
+            type={isPassword && showPassword ? 'text' : type} 
             placeholder={placeholder} 
             name={name} 
             id={name} 
@@ -37,6 +42,17 @@ export const Input: React.FC<InputType> = ({ type, placeholder, name, value, set
                 )
             }
         />
+
+        {isPassword && 
+        <div 
+            className='absolute left-[100%] top-0 translate-x-negative-x-eye translate-y-positive-y-eye hover:cursor-pointer'
+            onClick={() => setShowPassword(prev => !prev)}
+
+        >
+            <div className="relative block size-6">
+                <div className={`absolute block size-full bg-[url('/src/images/Eye.svg')] bg-cover`}></div>
+            </div>
+        </div>}
         
         {isInvalid && <p className="font-medium font-lato text-sm pl-4">{errors[0]}</p>}
     </div>)
