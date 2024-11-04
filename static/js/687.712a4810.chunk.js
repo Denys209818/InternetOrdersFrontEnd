@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkinternetordersfrondend=self.webpackChunkinternetordersfrondend||[]).push([[687],{687:(e,n,r)=>{r.r(n),r.d(n,{default:()=>t});r(43);var s=r(579);const t=()=>(0,s.jsx)("main",{className:"block pt-6 px-10"})}}]);
-//# sourceMappingURL=687.712a4810.chunk.js.map

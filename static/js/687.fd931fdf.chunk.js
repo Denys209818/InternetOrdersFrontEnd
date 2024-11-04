@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkinternetordersfrondend=self.webpackChunkinternetordersfrondend||[]).push([[687],{687:(n,e,h)=>{h.r(e),h.d(e,{default:()=>t});h(43);var r=h(579);const t=()=>(0,r.jsx)("main",{className:"\n        bg-[#9CC2FF] \n        min-h-height-w-h-t \n        min-[744px]:min-h-height-w-h\n        pt-[72px]\n        ",children:"\u0444\u0456\u0444\u0446\u0432"})}}]);
+//# sourceMappingURL=687.fd931fdf.chunk.js.map
