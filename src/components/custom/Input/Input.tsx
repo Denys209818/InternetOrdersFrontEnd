@@ -36,6 +36,7 @@ export const Input: React.FC<InputType> = ({ type, placeholder, name, value, set
                 "text-input " +
                 "text-[#525A63] " +
                 "outline-none " +
+                "autofill:bg-yellow-200 autofill:text-[#525A63] ",
                 "focus:border-2 focus:border-black ", 
                 { 'border-2 border-[#E4E7EE]' : !isInvalid },
                 { 'border-2 border-[#B20508]': isInvalid }

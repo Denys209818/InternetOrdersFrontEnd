@@ -33,7 +33,7 @@ export const Button:React.FC<ButtonType> = ({
             background: 'bg-white',
             color: 'text-black',
         },
-        huge: 'px-6 py-4 w-full',
+        huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} w-full`,
         small: "size-10 hover:border-white",
         google: {
             additionalImage: "bg-[url('/src/images/EnterIcon.svg')]",

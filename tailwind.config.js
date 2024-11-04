@@ -72,6 +72,10 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant, e }) {
+      addVariant('autofill', '&:-webkit-autofill');
+    }
+  ]
 }
 
