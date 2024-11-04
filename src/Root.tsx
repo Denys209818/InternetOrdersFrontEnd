@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { MainLayout } from "./layouts/MainLayout";
-import { adminRoutes, mainRoutes } from "./routes/routes";
+import { adminRoutes, authRoutes, mainRoutes } from "./routes/routes";
+import { AuthLayout } from "./layouts/AuthLayout";
 
 export const Root: React.FC = () => {
     return (
@@ -15,6 +16,17 @@ export const Root: React.FC = () => {
                           path={el.path}
                           element={<el.component/>}
                           key={'adminRoute' + ind}
+                        />)
+                    })}
+                </Route>
+
+                <Route path='/auth' element={<AuthLayout />}>
+                    {authRoutes.map((el, ind) => {
+                      return (
+                        <Route 
+                          path={el.path}
+                          element={<el.component/>}
+                          key={'authRoute' + ind}
                         />)
                     })}
                 </Route>

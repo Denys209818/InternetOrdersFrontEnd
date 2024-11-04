@@ -16,8 +16,11 @@ const MainPageAdmin = React.lazy(() => import("../components/admin/MainPage"));
 export const mainRoutes: RouteType[] = [
     { path: '/catalog', component: CatalogPage },
     { path: '/product', component: CardPage },
-    { path: '/auth', component: AuthPage },
     { path: '/', component: MainPage },
+];
+
+export const authRoutes: RouteType[] = [
+    { path: '', component: AuthPage },
 ];
 
 export const adminRoutes: RouteType[] = [

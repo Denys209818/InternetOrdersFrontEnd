@@ -3,7 +3,7 @@ type ButtonType = {
     background?: 'transparent' | 'white' | 'black';
     image?: string;
     sizeBtn?: 'huge' | 'small';
-    additionalImage?: 'google' | '';
+    additionalImage?: 'google' | 'instagram' | '';
     type?: "button" | "submit" | "reset" | undefined;
     onClickHandler?: () => void;
     disabled?: boolean;
@@ -37,6 +37,9 @@ export const Button:React.FC<ButtonType> = ({
         small: "size-10 hover:border-white",
         google: {
             additionalImage: "bg-[url('/src/images/EnterIcon.svg')]",
+        },
+        instagram: {
+            additionalImage: "bg-[url('/src/images/Instagram.svg')]"
         }
     };
 
@@ -52,12 +55,12 @@ export const Button:React.FC<ButtonType> = ({
         >
         {title && (
             <div className="flex justify-center items-center gap-2">
-                <p className={`block text-btn text-nowrap ${btnStyles[background].color}`}>
+                <p className={`block text-btn text-nowrap font-lato ${btnStyles[background].color}`}>
                     {title}
                 </p>
 
                 {additionalImage && <div className="relative block size-6">
-                    <div className={`absolute block size-full ${btnStyles[additionalImage].additionalImage} bg-cover`}></div>
+                    <div className={`absolute top-[1px] block size-full ${btnStyles[additionalImage].additionalImage} bg-cover`}></div>
                 </div>}
             </div>
         )}
