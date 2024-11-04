@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { loginSchema } from "./validation/loginValidation";
 import { LoginAction, RegisterAction } from "../../actions/AuthActions";
 import { useAppDispatch, useAppSelector } from "../../redux/tools/hooks";
-import { Link, URLSearchParamsInit, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { registerSchema } from "./validation/registerValidation";
 import Button from "../custom/Button";
 import Input from "../custom/Input";
@@ -141,11 +141,19 @@ const AuthPage: React.FC = () => {
     }
 
     return (<main className={
-        `${Styles.largeMainStyle} 
+        `
+        absolute
+        ${Styles.largeMainStyle} 
         ${Styles.mainStyle} 
         ${Styles.phoneMainStyle} 
         ${Styles.smallphoneMainStyle} 
-        ${Styles.tabletMainStyle}`}
+        ${Styles.tabletMainStyle}
+        bg-[#BBEE85] 
+        min-h-height-w-h-t 
+        min-[744px]:min-h-height-w-h
+        pt-[72px]
+        `
+        }
         >
         <section>
             <Button image="Back.svg" background="transparent" onClickHandler={goBack} />
@@ -312,12 +320,13 @@ const AuthPage: React.FC = () => {
                 ref={modalRef}
             />
 
-            {createPortal(<div className={`
+            {(<div className={`
                 ${Styles.dialogStyle}
                 ${Styles.largeDialogStyle}
                 ${Styles.tabletDialogStyle}
                 ${Styles.phoneDialogStyle}
                 ${Styles.smallphoneDialogStyle}
+                pt-14
                 `}>
                 <div className={`
                     ${Styles.drStyle}
@@ -348,7 +357,7 @@ const AuthPage: React.FC = () => {
                         Псс...Картопля фрі вже чекає!
                     </p>
                 </div>
-            </div>, document.body)}
+            </div>)}
         </section>
     </main>)
 }

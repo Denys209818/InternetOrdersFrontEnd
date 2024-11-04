@@ -41,7 +41,12 @@ module.exports = {
         gray: '#525A63',
         silver_gray: '#E4E7EE',
         disabled: '#9AA5B1',
-        red: '#B20508'
+        red: '#B20508',
+        purple: '#9CC2FF',
+      },
+      minHeight: {
+        'height-w-h': '100%',
+        'height-w-h-t': '100%',
       },
       spacing: {
         '100%': '100%',
@@ -52,6 +57,7 @@ module.exports = {
         '-50%': '-50%',
         '-30%': '-30%',
         '-40px': '-40px',
+        '72px': '72px',
         'negative-top': 'calc(100% - 67px)',
         'negative-top-pc': 'calc(100% - 62px)',
         'negative-top-tablet': 'calc(100% - 18px)',

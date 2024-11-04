@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
-    return (<header className="flex py-2 px-2">
+    return (<header className="absolute z-10 w-full flex py-2 px-2">
         <div className="flex h-full w-full gap-x-8">
             <h1 className="uppercase font-bold text-2xl tracking-tighter font-oswald text-nowrap">Ще щось?</h1>
 

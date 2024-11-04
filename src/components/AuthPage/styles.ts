@@ -1,10 +1,10 @@
 // Page Styles
 
-export const largeMainStyle = "min-[1440px]:block min-[1440px]:pt-6 min-[1440px]:px-10 min-[1440px]:pb-20";
-export const mainStyle = "min-[1000px]:block min-[1000px]:pt-6 min-[1000px]:px-6 min-[1000px]:pb-20";
-export const tabletMainStyle = "min-[744px]:block min-[744px]:pt-6 min-[744px]:px-3 min-[744px]:pb-20";
-export const phoneMainStyle = "min-[480px]:block min-[480px]:pt-6 min-[480px]:px-4 min-[480px]:pb-16";
-export const smallphoneMainStyle = "min-[375px]:block min-[375px]:pt-6 min-[375px]:px-4 min-[375px]:pb-16";
+export const largeMainStyle = "min-[1440px]:block min-[1440px]:px-10 min-[1440px]:pb-18";
+export const mainStyle = "min-[1000px]:block min-[1000px]:px-6 min-[1000px]:pb-18";
+export const tabletMainStyle = "min-[744px]:block min-[744px]:px-3 min-[744px]:pb-18";
+export const phoneMainStyle = "min-[480px]:block min-[480px]:px-4 min-[480px]:pb-16";
+export const smallphoneMainStyle = "min-[375px]:block min-[375px]:px-4 min-[375px]:pb-16";
 
 export const largeGridStyle = "min-[1440px]:grid min-[1440px]:grid-cols-12 min-[1440px]:gap-x-5 min-[1440px]:size-full";
 export const gridStyle = "min-[1000px]:grid min-[1000px]:grid-cols-12 min-[1000px]:gap-x-5 min-[1000px]:size-full";
