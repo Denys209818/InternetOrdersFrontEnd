@@ -24,7 +24,7 @@ export const Footer = () => {
                 min-[1000px]:top-[40px] 
                 left-[100%] 
                 min-[1000px]:translate-x-negative-right-forkwhite 
-                min-[744px]:translate-x-negative-right-forkwhite-tablet 
+                min-[375px]:translate-x-negative-right-forkwhite-tablet 
                 min-[375px]:translate-y-negative-right-forkwhite-bottom 
                 min-[1000px]:translate-y-0 
                 block 
