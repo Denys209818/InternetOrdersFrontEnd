@@ -11,8 +11,8 @@ export const LiItem: React.FC<LiItemType> = ({ title, description, type }) => {
         time: "bg-[url('/src/images/ChatLi.svg')]",
     }
 
-    return (<div className="flex gap-2">
-        <div className='block size-12 bg-[#BBEE85] border-2 border-black rounded-sm'>
+    return (<div className="flex gap-2 min-[744px]:col-span-6 min-[375px]:col-span-4 min-[375px]:gap-y-6">
+        <div className='block min-w-12 max-h-12 bg-[#BBEE85] border-2 border-black rounded-sm'>
             <div className={`
                 relative 
                 top-[50%] 
@@ -32,7 +32,7 @@ export const LiItem: React.FC<LiItemType> = ({ title, description, type }) => {
         <div>
             <h2 className='font-oswald text-li uppercase'>{title}</h2>
 
-            <p className='text-descLi text-[#616E7C] font-lato max-w-[315px]'>
+            <p className='text-descLi text-[#616E7C] font-lato min-[744px]:max-w-[315px] min-[375px]:max-w-[100%]'>
                 {description}
             </p>
         </div>

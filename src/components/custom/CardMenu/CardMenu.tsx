@@ -22,7 +22,9 @@ export const CardMenu:React.FC<CardMenuType> = ({ title, type }) => {
     return (
         <div className={`
             block 
-            col-span-3 
+            min-[744px]:col-span-3 
+            min-[375px]:col-span-4 
+            min-[480px]:col-span-2 
             size-full 
             border 
             border-2 
@@ -46,7 +48,7 @@ export const CardMenu:React.FC<CardMenuType> = ({ title, type }) => {
             </div>
 
             <div className={'flex items-center p-4 gap-x-3 border-t-2 border-black ' + img[type].color}>
-                <h3 className='block font-literata font-bold text-3xl'>{title}</h3>
+                <h3 className='block font-literata font-bold min-[1000px]:text-3xl min-[375px]:text-xl'>{title}</h3>
 
                 <div className='relative block size-8'>
                     <div className="absolute top-0.5 size-full bg-[url('/src/images/Right.svg')] bg-cover"></div>

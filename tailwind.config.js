@@ -18,6 +18,7 @@ module.exports = {
         'enter': "url('/src/images/EnterIcon.svg')",
         'hend': "url('/src/images/Hendcheese.svg')",
         'fork': "url('/src/images/Fork.svg')",
+        'forkwhite': "url('/src/images/ForkWhite.svg')",
         'pizza': "url('/src/images/Pizza.png')",
         'shawarma': "url('/src/images/Shawarma.png')",
         'cakes': "url('/src/images/Cakes.png')",
@@ -31,6 +32,9 @@ module.exports = {
         'new3': "url('/src/images/new3.png')",
         'new4': "url('/src/images/new4.png')",
         'instagram': "url('/src/images/Instagram.svg')",
+        'instagramwhite': "url('/src/images/InstagramWhite.svg')",
+        'telegramwhite': "url('/src/images/TelegramWhite.svg')",
+        'viberwhite': "url('/src/images/ViberWhite.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -40,6 +44,7 @@ module.exports = {
         '169%': '169%',
         '77%': '77%',
         '154%': '154%',
+        '152.5%': '152.5%',
       },
       fontSize: {
         menu: ['20px', '20px'],
@@ -56,6 +61,19 @@ module.exports = {
           lineHeight: '28.8px',
           fontWeight: '300',
         }],
+        paragraphMain: ['20px', {
+          lineHeight: '24px',
+          fontWeight: '300',
+        }],
+        footerP: ['24px', {
+          lineHeight: '28.8px',
+          fontWeight: '400',
+        }],
+        footerText: ['24px', {
+          lineHeight: '33.6px',
+          fontWeight: '700',
+          letterSpacing: '-0.05rem'
+        }],
         li: ['32px', {
           lineHeight: '38.4px',
           fontWeight: '500',
@@ -71,13 +89,48 @@ module.exports = {
           letterSpacing: '-0.03rem',
           fontWeight: '700'
         }],
+        headerLessMain: ['48px', {
+          lineHeight: '57.6px',
+          letterSpacing: '-0.03rem',
+          fontWeight: '700'
+        }],
+        headerLessTablet: ['32px', {
+          lineHeight: '38.4px',
+          letterSpacing: '-0.03rem',
+          fontWeight: '700'
+        }],
         cardChoice: ['68px', {
           lineHeight: '76.8px',
           letterSpacing: '-0.03rem',
           fontWeight: '700'
         }],
+        cardChoiceMain: ['63px', {
+          lineHeight: '75.6px',
+          letterSpacing: '-0.03rem',
+          fontWeight: '700'
+        }],
+        cardChoiceTablet: ['48px', {
+          lineHeight: '57.6px',
+          letterSpacing: '-0.03rem',
+          fontWeight: '700'
+        }],
         headerHuge: ['128px', {
           lineHeight: '128px',
+          letterSpacing: '-0.05rem',
+          fontWeight: '700'
+        }],
+        headerHugeMain: ['84px', {
+          lineHeight: '84px',
+          letterSpacing: '-0.05rem',
+          fontWeight: '700'
+        }],
+        headerHugeTablet: ['64px', {
+          lineHeight: '76.8px',
+          letterSpacing: '-0.05rem',
+          fontWeight: '700'
+        }],
+        headerHugePhone: ['48px', {
+          lineHeight: '57.6px',
           letterSpacing: '-0.05rem',
           fontWeight: '700'
         }],
@@ -116,7 +169,14 @@ module.exports = {
         'negative-top-tablet': 'calc(100% - 18px)',
         'negative-top-phone': 'calc(100% - 126px)',
         'negative-top-fork': 'calc(-50% - 8px)',
+        'negative-top-phonefork': 'calc(-100% + 16px)',
+        'negative-top-smallphonefork': 'calc(-100% - 40px)',
         'negative-left-fork': 'calc(-100% - 156px)',
+        'negative-left-fork-main': 'calc(-100% - 105px)',
+        'negative-left-fork-tablet': 'calc(-100% - 16px)',
+        'negative-right-forkwhite': 'calc(-100% - 40px)',
+        'negative-right-forkwhite-tablet': 'calc(-100% - 56px)',
+        'negative-right-forkwhite-bottom': 'calc(-100% - 56px)',
       },
       translate: {
         'negative': 'calc(-100% - 40px)',
