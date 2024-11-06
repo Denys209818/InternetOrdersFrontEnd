@@ -125,8 +125,8 @@ module.exports = {
           letterSpacing: '-0.03rem',
           fontWeight: '700'
         }],
-        headerHuge: ['128px', {
-          lineHeight: '128px',
+        headerHuge: ['118px', {
+          lineHeight: '118px',
           letterSpacing: '-0.05rem',
           fontWeight: '700'
         }],
@@ -135,7 +135,7 @@ module.exports = {
           letterSpacing: '-0.05rem',
           fontWeight: '700'
         }],
-        headerHugeTablet: ['64px', {
+        headerHugeTablet: ['63px', {
           lineHeight: '76.8px',
           letterSpacing: '-0.05rem',
           fontWeight: '700'
@@ -180,8 +180,9 @@ module.exports = {
         'negative-top-pc': 'calc(100% - 62px)',
         'negative-top-tablet': 'calc(100% - 18px)',
         'negative-top-phone': 'calc(100% - 126px)',
-        'negative-top-fork': 'calc(-50% - 8px)',
-        'negative-top-phonefork': 'calc(-100% + 16px)',
+        'negative-top-fork': 'calc(-50% - 46px)',
+        'negative-top-fork-tablet': 'calc(-50% - 16px)',
+        'negative-top-phonefork': 'calc(-100% - 38.4px)',
         'negative-top-smallphonefork': 'calc(-100% - 40px)',
         'negative-left-fork': 'calc(-100% - 156px)',
         'negative-left-fork-main': 'calc(-100% - 105px)',

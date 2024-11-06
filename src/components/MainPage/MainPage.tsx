@@ -35,23 +35,22 @@ export const MainPage: React.FC = () => {
         min-h-height-w-h-t 
         min-[744px]:min-h-height-w-h
         min-[1440px]:pt-[328px]
-        min-[375px]:pt-[160px]
+        min-[744px]:pt-[216px]
+        min-[375px]:pt-[196px]
+        min-[480px]:pt-[230px]
         `
         }>
 
         <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
             <h2 className={`font-oswald ${minTitleHead}`}>Шаурма, піцца, млинці</h2>
-            <h1 className={`relative block font-oswald ${titleHead}`}>
+            <h1 className={`relative block font-oswald uppercase ${titleHead}`}>
                 Створи своє– <br/>обирай інгредієнти сам!
 
                 <div className={`
                     absolute 
                     top-0 
                     left-[100%] 
-                    ${forkBlue} 
-                    min-[744px]:translate-y-negative-top-fork 
-                    min-[480px]:translate-y-negative-top-phonefork 
-                    min-[375px]:translate-y-negative-top-smallphonefork 
+                    ${forkBlue}  
                     block
                     `}>
                     <div className="relative pb-[152.5%]">

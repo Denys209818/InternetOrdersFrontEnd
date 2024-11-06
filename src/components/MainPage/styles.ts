@@ -8,8 +8,13 @@ export const forkBlue = `
         min-[1440px]:translate-x-negative-left-fork 
         min-[1000px]:translate-x-negative-left-fork-main
         min-[375px]:translate-x-negative-left-fork-tablet
+        min-[1000px]:translate-y-negative-top-fork 
+        min-[744px]:translate-y-negative-top-fork-tablet
+        min-[480px]:translate-y-negative-top-phonefork 
+        min-[375px]:translate-y-negative-top-smallphonefork
         min-[1440px]:w-[215px]
-        min-[744px]:w-[139px]
+        min-[744px]:w-[105px]
+        min-[1000px]:w-[139px]
         min-[480px]:w-[100px]
         min-[375px]:w-[74px]
         `;
