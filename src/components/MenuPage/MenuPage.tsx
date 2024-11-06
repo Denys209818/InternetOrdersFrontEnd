@@ -43,7 +43,7 @@ export const MenuPage = () => {
                     </h2>
                 </div>
 
-                <CardMenu title='Фрі і нагетси' type='free' tabletHuge />
+                <CardMenu title='Фрі і нагетси' type='free' tabletHuge isLong />
 
                 <div className="min-[375px]:hidden min-[1000px]:block col-span-4"></div>
                 
