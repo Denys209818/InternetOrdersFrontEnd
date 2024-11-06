@@ -85,7 +85,7 @@ export const MainPage: React.FC = () => {
 
                 <CardMenu title='Млинці' type='cakes' />
 
-                <div className='min-[744px]:col-start-4 min-[744px]:col-end-10 col-span-4 py-16'>
+                <div className='flex justify-center min-[744px]:col-start-4 min-[744px]:col-end-10 col-span-4 py-16'>
                     <Button title='Перейти до меню' background='black' sizeBtn='huge'/>
                 </div>
             </div>
@@ -221,7 +221,14 @@ export const MainPage: React.FC = () => {
                     </div>
                 </div>
 
-                <div className='min-[375px]:col-span-4 min-[744px]:col-start-4 min-[744px]:col-end-10 py-16'>
+                <div className={`
+                    flex
+                    justify-center
+                    min-[375px]:col-span-4 
+                    min-[744px]:col-start-4 
+                    min-[744px]:col-end-10 
+                    py-16 
+                    `}>
                     <Button title='Instagram' additionalImage='instagram' background='black' sizeBtn='huge'/>
                 </div>
             </div>

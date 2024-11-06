@@ -32,7 +32,15 @@ export const LiItem: React.FC<LiItemType> = ({ title, description, type }) => {
         <div>
             <h2 className='font-oswald text-li uppercase'>{title}</h2>
 
-            <p className='text-descLi text-[#616E7C] font-lato min-[744px]:max-w-[315px] min-[375px]:max-w-[100%]'>
+            <p className={`
+                block 
+                pt-2 
+                text-descLi 
+                text-[#616E7C] 
+                font-lato 
+                min-[744px]:max-w-[315px]
+                 min-[375px]:max-w-[100%]
+                 `}>
                 {description}
             </p>
         </div>
