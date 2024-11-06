@@ -36,6 +36,7 @@ export const CardMenu:React.FC<CardMenuType> = ({ title, type, tabletHuge = fals
     return (
         <div className={`
             block 
+            min-[1000px]:col-span-3
             ${img[type].tabletSize}
             min-[375px]:col-span-4 
             min-[480px]:col-span-2 
