@@ -3,7 +3,7 @@ export const Footer = () => {
         <div className="flex justify-between items-center">
             <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
-                    <h3 className="font-oswald text-footerText uppercase text-white">Щось ще?</h3>
+                    <h3 className="font-oswald text-footerText uppercase text-white">Ще щось?</h3>
 
                     <p className="font-lato text-footerP text-silver_gray">
                         вул. Хрещатик, 22, м. Київ, 01001, Україна
