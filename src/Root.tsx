@@ -1,8 +1,9 @@
 import { Suspense } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { MainLayout } from "./layouts/MainLayout";
-import { adminRoutes, authRoutes, mainRoutes } from "./routes/routes";
+import { adminRoutes, authRoutes, mainRoutes, menuRoutes } from "./routes/routes";
 import { AuthLayout } from "./layouts/AuthLayout";
+import { MenuLayout } from "./layouts/MenuLayout";
 
 export const Root: React.FC = () => {
     return (
@@ -38,6 +39,17 @@ export const Root: React.FC = () => {
                         path={el.path}
                         element={<el.component/>}
                         key={'mainRoute' + ind}
+                      />)
+                  })}
+                </Route>
+
+                <Route path='/' element={<MenuLayout />}>
+                  {menuRoutes.map((el, ind) => {
+                    return (
+                      <Route 
+                        path={el.path}
+                        element={<el.component/>}
+                        key={'menuRoute' + ind}
                       />)
                   })}
                 </Route>

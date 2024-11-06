@@ -21,6 +21,8 @@ module.exports = {
         'forkwhite': "url('/src/images/ForkWhite.svg')",
         'pizza': "url('/src/images/Pizza.png')",
         'shawarma': "url('/src/images/Shawarma.png')",
+        'drinks': "url('/src/images/Drinks.png')",
+        'free': "url('/src/images/Free.png')",
         'cakes': "url('/src/images/Cakes.png')",
         'handCheese': "url('/src/images/HandCheese.svg')",
         'chat': "url('/src/images/ChatLi.svg')",
@@ -61,6 +63,10 @@ module.exports = {
           lineHeight: '28.8px',
           fontWeight: '300',
         }],
+        cardTitle: ['24px', {
+          lineHeight: '26.4px',
+          fontWeight: '700',
+        }],
         paragraphMain: ['20px', {
           lineHeight: '24px',
           fontWeight: '300',
@@ -76,6 +82,11 @@ module.exports = {
         }],
         li: ['32px', {
           lineHeight: '38.4px',
+          fontWeight: '500',
+          letterSpacing: '-0.03rem'
+        }],
+        lismall: ['20px', {
+          lineHeight: '24px',
           fontWeight: '500',
           letterSpacing: '-0.03rem'
         }],
@@ -141,6 +152,7 @@ module.exports = {
       },
       colors: {
         gray: '#525A63',
+        custom_yellow: '#FFB040',
         silver_gray: '#E4E7EE',
         disabled: '#9AA5B1',
         red: '#B20508',

@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 export const Header: React.FC = () => {
     return (<header className="absolute z-10 w-full flex py-2 px-2">
         <div className="flex h-full w-full gap-x-8">
-            <h1 className="uppercase font-bold text-2xl tracking-tighter font-oswald text-nowrap">Ще щось?</h1>
+            <h1 className="uppercase font-bold text-2xl tracking-tighter font-oswald text-nowrap">
+                <Link to='/'>Ще щось?</Link>
+            </h1>
 
             <nav className="block w-full">
                 <ul className="flex list-none m-0 py-px justify-between items-center">
                     <li>
-                        <Link to='' className="text-[20px] font-normal font-lato tracking-tighter min-[375px]:hidden min-[744px]:inline">Меню</Link>
+                        <Link to='/menu' className="text-[20px] font-normal font-lato tracking-tighter min-[375px]:hidden min-[744px]:inline">Меню</Link>
                     </li>
 
                     <li>
