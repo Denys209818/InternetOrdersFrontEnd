@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/InternetOrdersFrontEnd/static/css/main.ff6ee2ec.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.2d7eac05.js",
-    "static/js/98.f6ce1123.chunk.js": "/InternetOrdersFrontEnd/static/js/98.f6ce1123.chunk.js",
+    "main.css": "/InternetOrdersFrontEnd/static/css/main.a513cf4d.css",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.4ef5692f.js",
+    "static/js/900.89379a62.chunk.js": "/InternetOrdersFrontEnd/static/js/900.89379a62.chunk.js",
     "static/js/756.ab30ba4f.chunk.js": "/InternetOrdersFrontEnd/static/js/756.ab30ba4f.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
+    "static/js/450.ee31b170.chunk.js": "/InternetOrdersFrontEnd/static/js/450.ee31b170.chunk.js",
     "static/js/432.1251c1c1.chunk.js": "/InternetOrdersFrontEnd/static/js/432.1251c1c1.chunk.js",
     "static/js/636.d1b1dfd7.chunk.js": "/InternetOrdersFrontEnd/static/js/636.d1b1dfd7.chunk.js",
     "static/js/524.061b1784.chunk.js": "/InternetOrdersFrontEnd/static/js/524.061b1784.chunk.js",
@@ -20,7 +21,9 @@
     "static/media/new4.png": "/InternetOrdersFrontEnd/static/media/new4.9ad5c8213f1b3981c458.png",
     "static/media/Pizza.png": "/InternetOrdersFrontEnd/static/media/Pizza.c303c50a6f4960cc56df.png",
     "static/media/Cakes.png": "/InternetOrdersFrontEnd/static/media/Cakes.d31e539a58302e638b3e.png",
+    "static/media/Drinks.png": "/InternetOrdersFrontEnd/static/media/Drinks.300aae50743088a95ed7.png",
     "static/media/Shawarma.png": "/InternetOrdersFrontEnd/static/media/Shawarma.51730e456aaa38da3457.png",
+    "static/media/Free.png": "/InternetOrdersFrontEnd/static/media/Free.f205489589ad0fbe4c16.png",
     "static/media/Oswald-VariableFont_wght.ttf": "/InternetOrdersFrontEnd/static/media/Oswald-VariableFont_wght.7cecd0da606d25b0905d.ttf",
     "static/media/Plancton.svg": "/InternetOrdersFrontEnd/static/media/Plancton.7cac56f3eeb1f8e0285e.svg",
     "static/media/Patato.svg": "/InternetOrdersFrontEnd/static/media/Patato.1c66f577f1b60a16fe83.svg",
@@ -43,18 +46,19 @@
     "static/media/Right.svg": "/InternetOrdersFrontEnd/static/media/Right.2ab2de8c5957737bf6a0.svg",
     "static/media/Back-hover.svg": "/InternetOrdersFrontEnd/static/media/Back-hover.baed27a01d997246f6d7.svg",
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
-    "main.ff6ee2ec.css.map": "/InternetOrdersFrontEnd/static/css/main.ff6ee2ec.css.map",
-    "main.2d7eac05.js.map": "/InternetOrdersFrontEnd/static/js/main.2d7eac05.js.map",
-    "98.f6ce1123.chunk.js.map": "/InternetOrdersFrontEnd/static/js/98.f6ce1123.chunk.js.map",
+    "main.a513cf4d.css.map": "/InternetOrdersFrontEnd/static/css/main.a513cf4d.css.map",
+    "main.4ef5692f.js.map": "/InternetOrdersFrontEnd/static/js/main.4ef5692f.js.map",
+    "900.89379a62.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.89379a62.chunk.js.map",
     "756.ab30ba4f.chunk.js.map": "/InternetOrdersFrontEnd/static/js/756.ab30ba4f.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
+    "450.ee31b170.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.ee31b170.chunk.js.map",
     "432.1251c1c1.chunk.js.map": "/InternetOrdersFrontEnd/static/js/432.1251c1c1.chunk.js.map",
     "636.d1b1dfd7.chunk.js.map": "/InternetOrdersFrontEnd/static/js/636.d1b1dfd7.chunk.js.map",
     "524.061b1784.chunk.js.map": "/InternetOrdersFrontEnd/static/js/524.061b1784.chunk.js.map",
     "111.97519f88.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff6ee2ec.css",
-    "static/js/main.2d7eac05.js"
+    "static/css/main.a513cf4d.css",
+    "static/js/main.4ef5692f.js"
   ]
 }
