@@ -61,7 +61,7 @@ module.exports = {
         }],
         paragraph: ['24px', {
           lineHeight: '28.8px',
-          fontWeight: '300',
+          fontWeight: '400',
         }],
         cardTitle: ['24px', {
           lineHeight: '26.4px',
@@ -69,7 +69,7 @@ module.exports = {
         }],
         paragraphMain: ['20px', {
           lineHeight: '24px',
-          fontWeight: '300',
+          fontWeight: '400',
         }],
         footerP: ['24px', {
           lineHeight: '28.8px',
@@ -147,7 +147,7 @@ module.exports = {
         }],
         descLi: ['16px', {
           lineHeight: '17.8px',
-          fontWeight: 600,
+          fontWeight: 400,
         }],
       },
       colors: {

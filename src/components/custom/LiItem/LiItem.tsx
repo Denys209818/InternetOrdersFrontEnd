@@ -40,6 +40,7 @@ export const LiItem: React.FC<LiItemType> = ({ title, description, type }) => {
                 font-lato 
                 min-[744px]:max-w-[315px]
                  min-[375px]:max-w-[100%]
+                 
                  `}>
                 {description}
             </p>
