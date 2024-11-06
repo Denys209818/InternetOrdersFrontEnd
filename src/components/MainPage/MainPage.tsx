@@ -42,7 +42,7 @@ export const MainPage: React.FC = () => {
         }>
 
         <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
-            <h2 className={`font-oswald ${minTitleHead}`}>Шаурма, піцца, млинці</h2>
+            <h2 className={`font-oswald uppercase ${minTitleHead}`}>Шаурма, піцца, млинці</h2>
             <h1 className={`relative block font-oswald uppercase ${titleHead}`}>
                 Створи своє– <br/>обирай інгредієнти сам!
 
