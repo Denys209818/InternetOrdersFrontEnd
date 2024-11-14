@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { MainLayout } from "./layouts/MainLayout";
 import { adminRoutes, authRoutes, mainRoutes, menuRoutes } from "./routes/routes";
 import { AuthLayout } from "./layouts/AuthLayout";
@@ -30,6 +30,7 @@ export const Root: React.FC = () => {
                           key={'authRoute' + ind}
                         />)
                     })}
+                    <Route index element={<Navigate to={'login'} />} />
                 </Route>
                 
                 <Route path='/' element={<MainLayout />}>

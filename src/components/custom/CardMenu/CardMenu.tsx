@@ -46,8 +46,7 @@ export const CardMenu:React.FC<CardMenuType> = ({ title, type, tabletHuge = fals
             ${img[type].tabletSize}
             min-[375px]:col-span-4 
             min-[480px]:col-span-2 
-            size-full 
-            border 
+            size-full
             border-2 
             border-black 
             overflow-hidden 

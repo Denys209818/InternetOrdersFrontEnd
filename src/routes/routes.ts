@@ -25,7 +25,7 @@ export const menuRoutes: RouteType[] = [
 ];
 
 export const authRoutes: RouteType[] = [
-    { path: '', component: AuthPage },
+    { path: ':modeType', component: AuthPage },
 ];
 
 export const adminRoutes: RouteType[] = [

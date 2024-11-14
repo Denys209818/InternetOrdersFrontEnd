@@ -37,6 +37,9 @@ module.exports = {
         'instagramwhite': "url('/src/images/InstagramWhite.svg')",
         'telegramwhite': "url('/src/images/TelegramWhite.svg')",
         'viberwhite': "url('/src/images/ViberWhite.svg')",
+        'cooker': "url('/src/images/Cooker.svg')",
+        'arrowDropDown': "url('/src/images/Arrow_drop_down.svg')",
+        'vertel': "url('/src/images/Vertel.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -59,9 +62,25 @@ module.exports = {
           lineHeight: '17.6px',
           fontWeight: '400',
         }],
+        cook: ['16px', {
+          lineHeight: '17.6px',
+          fontWeight: '600',
+        }],
+        cardProp: ['16px', {
+          lineHeight: '17.6px',
+          fontWeight: '500',
+        }],
+        cardPrice: ['21px', {
+          lineHeight: '23.1px',
+          fontWeight: '700',
+        }],
         paragraph: ['24px', {
           lineHeight: '28.8px',
           fontWeight: '400',
+        }],
+        list: ['24px', {
+          lineHeight: '26.4px',
+          fontWeight: '700',
         }],
         cardTitle: ['24px', {
           lineHeight: '26.4px',

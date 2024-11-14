@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { loginSchema } from "./validation/loginValidation";
 import { LoginAction, RegisterAction } from "../../actions/AuthActions";
 import { useAppDispatch, useAppSelector } from "../../redux/tools/hooks";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { registerSchema } from "./validation/registerValidation";
 import Button from "../custom/Button";
 import Input from "../custom/Input";
@@ -31,9 +31,13 @@ const AuthPage: React.FC = () => {
     const auth = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
 
-    const [search, setSearchParams] = useSearchParams();
+    const { modeType } = useParams();
     
-    const mode: ModeType = search.get('mode') as ModeType;
+    const mode: ModeType = 
+        (modeType !== 'login'
+        && modeType !== 'register'
+        && modeType !== 'phone') ? 'login' : modeType as ModeType;
+
     const bottomLinkStyles = 'block font-medium font-lato text-xl';
     const bottomLinkStylesTablet = 'min-[375px]:block min-[375px]:font-lato';
     const link = {
@@ -88,11 +92,7 @@ const AuthPage: React.FC = () => {
                     secondName
                 }, { abortEarly: false });
 
-                const urlSearch = new URLSearchParams(search.toString());
-
-                urlSearch.set('mode', 'phone')
-
-                setSearchParams(urlSearch.toString());
+                navigate('../phone');
 
                 // dispatch(RegisterAction(validatedData));
             } 
@@ -137,7 +137,7 @@ const AuthPage: React.FC = () => {
     }
 
     const goBack = () => {
-        navigate('..');
+        navigate(-1);
     }
 
     return (<main className={
@@ -152,6 +152,7 @@ const AuthPage: React.FC = () => {
         min-h-height-w-h-t 
         min-[744px]:min-h-height-w-h
         pt-[72px]
+        w-full
         `
         }
         >
