@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/InternetOrdersFrontEnd/static/css/main.004aba29.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.aace1076.js",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.91418876.js",
     "static/js/900.f9f8914a.chunk.js": "/InternetOrdersFrontEnd/static/js/900.f9f8914a.chunk.js",
-    "static/js/536.0bc21807.chunk.js": "/InternetOrdersFrontEnd/static/js/536.0bc21807.chunk.js",
+    "static/js/536.fff955f3.chunk.js": "/InternetOrdersFrontEnd/static/js/536.fff955f3.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
     "static/js/450.4b50b653.chunk.js": "/InternetOrdersFrontEnd/static/js/450.4b50b653.chunk.js",
     "static/js/432.46c2519f.chunk.js": "/InternetOrdersFrontEnd/static/js/432.46c2519f.chunk.js",
@@ -50,9 +50,9 @@
     "static/media/Back-hover.svg": "/InternetOrdersFrontEnd/static/media/Back-hover.baed27a01d997246f6d7.svg",
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "main.004aba29.css.map": "/InternetOrdersFrontEnd/static/css/main.004aba29.css.map",
-    "main.aace1076.js.map": "/InternetOrdersFrontEnd/static/js/main.aace1076.js.map",
+    "main.91418876.js.map": "/InternetOrdersFrontEnd/static/js/main.91418876.js.map",
     "900.f9f8914a.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.f9f8914a.chunk.js.map",
-    "536.0bc21807.chunk.js.map": "/InternetOrdersFrontEnd/static/js/536.0bc21807.chunk.js.map",
+    "536.fff955f3.chunk.js.map": "/InternetOrdersFrontEnd/static/js/536.fff955f3.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
     "450.4b50b653.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.4b50b653.chunk.js.map",
     "432.46c2519f.chunk.js.map": "/InternetOrdersFrontEnd/static/js/432.46c2519f.chunk.js.map",
@@ -62,6 +62,6 @@
   },
   "entrypoints": [
     "static/css/main.004aba29.css",
-    "static/js/main.aace1076.js"
+    "static/js/main.91418876.js"
   ]
 }
