@@ -32,7 +32,7 @@ export const CatalogPage: React.FC = () => {
             <div className="grid grid-cols-12 gap-x-4 pt-3">
                 <Card 
                     title="Класична"
-                    imageSrc="/images/classicial.jpg"
+                    imageSrc="images/classicial.jpg"
                     options={[
                         {
                             optionTitle: 'Велика',
@@ -47,7 +47,7 @@ export const CatalogPage: React.FC = () => {
 
                 <Card 
                     title="З яловичиною"
-                    imageSrc="/images/beaf.jpg"
+                    imageSrc="images/beaf.jpg"
                     options={[
                         {
                             optionTitle: 'Велика',
@@ -62,7 +62,7 @@ export const CatalogPage: React.FC = () => {
 
                 <Card 
                     title="З ковбасками"
-                    imageSrc="/images/sausage.jpg"
+                    imageSrc="images/sausage.jpg"
                     options={[
                         {
                             optionTitle: 'Велика',
@@ -77,7 +77,7 @@ export const CatalogPage: React.FC = () => {
 
                 <Card 
                     title="З криветками"
-                    imageSrc="/images/shrimp.jpg"
+                    imageSrc="images/shrimp.jpg"
                     options={[
                         {
                             optionTitle: 'Велика',
