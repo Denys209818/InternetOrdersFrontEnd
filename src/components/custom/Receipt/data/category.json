@@ -1,0 +1,138 @@
+[
+    {
+        "title": "",
+        "options": [
+            {
+                "id": 1,
+                "title": "Велика",
+                "price": 50,
+                "isSize": true,
+                "disabled": false
+            },
+            {
+                "id": 2,
+                "title": "Маленька",
+                "price": 40,
+                "isSize": true,
+                "disabled": false
+            }
+        ]
+    },
+    {
+        "title": "Лаваш",
+        "options": [
+            {
+                "id": 3,
+                "title": "Класичний",
+                "price": 10,
+                "isSize": false,
+                "disabled": false
+            },
+            {
+                "id": 4,
+                "title": "Цільнозерновий",
+                "price": 15,
+                "isSize": false,
+                "disabled": false
+            }
+        ]
+    },
+    {
+        "title": "М\"ясо",
+        "options": [
+            {
+                "id": 5,
+                "title": "Курка",
+                "price": 10,
+                "isSize": false,
+                "disabled": false
+            },
+            {
+                "id": 6,
+                "title": "Свинина",
+                "price": 15,
+                "isSize": false,
+                "disabled": false
+            },
+            {
+                "id": 7,
+                "title": "Мікс 50/50",
+                "price": 15,
+                "isSize": false,
+                "disabled": false
+            }
+        ]
+    },
+    {
+        "title": "Соус",
+        "options": [
+            {
+                "id": 8,
+                "title": "Червоний",
+                "price": 10,
+                "isSize": false,
+                "disabled": false
+            },
+            {
+                "id": 9,
+                "title": "Часниковий",
+                "price": 15,
+                "isSize": false,
+                "disabled": false
+            }
+        ]
+    },
+    {
+        "title": "",
+        "options": [
+            {
+                "id": 10,
+                "title": "Капуста, огірок, помідор",
+                "price": 0,
+                "isSize": false,
+                "disabled": true
+            }
+        ]
+    },
+    {
+        "title": "Ще щось?",
+        "allowMultiple": true,
+        "options": [
+            {
+                "id": 11,
+                "title": "Кукурудза",
+                "price": 10,
+                "isSize": false,
+                "disabled": false
+            },
+            {
+                "id": 12,
+                "title": "Сир",
+                "price": 15,
+                "isSize": false,
+                "disabled": false
+            },
+            {
+                "id": 13,
+                "title": "Картопля фрі",
+                "price": 15,
+                "isSize": false,
+                "disabled": false
+            },
+            {
+                "id": 14,
+                "title": "Червона цибуля",
+                "price": 15,
+                "isSize": false,
+                "disabled": false
+            },
+            {
+                "id": 15,
+                "title": "Авокадо",
+                "price": 15,
+                "isSize": false,
+                "disabled": false
+            }
+        ]
+    }
+]

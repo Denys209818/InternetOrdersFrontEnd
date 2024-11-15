@@ -10,6 +10,7 @@ module.exports = {
       'lato': ['Lato', 'serif'],
     },
     extend: {
+      borderColor: ['hover'],
       backgroundImage: {
         'back': "url('/src/images/Back.svg')",
         'right': "url('/src/images/Right.svg')",
@@ -40,6 +41,7 @@ module.exports = {
         'cooker': "url('/src/images/Cooker.svg')",
         'arrowDropDown': "url('/src/images/Arrow_drop_down.svg')",
         'vertel': "url('/src/images/Vertel.svg')",
+        'checkpoint': "url('/src/images/CheckPoint.svg')",
       },
       paddingBottom: {
         '40%': '40%',

@@ -3,9 +3,11 @@ import { getRandomInt } from "../../../tools/randomFunc";
 import Button from "../Button";
 
 export type ReceiptProp = {
+    id: number;
     title: string;
     price: number;
     disabled?: boolean;
+    isSize?: boolean;
 };
 
 export type ReceiptType = {
@@ -46,8 +48,8 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
                 <div className="flex gap-2 items-center">
                     <p className="block text-cardPrice font-literata italic text-[#1F2933]">Розмір:</p> 
                     <p className="flex justify-between items-center w-full">
-                        <p className="block text-paragraph text-[#1F2933] font-lato">{size.title}</p>
-                        <p className="block text-[#525A63] italic text-cardProp font-literata">{size.price} грн</p>
+                        <span className="block text-paragraph text-[#1F2933] font-lato">{size.title}</span>
+                        <span className="block text-[#525A63] italic text-cardProp font-literata">{size.price} грн</span>
                     </p> 
                 </div>
 
@@ -63,8 +65,8 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
                         {items.map(item => (
                             <li className="pt-[14px]" key={getRandomInt(1, 100) + item.price + item.title}>
                                 <p className="flex justify-between items-center w-full">
-                                    <p className="block text-paragraph text-[#1F2933] font-lato">{item.title}</p>
-                                    <p className="block text-[#525A63] italic text-cardProp font-literata">+{item.price}грн</p>
+                                    <span className="block text-paragraph text-[#1F2933] font-lato">{item.title}</span>
+                                    <span className="block text-[#525A63] italic text-cardProp font-literata">+{item.price}грн</span>
                                 </p> 
                             </li>
                         ))}
