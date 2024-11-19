@@ -110,6 +110,24 @@ module.exports = {
             fontWeight: '700'
           }
         ],
+        menuTitle: [
+          '18px', {
+            lineHeight: '19.8px',
+            fontWeight: '700'
+          }
+        ],
+        menuTitlePhone: [
+          '16px', {
+            lineHeight: '18.7px',
+            fontWeight: '700'
+          }
+        ],
+        menuTitlePC: [
+          '32px', {
+            lineHeight: '35.2px',
+            fontWeight: '700'
+          }
+        ],
         paragraphMain: ['20px', {
           lineHeight: '24px',
           fontWeight: '400',

@@ -49,8 +49,7 @@ export const CardMenu:React.FC<CardMenuType> = ({ title, type, tabletHuge = fals
             block 
             min-[1000px]:col-span-3
             ${img[type].tabletSize}
-            min-[375px]:col-span-4 
-            min-[480px]:col-span-2 
+            min-[375px]:col-span-2
             size-full
             border-2 
             border-black 
@@ -75,7 +74,17 @@ export const CardMenu:React.FC<CardMenuType> = ({ title, type, tabletHuge = fals
             </div>
 
             <div className={`flex items-center py-4 ${img[type].pLeft} gap-x-2 border-t-2 border-black ` + img[type].color}>
-                <h3 className='block font-literata font-bold min-[1440px]:text-3xl min-[375px]:text-cardTitle'>{title}</h3>
+                <h3 className={`
+                    block
+                    font-literata
+                    font-bold
+                    min-[1440px]:text-3xl
+                    min-[480px]:text-menuTitle
+                    min-[1440px]:text-menuTitlePC
+                    text-menuTitlePhone
+                `}>
+                    {title}
+                </h3>
 
                 <div className='relative block size-8'>
                     <div className="absolute top-0.5 size-full bg-[url('/src/images/Right.svg')] bg-cover"></div>

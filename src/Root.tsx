@@ -4,6 +4,7 @@ import { MainLayout } from "./layouts/MainLayout";
 import { adminRoutes, authRoutes, mainRoutes, menuRoutes } from "./routes/routes";
 import { AuthLayout } from "./layouts/AuthLayout";
 import { MenuLayout } from "./layouts/MenuLayout";
+import NotFountPage from "./components/NotFoundPage";
 
 export const Root: React.FC = () => {
     return (
@@ -54,6 +55,8 @@ export const Root: React.FC = () => {
                       />)
                   })}
                 </Route>
+
+                <Route path="*" element={<NotFountPage />} />
               </Routes>
             </HashRouter>
         </Suspense>
