@@ -43,13 +43,31 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
 
         <div className="block border-t-2 bg-white p-4">
             <div className="flex flex-col gap-6">
-                <h3 className="text-headerLessTablet font-literata italic">Мій рецепт</h3>
+                <h3 className="min-[1440px]:text-headerLessTablet text-list font-literata italic">Мій рецепт</h3>
 
                 <div className="flex gap-2 items-center">
                     <p className="block text-cardPrice font-literata italic text-[#1F2933]">Розмір:</p> 
+
                     <p className="flex justify-between items-center w-full">
-                        <span className="block text-paragraph text-[#1F2933] font-lato">{size.title}</span>
-                        <span className="block text-[#525A63] italic text-cardProp font-literata">{size.price} грн</span>
+                        <span className={`
+                            block
+                            min-[1440px]:text-paragraph
+                            text-cardPropBiggerPC
+                            text-[#1F2933]
+                            font-lato
+                        `}>
+                            {size.title}
+                        </span>
+
+                        <span className={`
+                            block
+                            text-[#525A63]
+                            italic
+                            min-[1440px]:text-cardProp
+                            text-cardPropPC
+                            font-literata`}>
+                                {size.price} грн
+                            </span>
                     </p> 
                 </div>
 
@@ -57,7 +75,7 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
                     <p className="block text-cardPrice font-literata italic text-[#1F2933]">Обрані:</p> 
 
                     <p className="flex items-center justify-between pt-[14px]">
-                        <span className="block text-paragraph text-[#525A63]">Капуста, огірок, помідор</span>
+                        <span className="block text-cardPropBiggerPC min-[1440px]:text-paragraph text-[#525A63]">Капуста, огірок, помідор</span>
                         <span className="block text-input italic text-[#525A63]">Обов'язково</span>
                     </p>
                     
@@ -65,8 +83,26 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
                         {items.map(item => (
                             <li className="pt-[14px]" key={getRandomInt(1, 100) + item.price + item.title}>
                                 <p className="flex justify-between items-center w-full">
-                                    <span className="block text-paragraph text-[#1F2933] font-lato">{item.title}</span>
-                                    <span className="block text-[#525A63] italic text-cardProp font-literata">+{item.price}грн</span>
+                                    <span className={`
+                                        block
+                                        min-[1440px]:text-paragraph
+                                        text-cardPropBiggerPC
+                                        text-[#1F2933]
+                                        font-lato
+                                    `}>
+                                        {item.title}
+                                    </span>
+
+                                    <span className={`
+                                        block
+                                        text-[#525A63]
+                                        italic
+                                        min-[1440px]:text-cardProp
+                                        text-cardPropPC
+                                        font-literata
+                                    `}>
+                                        +{item.price}грн
+                                    </span>
                                 </p> 
                             </li>
                         ))}

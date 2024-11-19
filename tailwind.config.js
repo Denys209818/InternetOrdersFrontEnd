@@ -72,8 +72,20 @@ module.exports = {
           lineHeight: '17.6px',
           fontWeight: '500',
         }],
+        cardPropBiggerPC: ['18px', {
+          lineHeight: '21.6px',
+          fontWeight: '400',
+        }],
+        cardPropPC: ['14px', {
+          lineHeight: '15.4px',
+          fontWeight: '500',
+        }],
         cardPrice: ['21px', {
           lineHeight: '23.1px',
+          fontWeight: '700',
+        }],
+        cardPricePC: ['16px', {
+          lineHeight: '17.6px',
           fontWeight: '700',
         }],
         paragraph: ['24px', {
@@ -88,6 +100,12 @@ module.exports = {
           lineHeight: '26.4px',
           fontWeight: '700',
         }],
+        cardTitlePC: [
+          '18px', {
+            lineHeight: '19.8px',
+            fontWeight: '700'
+          }
+        ],
         paragraphMain: ['20px', {
           lineHeight: '24px',
           fontWeight: '400',

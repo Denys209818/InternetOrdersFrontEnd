@@ -70,19 +70,27 @@ export const Receipt = () => {
     }, [addShawermaComponent, catalogCreator]);
 
 
-    return (<div className="grid grid-cols-12 gap-x-5 gap-y-[52px]">
-        <h2 className="text-headerLessMain font-oswald uppercase col-span-12">
+    return (<div className="grid min-[744px]:grid-cols-12 grid-cols-4 min-[1440px]:gap-x-5 gap-x-4 gap-y-[52px]">
+        <h2 className={`
+            min-[1440px]:text-headerLessMain
+            min-[744px]:text-headerLessTablet
+            text-paragraph
+            font-oswald
+            uppercase
+            min-[744px]:col-span-12
+            col-span-4
+        `}>
             Або будь творцем – Складай свій власний рецепт!
         </h2>
 
-        <div className="col-span-4">
+        <div className="min-[1440px]:col-span-4 min-[1000px]:col-span-5 min-[744px]:col-span-6 col-span-4">
             <ReceiptCreator
                 size={size}
                 items={choosenProps}
             />
         </div>
 
-        <div className="col-span-4">
+        <div className="min-[1440px]:col-span-4 min-[1000px]:col-span-7 min-[744px]:col-span-6 col-span-4">
             <div className="block border-2">
                 <div className="bg-[#FF8080] border-b-2 p-2">
                     <h4 className="font-literata text-black italic text-list">Обери інгредіенти</h4>
@@ -94,7 +102,7 @@ export const Receipt = () => {
             </div>
         </div>
 
-        <div className="col-span-4">
+        <div className="min-[1440px]:block hidden col-span-4">
             <div className="flex size-full justify-center items-center">
                 <div className="block w-[210px]">
                     <div className="block pb-[258%] bg-[url('/src/images/Vertel.svg')] bg-cover"></div>
