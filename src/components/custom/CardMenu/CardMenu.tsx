@@ -1,11 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 export type CardMenuType = {
     title: string;
     type: 'shawarma' | 'pizza' | 'cakes' | 'free' | 'drinks';
     tabletHuge?: boolean;
     isLong?: boolean;
+    url?: string,
 };
 
-export const CardMenu:React.FC<CardMenuType> = ({ title, type, tabletHuge = false, isLong = false }) => {
+export const CardMenu:React.FC<CardMenuType> = ({ title, type, tabletHuge = false, isLong = false, url = '/' }) => {
+    const navigate = useNavigate();
+
     const img = {
         shawarma: {
             image: "bg-[url('/src/images/Shawarma.png')]",
@@ -52,7 +57,9 @@ export const CardMenu:React.FC<CardMenuType> = ({ title, type, tabletHuge = fals
             overflow-hidden 
             hover:cursor-pointer
             rounded-ss-3xl 
-            rounded-se-3xl`}>
+            rounded-se-3xl`}
+            onClick={() => navigate(url)}
+        >
             <div className='relative w-full pb-[102.4%] overflow-hidden'>
                 <div className={`
                     absolute 

@@ -29,6 +29,10 @@ export const IngredientList: React.FC<IngredientListType> = ({ title, options, a
         const prevOption = options.find(el => el.id === parseInt(activeCheck.toString()));
         const idString = id.toString();
 
+        if (activeOption?.disabled) {
+            return;
+        }
+
         if (allowMultiple) {
             let changed = true;
 
@@ -79,7 +83,7 @@ export const IngredientList: React.FC<IngredientListType> = ({ title, options, a
                         </p>
 
                         <CheckBox
-                            active={activeCheck.includes(opt.id.toString())}
+                            active={(activeCheck.includes(opt.id.toString()) || opt.disabled === true)}
                             setActive={() => setActiveCheckHandler(opt.id)}
                         />
                     </div>

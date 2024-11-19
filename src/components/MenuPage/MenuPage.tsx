@@ -25,7 +25,7 @@ export const MenuPage = () => {
                 `}>
                 <CardMenu title='Шаурма' type='shawarma' tabletHuge />
 
-                <CardMenu title='Піца' type='pizza' tabletHuge />
+                <CardMenu title='Піца' type='pizza' tabletHuge url="/catalog" />
 
                 <div className={`
                     flex 

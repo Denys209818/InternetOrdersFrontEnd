@@ -7,6 +7,7 @@ type ButtonType = {
     type?: "button" | "submit" | "reset" | undefined;
     onClickHandler?: () => void;
     disabled?: boolean;
+    isBackWhite?: boolean; 
 }
 
 export const Button:React.FC<ButtonType> = ({ 
@@ -17,6 +18,7 @@ export const Button:React.FC<ButtonType> = ({
     additionalImage = '',
     type = 'button',
     disabled = false,
+    isBackWhite = false,
     onClickHandler,
 }) => {
 
@@ -27,7 +29,7 @@ export const Button:React.FC<ButtonType> = ({
         },
         black: {
             background: 'bg-black',
-            color: 'text-white',
+            color: isBackWhite ? 'text-white hover:text-black' : 'text-white',
         },
         white: {
             background: 'bg-white',
@@ -45,7 +47,8 @@ export const Button:React.FC<ButtonType> = ({
 
     const btnStyle = `relative block border disabled:bg-[#9AA5B1] disabled:border-0 min-[744px]:col-span-1` + 
     ` hover:bg-[transparent] outline-black min-[375px]:col-span-2 transition duration-300 ease-in-out` + 
-    `border-black ${btnStyles[background].background} ${btnStyles[sizeBtn]} group max-w-[464px]`;
+    `border-black ${btnStyles[sizeBtn]} ${btnStyles[background].background} 
+    ${btnStyles[background].color} group max-w-[464px]`;
 
     return (<button
         type={type}
@@ -55,7 +58,7 @@ export const Button:React.FC<ButtonType> = ({
         >
         {title && (
             <div className="flex justify-center items-center gap-2">
-                <p className={`block text-btn text-nowrap font-lato ${btnStyles[background].color}`}>
+                <p className={`block text-btn text-nowrap font-lato`}>
                     {title}
                 </p>
 
