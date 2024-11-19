@@ -244,7 +244,7 @@ module.exports = {
         'negative-top-fork': 'calc(-50% - 46px)',
         'negative-top-fork-tablet': 'calc(-50% - 16px)',
         'negative-top-phonefork': 'calc(-100% - 38.4px)',
-        'negative-top-smallphonefork': 'calc(-100% - 40px)',
+        'negative-top-smallphonefork': 'calc(-100% - 90px)',
         'negative-left-fork': 'calc(-100% - 156px)',
         'negative-left-fork-main': 'calc(-100% - 105px)',
         'negative-left-fork-tablet': 'calc(-100% - 16px)',
