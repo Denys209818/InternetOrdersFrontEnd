@@ -83,14 +83,31 @@ export const Receipt = () => {
             Або будь творцем – Складай свій власний рецепт!
         </h2>
 
-        <div className="min-[1440px]:col-span-4 min-[1000px]:col-span-5 min-[744px]:col-span-6 col-span-4">
+        <div className={`
+            min-[1440px]:col-span-4
+            min-[1000px]:col-span-5
+            min-[744px]:col-span-6
+            col-span-4
+            min-[744px]:row-start-2
+            min-[744px]:row-end-3
+
+            row-start-3
+            row-end-4
+            `}>
             <ReceiptCreator
                 size={size}
                 items={choosenProps}
             />
         </div>
 
-        <div className="min-[1440px]:col-span-4 min-[1000px]:col-span-7 min-[744px]:col-span-6 col-span-4">
+        <div className={`
+            min-[1440px]:col-span-4
+            min-[1000px]:col-span-7
+            min-[744px]:col-span-6
+            col-span-4
+            row-start-2
+            row-end-3
+            `}>
             <div className="block border-2">
                 <div className="bg-[#FF8080] border-b-2 p-2">
                     <h4 className="font-literata text-black italic text-list">Обери інгредіенти</h4>
