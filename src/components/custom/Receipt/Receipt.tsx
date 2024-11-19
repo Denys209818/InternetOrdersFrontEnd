@@ -15,17 +15,27 @@ export const Receipt = () => {
     const addShawermaComponent = useCallback((prop: ReceiptProp) => {
         let isEdited = true;
 
+        if (prop.isSize) {
+            setSize(prev => {
+                if  (prev.id === prop.id) {
+                    return {
+                        id: -1,
+                        title: 'Не визначено',
+                        price: 0,
+                    };
+                } else {
+                    return prop;
+                }
+            });
+
+            return isEdited;
+        }
+
         setChoosenProps(prev => {
             const item = prev.find(el => el.id === prop.id);
 
             if (prev.length === 7 && !item) {
                 isEdited = false;
-                return prev;
-            }
-
-            if (prop.isSize) {
-                setSize(prop);
-
                 return prev;
             }
             
@@ -59,15 +69,15 @@ export const Receipt = () => {
         />
     )), [catalogCreator])
 
-    useEffect(() => {
-        for (const catCr of catalogCreator) {
-            if (catCr.options.length > 0 && !catCr.allowMultiple) {
-                if (catCr.title || (catCr.options.length > 0 && catCr.options[0].isSize)) {
-                    addShawermaComponent(catCr.options[0]);
-                }
-            }
-        }
-    }, [addShawermaComponent, catalogCreator]);
+    // useEffect(() => {
+    //     for (const catCr of catalogCreator) {
+    //         if (catCr.options.length > 0 && !catCr.allowMultiple) {
+    //             if (catCr.title || (catCr.options.length > 0 && catCr.options[0].isSize)) {
+    //                 addShawermaComponent(catCr.options[0]);
+    //             }
+    //         }
+    //     }
+    // }, [addShawermaComponent, catalogCreator]);
 
 
     return (<div className="grid min-[744px]:grid-cols-12 grid-cols-4 min-[1440px]:gap-x-5 gap-x-4 gap-y-[52px]">

@@ -1,6 +1,7 @@
 [
     {
         "title": "",
+        "allowMultiple": false,
         "options": [
             {
                 "id": 1,
@@ -20,6 +21,7 @@
     },
     {
         "title": "Лаваш",
+        "allowMultiple": false,
         "options": [
             {
                 "id": 3,
@@ -39,6 +41,7 @@
     },
     {
         "title": "М\"ясо",
+        "allowMultiple": false,
         "options": [
             {
                 "id": 5,
@@ -65,6 +68,7 @@
     },
     {
         "title": "Соус",
+        "allowMultiple": false,
         "options": [
             {
                 "id": 8,
@@ -84,6 +88,7 @@
     },
     {
         "title": "",
+        "allowMultiple": false,
         "options": [
             {
                 "id": 10,

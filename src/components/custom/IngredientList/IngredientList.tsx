@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getRandomInt } from "../../../tools/randomFunc";
 import CheckBox from "../CheckBox";
 import { ReceiptProp } from "../ReceiptCreator/ReceiptCreator";
@@ -14,15 +14,15 @@ export type IngredientListType = {
 export const IngredientList: React.FC<IngredientListType> = ({ title, options, allowMultiple = false, addToWish }) => {
     const [activeCheck, setActiveCheck] = useState<String>('');
 
-    useEffect(() =>  {
-        if (allowMultiple) {
-            setActiveCheck('');
-        } else {
-            if (options[0]) {
-               setActiveCheck(options[0].id.toString());
-            }
-        }
-    }, [allowMultiple, options]);
+    // useEffect(() =>  {
+    //     if (allowMultiple) {
+    //         setActiveCheck('');
+    //     } else {
+    //         if (options[0]) {
+    //            setActiveCheck(options[0].id.toString());
+    //         }
+    //     }
+    // }, [allowMultiple, options]);
 
     const setActiveCheckHandler = (id: number) => {
         const activeOption = options.find(el => el.id === id);
@@ -46,16 +46,19 @@ export const IngredientList: React.FC<IngredientListType> = ({ title, options, a
                 }
             }
         } else {
-            if (activeOption && prevOption) {
-                if (!activeOption.isSize) {
+            if (activeOption) {
+                if (prevOption && idString !== prevOption.id.toString()) {
                     addToWish(prevOption);
                 }
                 
                 addToWish(activeOption);
-            }
+                setActiveCheck(prev => {
+                    if (idString === prev) {
+                        return '';
+                    }
 
-            if (idString !== activeCheck) {
-                setActiveCheck(idString);
+                    return idString;
+                });
             }
         }
     };
