@@ -76,7 +76,7 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
 
                     <p className="flex items-center justify-between pt-[14px]">
                         <span className="block text-cardPropBiggerPC min-[1440px]:text-paragraph text-[#525A63]">Капуста, огірок, помідор</span>
-                        <span className="block text-input italic text-[#525A63]">Обов'язково</span>
+                        <span className="block text-required italic text-[#525A63]">Обов'язково</span>
                     </p>
                     
                     <ul className="list-none p-0 pl-2">

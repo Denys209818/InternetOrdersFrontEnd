@@ -44,7 +44,7 @@ export const Button:React.FC<ButtonType> = ({
     };
 
     const btnStyle = `relative block border disabled:bg-[#9AA5B1] disabled:border-0 min-[744px]:col-span-1` + 
-    ` hover:bg-[#BBEE85] outline-black min-[375px]:col-span-2 transition duration-300 ease-in-out` + 
+    ` hover:bg-[transparent] outline-black min-[375px]:col-span-2 transition duration-300 ease-in-out` + 
     `border-black ${btnStyles[background].background} ${btnStyles[sizeBtn]} group max-w-[464px]`;
 
     return (<button

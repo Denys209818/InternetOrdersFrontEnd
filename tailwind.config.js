@@ -64,13 +64,17 @@ module.exports = {
           lineHeight: '17.6px',
           fontWeight: '400',
         }],
+        required: ['16px', {
+          lineHeight: '17.6px',
+          fontWeight: '500',
+        }],
         cook: ['16px', {
           lineHeight: '17.6px',
           fontWeight: '600',
         }],
         cardProp: ['16px', {
           lineHeight: '17.6px',
-          fontWeight: '500',
+          fontWeight: '700',
         }],
         cardPropBiggerPC: ['18px', {
           lineHeight: '21.6px',
