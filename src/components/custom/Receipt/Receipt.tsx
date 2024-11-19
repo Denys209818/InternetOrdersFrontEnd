@@ -2,9 +2,26 @@ import { useCallback, useMemo, useState } from "react";
 import { ReceiptCreator, ReceiptProp } from "../ReceiptCreator/ReceiptCreator";
 import { IngredientList, IngredientListType } from "../IngredientList/IngredientList";
 import { getRandomInt } from "../../../tools/randomFunc";
-import data from './data/category.json';
 
-export const Receipt = () => {
+export type OptionType = {
+    id: number;
+    title: string;
+    price: number;
+    isSize: boolean;
+    disabled: boolean;
+};
+
+export type ReceiptType = {
+    title: string;
+    allowMultiple: boolean;
+    options: OptionType[];
+};
+
+type ReceiptWrapper = {
+    data: ReceiptType[];
+};
+
+export const Receipt: React.FC<ReceiptWrapper> = ({ data }) => {
     const [choosenProps, setChoosenProps] = useState<ReceiptProp[]>([]);
     const [size, setSize] = useState<ReceiptProp>({
         id: -1,
@@ -60,7 +77,7 @@ export const Receipt = () => {
         }
 
         return  catalogData;
-    }, [addShawermaComponent]);
+    }, [addShawermaComponent, data]);
 
     const catalogItems = useMemo(() => catalogCreator.map(catItem => (
         <IngredientList

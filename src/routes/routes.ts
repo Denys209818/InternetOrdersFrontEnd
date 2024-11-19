@@ -1,8 +1,10 @@
 import React from "react";
+import { сatalogLoader } from "../components/CatalogPage/loaders/CatalogLoader";
 
 export interface RouteType {
     path: string;
-    component: React.FC<any>
+    component: React.FC<any>;
+    loader?: () => any; 
 }
 
 const MainPage = React.lazy(() => import("../components/MainPage"));
@@ -15,7 +17,7 @@ const LoginPageAdmin = React.lazy(() => import("../components/admin/LoginPage"))
 const MainPageAdmin = React.lazy(() => import("../components/admin/MainPage"));
 
 export const mainRoutes: RouteType[] = [
-    { path: '/catalog', component: CatalogPage },
+    { path: '/catalog', component: CatalogPage, loader: сatalogLoader },
     { path: '/product', component: CardPage },
     { path: '/', component: MainPage },
 ];

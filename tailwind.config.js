@@ -43,6 +43,7 @@ module.exports = {
         'vertel': "url('/src/images/Vertel.svg')",
         'checkpoint': "url('/src/images/CheckPoint.svg')",
         'planctonNotFound': "url('/src/images/PlanctonNotFound.svg')",
+        'loader': "url('/src/images/Loader.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -334,6 +335,17 @@ module.exports = {
         'pc': '1000px',
         'large-pc': '1440px',
       }
+    },
+    keyframes: {
+      scale: {
+        '0%': { transform: 'translate(-50%, -50%) scale(1) rotate(0deg)' },
+        '50%': { transform: 'translate(-50%, -50%) scale(1.5) rotate(180deg)' },
+        '100%': { transform: 'translate(-50%, -50%) scale(1) rotate(360deg)' },
+      },
+      
+    },
+    animation: {
+      scalest: 'scale 2s ease-in-out infinite',
     },
   },
   plugins: []
