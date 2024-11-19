@@ -9,7 +9,6 @@ import Button from "../custom/Button";
 import Input from "../custom/Input";
 import AuthModal from "../custom/AuthModal";
 import { ModalRefType } from "../custom/AuthModal/AuthModal";
-import { createPortal } from "react-dom";
 import MaskedInput from "../custom/MaskedInput";
 import * as Yup from 'yup';
 import * as Styles from './styles';

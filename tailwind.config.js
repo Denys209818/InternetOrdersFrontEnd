@@ -42,6 +42,7 @@ module.exports = {
         'arrowDropDown': "url('/src/images/Arrow_drop_down.svg')",
         'vertel': "url('/src/images/Vertel.svg')",
         'checkpoint': "url('/src/images/CheckPoint.svg')",
+        'planctonNotFound': "url('/src/images/PlanctonNotFound.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -54,6 +55,69 @@ module.exports = {
         '152.5%': '152.5%',
       },
       fontSize: {
+        notFoundPreTitle: [
+          '48px', {
+            lineHeight: '57.6px',
+            fontWeight: '700',
+            letterSpacing: '-0.8px'
+          }
+        ],
+        notFoundPreSmall: [
+          '32px', {
+            lineHeight: '38.4px',
+            fontWeight: '700',
+            letterSpacing: '-0.8px'
+          }
+        ],
+        notFoundTitle: [
+          '128px',
+          {
+            lineHeight: '128px',
+            fontWeight: '700',
+            letterSpacing: '-4.8px'
+          }
+        ],
+        notFoundTitlePC: [
+          '84px',
+          {
+            lineHeight: '84px',
+            fontWeight: '700',
+            letterSpacing: '-4.8px'
+          }
+        ],
+        notFoundTitleTablet: [
+          '80px',
+          {
+            lineHeight: '84px',
+            fontWeight: '700',
+            letterSpacing: '-4.8px'
+          }
+        ],
+        notFoundTitleSmall: [
+          '56px',
+          {
+            lineHeight: '67.2px',
+            fontWeight: '700',
+            letterSpacing: '-0.8px'
+          }
+        ],
+        errorTitle: ['300px', {
+          lineHeight: '300px',
+          fontWeight: '700',
+          letterSpacing: '-0.05px'
+        }],
+        errorTitlePC: ['200px', {
+          lineHeight: '200px',
+          fontWeight: '700',
+          letterSpacing: '-0.05px'
+        }],
+        errorTitleSmall: [
+          '150px', {
+            lineHeight: '150px',
+            fontWeight: '700',
+            letterSpacing: '-0.05px'
+          }
+        ],
         menu: ['20px', '20px'],
         btn: ['20px', {
           lineHeight: '20px',
@@ -224,6 +288,7 @@ module.exports = {
       },
       minHeight: {
         'height-w-h': '100%',
+        'height-error-h': '646px',
         'height-w-h-t': '100%',
       },
       spacing: {
@@ -238,6 +303,10 @@ module.exports = {
         '72px': '72px',
         '328px': '328px',
         'negative-top': 'calc(100% - 67px)',
+        'negative-notfound': 'calc(-100% - 64px)',
+        'negative-x-notfound': 'calc(-100% - 40px)',
+        'negative-x-notfoundpc': 'calc(-100% - 24px)',
+        'negative-notfoundpc': 'calc(-100% - 11px)',
         'negative-top-pc': 'calc(100% - 62px)',
         'negative-top-tablet': 'calc(100% - 18px)',
         'negative-top-phone': 'calc(100% - 126px)',

@@ -5,6 +5,7 @@ import { adminRoutes, authRoutes, mainRoutes, menuRoutes } from "./routes/routes
 import { AuthLayout } from "./layouts/AuthLayout";
 import { MenuLayout } from "./layouts/MenuLayout";
 import NotFountPage from "./components/NotFoundPage";
+import { AggregationLayout } from "./layouts/AggregationLayout";
 
 export const Root: React.FC = () => {
     return (
@@ -34,29 +35,32 @@ export const Root: React.FC = () => {
                     <Route index element={<Navigate to={'login'} />} />
                 </Route>
                 
-                <Route path='/' element={<MainLayout />}>
-                  {mainRoutes.map((el, ind) => {
-                    return (
-                      <Route 
-                        path={el.path}
-                        element={<el.component/>}
-                        key={'mainRoute' + ind}
-                      />)
-                  })}
+                <Route path='/' element={<AggregationLayout />}>
+                  <Route element={<MainLayout />}>
+                    {mainRoutes.map((el, ind) => {
+                      return (
+                        <Route 
+                          path={el.path}
+                          element={<el.component/>}
+                          key={'mainRoute' + ind}
+                        />)
+                    })}
+                  </Route>
+
+                  <Route element={<MenuLayout />}>
+                    {menuRoutes.map((el, ind) => {
+                      return (
+                        <Route 
+                          path={el.path}
+                          element={<el.component/>}
+                          key={'menuRoute' + ind}
+                        />)
+                    })}
+                  </Route>
+
+                  <Route path="*" element={<NotFountPage />} />
                 </Route>
 
-                <Route path='/' element={<MenuLayout />}>
-                  {menuRoutes.map((el, ind) => {
-                    return (
-                      <Route 
-                        path={el.path}
-                        element={<el.component/>}
-                        key={'menuRoute' + ind}
-                      />)
-                  })}
-                </Route>
-
-                <Route path="*" element={<NotFountPage />} />
               </Routes>
             </HashRouter>
         </Suspense>
