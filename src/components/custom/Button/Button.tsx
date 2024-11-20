@@ -55,7 +55,6 @@ export const Button:React.FC<ButtonType> = ({
         outline-black
         min-[744px]:col-span-1 
         min-[375px]:col-span-2 
-        hover:bg-[transparent] 
         disabled:border-0
         disabled:bg-[#9AA5B1] 
         transition 
