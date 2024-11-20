@@ -46,6 +46,6 @@ export const Header: React.FC = () => {
             </nav>
         </div>
 
-        {menuShow && <MenuSide />}
+        {menuShow && <MenuSide close={() => setMenuShow(false)} />}
     </header>);
 }
