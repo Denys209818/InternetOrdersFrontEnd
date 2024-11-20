@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/InternetOrdersFrontEnd/static/css/main.f33e214c.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.f9ca3fb1.js",
+    "main.css": "/InternetOrdersFrontEnd/static/css/main.002e884b.css",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.a7c3ab54.js",
     "static/js/900.87de0b92.chunk.js": "/InternetOrdersFrontEnd/static/js/900.87de0b92.chunk.js",
     "static/js/273.0dc9a738.chunk.js": "/InternetOrdersFrontEnd/static/js/273.0dc9a738.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
@@ -34,14 +34,17 @@
     "static/media/Hendcheese.svg": "/InternetOrdersFrontEnd/static/media/Hendcheese.c0cc104984be4bab18c2.svg",
     "static/media/HandCheese.svg": "/InternetOrdersFrontEnd/static/media/HandCheese.3517edde4225bbb6747a.svg",
     "static/media/ViberWhite.svg": "/InternetOrdersFrontEnd/static/media/ViberWhite.70d4ec0b4d086f4db307.svg",
+    "static/media/Viber.svg": "/InternetOrdersFrontEnd/static/media/Viber.8594a1ca6a798dc64612.svg",
     "static/media/EnterIcon.svg": "/InternetOrdersFrontEnd/static/media/EnterIcon.3f917a2396c8df067b72.svg",
-    "static/media/Instagram.svg": "/InternetOrdersFrontEnd/static/media/Instagram.61ff647128fd50ab0cf4.svg",
+    "static/media/Instagram.svg": "/InternetOrdersFrontEnd/static/media/Instagram.b424c4c10ba2ecbfe99b.svg",
     "static/media/InstagramWhite.svg": "/InternetOrdersFrontEnd/static/media/InstagramWhite.1086b1122bb7b758248e.svg",
     "static/media/ForkWhite.svg": "/InternetOrdersFrontEnd/static/media/ForkWhite.b53b55ed87b5f92d2298.svg",
     "static/media/Fork.svg": "/InternetOrdersFrontEnd/static/media/Fork.154ef0de55d5b6be2bcd.svg",
     "static/media/TimeLi.svg": "/InternetOrdersFrontEnd/static/media/TimeLi.66f20c1fcc2635e5d676.svg",
     "static/media/PieChartLi.svg": "/InternetOrdersFrontEnd/static/media/PieChartLi.acfe755e5dae17de941e.svg",
+    "static/media/closeIcon.svg": "/InternetOrdersFrontEnd/static/media/closeIcon.2791559aacff61e43e98.svg",
     "static/media/TelegramWhite.svg": "/InternetOrdersFrontEnd/static/media/TelegramWhite.ae96d92d684359274789.svg",
+    "static/media/Telegram.svg": "/InternetOrdersFrontEnd/static/media/Telegram.7a18008802e5dbc3707a.svg",
     "index.html": "/InternetOrdersFrontEnd/index.html",
     "static/media/Eye.svg": "/InternetOrdersFrontEnd/static/media/Eye.2c25f8e2d6c3f2084b27.svg",
     "static/media/Basket.svg": "/InternetOrdersFrontEnd/static/media/Basket.45abe2723869aec2145e.svg",
@@ -52,8 +55,8 @@
     "static/media/Back-hover.svg": "/InternetOrdersFrontEnd/static/media/Back-hover.baed27a01d997246f6d7.svg",
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
-    "main.f33e214c.css.map": "/InternetOrdersFrontEnd/static/css/main.f33e214c.css.map",
-    "main.f9ca3fb1.js.map": "/InternetOrdersFrontEnd/static/js/main.f9ca3fb1.js.map",
+    "main.002e884b.css.map": "/InternetOrdersFrontEnd/static/css/main.002e884b.css.map",
+    "main.a7c3ab54.js.map": "/InternetOrdersFrontEnd/static/js/main.a7c3ab54.js.map",
     "900.87de0b92.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.87de0b92.chunk.js.map",
     "273.0dc9a738.chunk.js.map": "/InternetOrdersFrontEnd/static/js/273.0dc9a738.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
@@ -64,7 +67,7 @@
     "111.97519f88.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f33e214c.css",
-    "static/js/main.f9ca3fb1.js"
+    "static/css/main.002e884b.css",
+    "static/js/main.a7c3ab54.js"
   ]
 }
