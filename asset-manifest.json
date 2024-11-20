@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/InternetOrdersFrontEnd/static/css/main.95fe3385.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.52acbe23.js",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.28bf3e18.js",
     "static/js/900.4ec7dbd2.chunk.js": "/InternetOrdersFrontEnd/static/js/900.4ec7dbd2.chunk.js",
-    "static/js/273.bd7462fe.chunk.js": "/InternetOrdersFrontEnd/static/js/273.bd7462fe.chunk.js",
+    "static/js/36.b30bb928.chunk.js": "/InternetOrdersFrontEnd/static/js/36.b30bb928.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
     "static/js/450.d0ae6e10.chunk.js": "/InternetOrdersFrontEnd/static/js/450.d0ae6e10.chunk.js",
     "static/js/608.50779746.chunk.js": "/InternetOrdersFrontEnd/static/js/608.50779746.chunk.js",
@@ -56,9 +56,9 @@
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
     "main.95fe3385.css.map": "/InternetOrdersFrontEnd/static/css/main.95fe3385.css.map",
-    "main.52acbe23.js.map": "/InternetOrdersFrontEnd/static/js/main.52acbe23.js.map",
+    "main.28bf3e18.js.map": "/InternetOrdersFrontEnd/static/js/main.28bf3e18.js.map",
     "900.4ec7dbd2.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.4ec7dbd2.chunk.js.map",
-    "273.bd7462fe.chunk.js.map": "/InternetOrdersFrontEnd/static/js/273.bd7462fe.chunk.js.map",
+    "36.b30bb928.chunk.js.map": "/InternetOrdersFrontEnd/static/js/36.b30bb928.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
     "450.d0ae6e10.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.d0ae6e10.chunk.js.map",
     "608.50779746.chunk.js.map": "/InternetOrdersFrontEnd/static/js/608.50779746.chunk.js.map",
@@ -68,6 +68,6 @@
   },
   "entrypoints": [
     "static/css/main.95fe3385.css",
-    "static/js/main.52acbe23.js"
+    "static/js/main.28bf3e18.js"
   ]
 }
