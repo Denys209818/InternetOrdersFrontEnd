@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/InternetOrdersFrontEnd/static/css/main.a746421e.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.e2d73c68.js",
+    "main.css": "/InternetOrdersFrontEnd/static/css/main.f33e214c.css",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.f9ca3fb1.js",
     "static/js/900.87de0b92.chunk.js": "/InternetOrdersFrontEnd/static/js/900.87de0b92.chunk.js",
-    "static/js/95.e19fcc22.chunk.js": "/InternetOrdersFrontEnd/static/js/95.e19fcc22.chunk.js",
+    "static/js/273.0dc9a738.chunk.js": "/InternetOrdersFrontEnd/static/js/273.0dc9a738.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
     "static/js/450.d0ae6e10.chunk.js": "/InternetOrdersFrontEnd/static/js/450.d0ae6e10.chunk.js",
-    "static/js/608.e29cabf1.chunk.js": "/InternetOrdersFrontEnd/static/js/608.e29cabf1.chunk.js",
+    "static/js/608.47863dfe.chunk.js": "/InternetOrdersFrontEnd/static/js/608.47863dfe.chunk.js",
     "static/js/636.d1b1dfd7.chunk.js": "/InternetOrdersFrontEnd/static/js/636.d1b1dfd7.chunk.js",
     "static/js/524.061b1784.chunk.js": "/InternetOrdersFrontEnd/static/js/524.061b1784.chunk.js",
-    "static/js/111.3dcd467b.chunk.js": "/InternetOrdersFrontEnd/static/js/111.3dcd467b.chunk.js",
+    "static/js/111.97519f88.chunk.js": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js",
     "static/media/new1.png": "/InternetOrdersFrontEnd/static/media/new1.7525d8b7118aed860c71.png",
     "static/media/Literata-Italic-VariableFont_opsz,wght.ttf": "/InternetOrdersFrontEnd/static/media/Literata-Italic-VariableFont_opsz,wght.1294ba5fe4da55d08142.ttf",
     "static/media/new3.png": "/InternetOrdersFrontEnd/static/media/new3.2973c3fca53c75b22505.png",
@@ -26,6 +26,7 @@
     "static/media/Free.png": "/InternetOrdersFrontEnd/static/media/Free.f205489589ad0fbe4c16.png",
     "static/media/Oswald-VariableFont_wght.ttf": "/InternetOrdersFrontEnd/static/media/Oswald-VariableFont_wght.7cecd0da606d25b0905d.ttf",
     "static/media/PlanctonNotFound.svg": "/InternetOrdersFrontEnd/static/media/PlanctonNotFound.f32a7caf6ba3921471ed.svg",
+    "static/media/Loader.svg": "/InternetOrdersFrontEnd/static/media/Loader.721aff295e0399f2677f.svg",
     "static/media/Plancton.svg": "/InternetOrdersFrontEnd/static/media/Plancton.7cac56f3eeb1f8e0285e.svg",
     "static/media/Cooker.svg": "/InternetOrdersFrontEnd/static/media/Cooker.afc9eb7485c1b4387b63.svg",
     "static/media/Patato.svg": "/InternetOrdersFrontEnd/static/media/Patato.1c66f577f1b60a16fe83.svg",
@@ -51,19 +52,19 @@
     "static/media/Back-hover.svg": "/InternetOrdersFrontEnd/static/media/Back-hover.baed27a01d997246f6d7.svg",
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
-    "main.a746421e.css.map": "/InternetOrdersFrontEnd/static/css/main.a746421e.css.map",
-    "main.e2d73c68.js.map": "/InternetOrdersFrontEnd/static/js/main.e2d73c68.js.map",
+    "main.f33e214c.css.map": "/InternetOrdersFrontEnd/static/css/main.f33e214c.css.map",
+    "main.f9ca3fb1.js.map": "/InternetOrdersFrontEnd/static/js/main.f9ca3fb1.js.map",
     "900.87de0b92.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.87de0b92.chunk.js.map",
-    "95.e19fcc22.chunk.js.map": "/InternetOrdersFrontEnd/static/js/95.e19fcc22.chunk.js.map",
+    "273.0dc9a738.chunk.js.map": "/InternetOrdersFrontEnd/static/js/273.0dc9a738.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
     "450.d0ae6e10.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.d0ae6e10.chunk.js.map",
-    "608.e29cabf1.chunk.js.map": "/InternetOrdersFrontEnd/static/js/608.e29cabf1.chunk.js.map",
+    "608.47863dfe.chunk.js.map": "/InternetOrdersFrontEnd/static/js/608.47863dfe.chunk.js.map",
     "636.d1b1dfd7.chunk.js.map": "/InternetOrdersFrontEnd/static/js/636.d1b1dfd7.chunk.js.map",
     "524.061b1784.chunk.js.map": "/InternetOrdersFrontEnd/static/js/524.061b1784.chunk.js.map",
-    "111.3dcd467b.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.3dcd467b.chunk.js.map"
+    "111.97519f88.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a746421e.css",
-    "static/js/main.e2d73c68.js"
+    "static/css/main.f33e214c.css",
+    "static/js/main.f9ca3fb1.js"
   ]
 }
