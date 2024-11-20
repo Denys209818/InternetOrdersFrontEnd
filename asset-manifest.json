@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/InternetOrdersFrontEnd/static/css/main.002e884b.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.a7c3ab54.js",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.e628c4df.js",
     "static/js/900.87de0b92.chunk.js": "/InternetOrdersFrontEnd/static/js/900.87de0b92.chunk.js",
     "static/js/273.0dc9a738.chunk.js": "/InternetOrdersFrontEnd/static/js/273.0dc9a738.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
@@ -56,7 +56,7 @@
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
     "main.002e884b.css.map": "/InternetOrdersFrontEnd/static/css/main.002e884b.css.map",
-    "main.a7c3ab54.js.map": "/InternetOrdersFrontEnd/static/js/main.a7c3ab54.js.map",
+    "main.e628c4df.js.map": "/InternetOrdersFrontEnd/static/js/main.e628c4df.js.map",
     "900.87de0b92.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.87de0b92.chunk.js.map",
     "273.0dc9a738.chunk.js.map": "/InternetOrdersFrontEnd/static/js/273.0dc9a738.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
@@ -68,6 +68,6 @@
   },
   "entrypoints": [
     "static/css/main.002e884b.css",
-    "static/js/main.a7c3ab54.js"
+    "static/js/main.e628c4df.js"
   ]
 }
