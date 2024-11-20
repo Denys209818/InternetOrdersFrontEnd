@@ -309,7 +309,7 @@ const AuthPage: React.FC = () => {
                         `}>
                         <p className={bottomLinkStyles + " " + bottomLinkStylesTablet + " min-[375px]:text-input"}>Немає аккаунта?</p>
 
-                        <Link className={bottomLinkStyles + " " + bottomLinkStylesTablet + " min-[375px]:text-btn"} to={`/auth?mode=${link[mode]}`}>
+                        <Link className={bottomLinkStyles + " " + bottomLinkStylesTablet + " min-[375px]:text-btn"} to={`/auth/${link[mode]}`}>
                             {mode === 'login' ? 'Зареєструватися' : 'Увійти'}
                         </Link>
                     </div>}

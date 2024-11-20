@@ -1,11 +1,21 @@
-export const Loader = () => {
+import { useEffect } from "react";
+
+const Loader = () => {
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = "";
+        }
+    }, []);
+
     return (<div className={`
         fixed
         z-10
         top-0
         left-0
         size-full
-        bg-[#415335e4]
+        bg-[#0000008f]
     `}>
         <div className={`
             absolute
@@ -25,3 +35,5 @@ export const Loader = () => {
         
     </div>);
 }
+
+export default Loader;

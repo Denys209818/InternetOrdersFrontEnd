@@ -19,6 +19,7 @@ export const NotFountPage = () => {
                 font-oswald
                 min-[480px]:text-notFoundPreTitle
                 text-notFoundPreSmall
+                uppercase
             `}>
                 шукаєш шаурму?
             </h2>

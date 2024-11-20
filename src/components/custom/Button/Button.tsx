@@ -28,27 +28,46 @@ export const Button:React.FC<ButtonType> = ({
             color: 'black'
         },
         black: {
-            background: 'bg-black',
-            color: isBackWhite ? 'text-white hover:text-black' : 'text-white',
+            background: 'bg-black border-black',
+            color: 'text-white hover:text-black',
         },
         white: {
             background: 'bg-white',
             color: 'text-black',
         },
-        huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} w-full`,
+        huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} w-full hover:bg-[#BBEE85]`,
         small: "size-10 hover:border-white",
         google: {
             additionalImage: "bg-[url('/src/images/EnterIcon.svg')]",
+            additionalImageBlack: "bg-[url('/src/images/EnterIcon.svg')]"
         },
         instagram: {
-            additionalImage: "bg-[url('/src/images/Instagram.svg')]"
+            additionalImage: "bg-[url('/src/images/InstagramWhite.svg')]",
+            additionalImageBlack: "bg-[url('/src/images/Instagram.svg')]"
         }
     };
 
-    const btnStyle = `relative block border disabled:bg-[#9AA5B1] disabled:border-0 min-[744px]:col-span-1` + 
-    ` hover:bg-[transparent] outline-black min-[375px]:col-span-2 transition duration-300 ease-in-out` + 
-    `border-black ${btnStyles[sizeBtn]} ${btnStyles[background].background} 
-    ${btnStyles[background].color} group max-w-[464px]`;
+    const btnStyle = `
+        relative 
+        block 
+        border
+        border-black
+        outline-black
+        min-[744px]:col-span-1 
+        min-[375px]:col-span-2 
+        hover:bg-[transparent] 
+        disabled:border-0
+        disabled:bg-[#9AA5B1] 
+        transition 
+        duration-300 
+        ease-in-out 
+        group
+        max-w-[464px]
+        group
+        ${btnStyles[sizeBtn]}
+        ${btnStyles[background].background} 
+        ${btnStyles[background].color}
+    `;
 
     return (<button
         type={type}
@@ -63,7 +82,29 @@ export const Button:React.FC<ButtonType> = ({
                 </p>
 
                 {additionalImage && <div className="relative block size-6">
-                    <div className={`absolute top-[1px] block size-full ${btnStyles[additionalImage].additionalImage} bg-cover`}></div>
+                    <div className={`
+                        absolute
+                        top-[1px]
+                        block
+                        size-full
+                        opacity-1
+                        ${btnStyles[additionalImage].additionalImage}
+                        bg-cover
+                        duration-300
+                        group-hover:opacity-0
+                    `}></div>
+                    
+                    <div className={`
+                        absolute
+                        top-[1px]
+                        block
+                        size-full
+                        opacity-0
+                        ${btnStyles[additionalImage].additionalImageBlack}
+                        bg-cover
+                        duration-300
+                        group-hover:opacity-100
+                    `}></div>
                 </div>}
             </div>
         )}

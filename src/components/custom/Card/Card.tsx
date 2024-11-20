@@ -43,6 +43,7 @@ export const Card: React.FC<CardType> = ({ title, options, imageSrc }) => {
             min-[1440px]:p-4
             p-3
             gap-4
+            bg-white
             `}>
             <h3 className={`
                 min-[1440px]:text-headerLessTablet

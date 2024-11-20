@@ -5,6 +5,8 @@ import { AuthLayout } from "./layouts/AuthLayout";
 import { MenuLayout } from "./layouts/MenuLayout";
 import NotFountPage from "./components/NotFoundPage";
 import { AggregationLayout } from "./layouts/AggregationLayout";
+import { Suspense } from "react";
+import Loader from "./components/custom/Loader/Loader";
 
 export const Root: React.FC = () => {
     const routes = createRoutesFromElements(
@@ -64,6 +66,8 @@ export const Root: React.FC = () => {
     const router = createHashRouter(routes);
 
     return (
-      <RouterProvider router={router} />
+      <Suspense fallback={<Loader />}>
+        <RouterProvider router={router} />
+      </Suspense>
     );
 }
