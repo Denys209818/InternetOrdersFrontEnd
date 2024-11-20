@@ -1,0 +1,58 @@
+[
+    {
+    "title":"Класична",
+    "imageSrc":"images/classicial.jpg",
+    "options": [
+        {
+            "optionTitle": "Велика",
+            "optionPrice": 100
+        },
+        {
+            "optionTitle": "Маленька",
+            "optionPrice": 75
+        }
+    ]
+    },
+    {
+    "title":"З яловичиною",
+    "imageSrc":"images/beaf.jpg",
+    "options": [
+        {
+            "optionTitle": "Велика",
+            "optionPrice": 100
+        },
+        {
+            "optionTitle": "Маленька",
+            "optionPrice": 75
+        }
+    ]
+    },
+    {
+    "title":"З ковбасками",
+    "imageSrc":"images/sausage.jpg",
+    "options": [
+        {
+            "optionTitle": "Велика",
+            "optionPrice": 100
+        },
+        {
+            "optionTitle": "Маленька",
+            "optionPrice": 75
+        }
+    ]
+    },
+    {
+    "title":"З криветками",
+    "imageSrc":"images/shrimp.jpg",
+    "options": [
+        {
+            "optionTitle": "Велика",
+            "optionPrice": 100
+        },
+        {
+            "optionTitle": "Маленька",
+            "optionPrice": 75
+        }
+    ]
+    }
+]

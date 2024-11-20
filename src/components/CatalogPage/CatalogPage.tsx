@@ -1,12 +1,12 @@
 import { Await, useLoaderData, useNavigate } from "react-router-dom";
 import Button from "../custom/Button";
 import * as Styles from '../MainPage/styles';
-import { Card } from "../custom/Card/Card";
+import { Card, CardType } from "../custom/Card/Card";
 import Receipt from "../custom/Receipt";
 import { ReceiptType } from "../custom/Receipt/Receipt";
 import { Suspense } from "react";
 import Loader from "../custom/Loader/Loader";
-// import data from './data/category.json';
+import cardData from './data/cardData.json';
 
 type LoaderData = {
     data: Promise<ReceiptType[]>;
@@ -45,65 +45,12 @@ export const CatalogPage: React.FC = () => {
                 <h3 className="text-headerLessTablet font-oswald uppercase font-medium">Обирай наші смаки</h3>
 
                 <div className="grid min-[744px]:grid-cols-12 grid-cols-4 gap-x-4 gap-y-6 pt-3">
-                    <Card
-                        title="Класична"
-                        imageSrc="images/classicial.jpg"
-                        options={[
-                            {
-                                optionTitle: 'Велика',
-                                optionPrice: '100'
-                            },
-                            {
-                                optionTitle: 'Маленька',
-                                optionPrice: '75'
-                            },
-                        ]}
-                    />
-
-                    <Card
-                        title="З яловичиною"
-                        imageSrc="images/beaf.jpg"
-                        options={[
-                            {
-                                optionTitle: 'Велика',
-                                optionPrice: '100'
-                            },
-                            {
-                                optionTitle: 'Маленька',
-                                optionPrice: '75'
-                            },
-                        ]}
-                    />
-
-                    <Card
-                        title="З ковбасками"
-                        imageSrc="images/sausage.jpg"
-                        options={[
-                            {
-                                optionTitle: 'Велика',
-                                optionPrice: '100'
-                            },
-                            {
-                                optionTitle: 'Маленька',
-                                optionPrice: '75'
-                            },
-                        ]}
-                    />
-
-                    <Card
-                        title="З криветками"
-                        imageSrc="images/shrimp.jpg"
-                        options={[
-                            {
-                                optionTitle: 'Велика',
-                                optionPrice: '100'
-                            },
-                            {
-                                optionTitle: 'Маленька',
-                                optionPrice: '75'
-                            },
-                        ]}
-                    />
+                    {(cardData as unknown as CardType[]).map(el => (
+                        <Card
+                            key={el.imageSrc}
+                            {...(el as CardType)}
+                        />
+                    ))}
                 </div>
             </section>
 
