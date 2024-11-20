@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import MenuSide from "../MenuSide";
+import { useState } from "react";
 
 export const Header: React.FC = () => {
+    const [menuShow, setMenuShow] = useState(false);
+
+    const iconStyle = menuShow ? 'bg-close' : 'bg-menu';
+
     return (<header className="absolute z-20 w-full flex py-2 px-2">
-        <div className="flex h-full w-full gap-x-8">
+        <div className="relative z-50 flex h-full w-full gap-x-8">
             <h1 className="uppercase font-bold text-2xl tracking-tighter font-oswald text-nowrap">
                 <Link to='/'>Ще щось?</Link>
             </h1>
@@ -26,12 +32,12 @@ export const Header: React.FC = () => {
                             </li>
 
                             <li className="px-1 border-b border-black min-[375px]:hidden min-[744px]:inline">
-                                <Link to='/auth?mode=login' className="text-[20px] font-normal font-lato tracking-tighter">Увійти</Link>
+                                <Link to='/auth/login' className="text-[20px] font-normal font-lato tracking-tighter">Увійти</Link>
                             </li>
 
                             <li className="min-[375px]:inline min-[744px]:hidden">
-                                {<div className="relative block size-6">
-                                    <div className={`absolute block size-full bg-[url('/src/images/Menu.svg')] bg-cover`}></div>
+                                {<div onClick={() => setMenuShow(prev => !prev)} className="relative block size-6">
+                                    <div className={`absolute block size-full ${iconStyle} bg-cover`}></div>
                                 </div>}
                             </li>
                         </ul>
@@ -39,5 +45,7 @@ export const Header: React.FC = () => {
                 </ul>
             </nav>
         </div>
+
+        {menuShow && <MenuSide />}
     </header>);
 }

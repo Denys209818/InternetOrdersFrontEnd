@@ -35,6 +35,8 @@ module.exports = {
         'new3': "url('/src/images/new3.png')",
         'new4': "url('/src/images/new4.png')",
         'instagram': "url('/src/images/Instagram.svg')",
+        'telegram': "url('/src/images/Telegram.svg')",
+        'viber': "url('/src/images/Viber.svg')",
         'instagramwhite': "url('/src/images/InstagramWhite.svg')",
         'telegramwhite': "url('/src/images/TelegramWhite.svg')",
         'viberwhite': "url('/src/images/ViberWhite.svg')",
@@ -44,6 +46,8 @@ module.exports = {
         'checkpoint': "url('/src/images/CheckPoint.svg')",
         'planctonNotFound': "url('/src/images/PlanctonNotFound.svg')",
         'loader': "url('/src/images/Loader.svg')",
+        'close': "url('/src/images/closeIcon.svg')",
+        'menu': "url('/src/images/Menu.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -56,6 +60,11 @@ module.exports = {
         '152.5%': '152.5%',
       },
       fontSize: {
+        asideMenu: ['15px', {
+          lineHeight: '15px',
+          fontWeight: '500',
+          letterSpacing: '0.8px',
+        }],
         notFoundPreTitle: [
           '48px', {
             lineHeight: '57.6px',
@@ -303,6 +312,7 @@ module.exports = {
         '-40px': '-40px',
         '72px': '72px',
         '328px': '328px',
+        'aside-height': 'calc(100% - 48px)',
         'negative-top': 'calc(100% - 67px)',
         'negative-notfound': 'calc(-100% - 64px)',
         'negative-x-notfound': 'calc(-100% - 40px)',
