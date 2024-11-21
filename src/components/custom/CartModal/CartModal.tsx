@@ -213,7 +213,7 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                             flex-col
                             gap-2
                         `}>
-                            <div className="block w-[160px] h-[100px] bg-plate"></div>
+                            <div className="block w-[160px] h-[100px] bg-plate mx-auto"></div>
                             <p className={`
                                 block
                                 text-[#CBD2D9]
