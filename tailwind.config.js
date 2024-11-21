@@ -52,6 +52,7 @@ module.exports = {
         'minus': "url('/src/images/Minus.svg')",
         'plus': "url('/src/images/Plus.svg')",
         'close_square': "url('/src/images/Close_square.svg')",
+        'plate': "url('/src/images/Plate.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -70,6 +71,12 @@ module.exports = {
             fontWeight: '700',
           }
         ],
+        cartTitlePhone: [
+          '18px', {
+            lineHeight: '19.8px',
+            fontWeight: '700',
+          }
+        ],
         cartMainTitle: [
           '32px', {
             lineHeight: '38.4px',
@@ -77,9 +84,22 @@ module.exports = {
             letterSpacing: '-0.48px'
           }
         ],
+        cartMainTitlePhone: [
+          '24px', {
+            lineHeight: '28.8px',
+            fontWeight: '500',
+            letterSpacing: '-0.48px'
+          }
+        ],
         cartText: [
           '16px', {
             lineHeight: '17.6px',
+            fontWeight: '600',
+          }
+        ],
+        cartTextPhone: [
+          '14px', {
+            lineHeight: '15.4px',
             fontWeight: '600',
           }
         ],
@@ -191,6 +211,10 @@ module.exports = {
           lineHeight: '17.6px',
           fontWeight: '700',
         }],
+        cardPropPhone: ['14px', {
+          lineHeight: '15.4px',
+          fontWeight: '700',
+        }],
         cardPropBiggerPC: ['18px', {
           lineHeight: '21.6px',
           fontWeight: '400',
@@ -209,6 +233,10 @@ module.exports = {
         }],
         paragraph: ['24px', {
           lineHeight: '28.8px',
+          fontWeight: '400',
+        }],
+        paragraphPhone: ['18px', {
+          lineHeight: '21.6px',
           fontWeight: '400',
         }],
         list: ['24px', {

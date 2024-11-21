@@ -5,6 +5,7 @@ import CheckBox from "../CheckBox";
 import { ReceiptProp } from "../ReceiptCreator/ReceiptCreator";
 import Button from "../Button";
 import { CartItemType } from "../CartItem/CartItem";
+import { useNavigate } from "react-router-dom";
 
 export type CartModalType = {
     close: () => void;
@@ -14,6 +15,37 @@ export type CartModalType = {
 export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
     const [activeCheck, setActiveCheck] = useState<String>('');
     const [currentState, setCurrentState] = useState(state);
+    const [cartItems, setCartItems] = useState<CartItemType[]>(
+        [
+            {
+                id: 1,
+                imageUrl:"images/classicial.jpg",
+                price: 100,
+                title:"Шаурма класична",
+                count: 1,
+                additionalsCount: 0,
+                increaseCount: () => increaseCount(1),
+                decreaseCount: () => decreaseCount(1),
+                removeItem: () => removeItem(1),
+            },
+            {
+                id: 2,
+                imageUrl:"images/self-receipt.png",
+                price: 100,
+                title:"Мій рецепт",
+                count: 1,
+                additionalsCount: 5,
+                increaseCount: () => increaseCount(2),
+                decreaseCount: () => decreaseCount(2),
+                removeItem: () => removeItem(2),
+            },
+        ]
+    );
+    const [additionsPrice, setAdditionsPrice] = useState(0);
+
+    const isEmpty = cartItems.length === 0;
+
+    const navigate = useNavigate();
 
     const increaseCount = (id: number) => {
         setCartItems(prev => {
@@ -45,32 +77,9 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
         });
     }
 
-    const [cartItems, setCartItems] = useState<CartItemType[]>(
-        [
-            {
-                id: 1,
-                imageUrl:"images/classicial.jpg",
-                price: 100,
-                title:"Шаурма класична",
-                count: 1,
-                additionalsCount: 0,
-                increaseCount: () => increaseCount(1),
-                decreaseCount: () => decreaseCount(1),
-            },
-            {
-                id: 2,
-                imageUrl:"images/self-receipt.png",
-                price: 100,
-                title:"Мій рецепт",
-                count: 1,
-                additionalsCount: 5,
-                increaseCount: () => increaseCount(2),
-                decreaseCount: () => decreaseCount(2),
-            },
-        ]
-    );
-
-    const [additionsPrice, setAdditionsPrice] = useState(0);
+    const removeItem = (id: number) => {
+        setCartItems(prev => prev.filter(el => el.id !== id));
+    }
 
     const totalPrice = useMemo(() => {
         const productPrice = cartItems.reduce((prev, curr) => prev + curr.count * curr.price, 0);
@@ -120,12 +129,30 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
         close: 'animate-closing',
     };
 
+    const emptyStyles = isEmpty ? 'justify-end pb-[10px]' : 'border-t';
+
     return (
         <aside className="fixed z-50 top-0 left-0 size-full bg-[#0000008f]">
-            <div className={`relative h-full left-[100%] duration-300 ${animationStep[currentState]} translate-x-[-100%] w-[480px] border-l-2`}>
+            <div className={`
+                relative
+                h-full
+                left-[100%]
+                duration-300
+                ${animationStep[currentState]}
+                translate-x-[-100%]
+                min-[480px]:w-[480px]
+                w-full
+                min-[744px]:border-l-2
+            `}>
                 <div className="block h-[56px] w-full bg-[#FF8080] border-b">
                     <div className="flex h-full justify-between items-center pl-4">
-                        <h3 className="block uppercase text-cartMainTitle font-oswald">Кошик</h3>
+                        <h3 className={`
+                            block
+                            uppercase
+                            min-[744px]:text-cartMainTitle
+                            text-cartMainTitlePhone
+                            font-oswald
+                        `}>Кошик</h3>
 
                         <div className="relative size-14 flex justify-center items-center p-4">
                             <div onClick={() => {
@@ -136,8 +163,8 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                     </div>
                 </div>
                 
-                <div className="block w-full h-cart-height border-t bg-white">
-                    <div className="flex flex-col max-h-cart-content-height overflow-y-auto gap-8 size-full py-6 px-4">
+                <div className="flex flex-col justify-between w-full h-cart-height border-t bg-white">
+                    {!isEmpty && <div className="flex flex-col max-h-cart-content-height overflow-y-auto gap-8 size-full py-6 px-4">
                         {cartItems.map(item => (
                             <CartItem
                                 key={item.id}
@@ -152,11 +179,15 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                                 {options.map(opt => (
                                     <li className="flex justify-between items-center" key={getRandomInt(1, 1000) + opt.price + opt.title}>
                                         <div className="block py-2">
-                                            <p className={"font-lato text-paragraph "}>{opt.title}</p>
+                                            <p className={`
+                                                font-lato
+                                                min-[744px]:text-paragraph
+                                                text-paragraphPhone
+                                            `}>{opt.title}</p>
                                         </div>
                                 
                                         <div className="flex gap-2">
-                                            <p className="block py-3 text-[#525A63] italic text-cardProp font-literata">
+                                            <p className="block py-3 text-[#525A63] italic min-[744px]:text-cardProp text-cardPropPhone font-literata">
                                                 {opt.price > 0 ? `${opt.price} грн` : ''}
                                             </p>
                                 
@@ -169,10 +200,33 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                                 ))}
                             </ul>
                         </div>
-                    </div>
+                    </div>}
 
-                    <div className="block h-[118px] px-4 pt-1 border-t">
-                        <div className="flex justify-end items-center gap-2 w-full pb-3">
+                    {isEmpty && <div className="relative block size-full max-h-cart-content-height">
+                        <div className={`
+                            absolute
+                            top-[50%]
+                            left-[50%]
+                            translate-x-[-50%]
+                            translate-y-[-50%]
+                            flex
+                            flex-col
+                            gap-2
+                        `}>
+                            <div className="block w-[160px] h-[100px] bg-plate"></div>
+                            <p className={`
+                                block
+                                text-[#CBD2D9]
+                                font-lato
+                                min-[744px]:text-paragraph
+                                text-paragraphPhone
+                                text-center
+                            `}>Смаколиків немає</p>
+                        </div>
+                    </div>}
+
+                    <div className={`flex flex-col h-[118px] px-4 pt-1 ${emptyStyles}`}>
+                        {!isEmpty && <div className="flex justify-end items-center gap-2 w-full pb-3">
                             <p className="block font-lato text-[#1F2933] text-cartText">
                                 До сплати:
                             </p>
@@ -180,9 +234,21 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                             <p className="block font-literata text-[#1F2933] text-cartSumText italic">
                                 {totalPrice} грн
                             </p>
-                        </div>
+                        </div>}
 
-                        <Button sizeBtn="huge" background="black" title="Оформити замовлення" />
+                        <Button
+                            sizeBtn="huge"
+                            background="black"
+                            title={isEmpty ? "Перейти до меню" : "Оформити замовлення"}
+                            onClickHandler={() => {
+                                if (isEmpty) {
+                                    setCurrentState('close');
+                                    setTimeout(close, 450);
+
+                                    navigate('/menu');
+                                }
+                            }}
+                        />
                     </div>
                 </div>
             </div>

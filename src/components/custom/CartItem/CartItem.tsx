@@ -7,6 +7,7 @@ export type CartItemType = {
     count: number;
     increaseCount: () => void;
     decreaseCount: () => void;
+    removeItem: () => void;
 };
 
 export const CartItem: React.FC<CartItemType> = ({
@@ -16,7 +17,8 @@ export const CartItem: React.FC<CartItemType> = ({
     count,
     additionalsCount,
     increaseCount,
-    decreaseCount 
+    decreaseCount,
+    removeItem
 }) => {
 
     return (
@@ -33,14 +35,27 @@ export const CartItem: React.FC<CartItemType> = ({
 
             <div className="flex flex-col gap-3 w-full">
                 <div className="relative">
-                    <h3 className="text-cartTitle font-literata italic">{title}</h3>
+                    <h3 className={`
+                        min-[744px]:text-cartTitle
+                        text-cartTitlePhone
+                        font-literata
+                        italic
+                    `}>{title}</h3>
 
-                    <p className="text-cartText font-lato text-[#525A63]">
+                    <p className={`
+                        min-[744px]:text-cartText
+                        text-cartTextPhone
+                        font-lato
+                        text-[#525A63]
+                    `}>
                         {additionalsCount === 0 ? 'Без додатків' : `${additionalsCount} додатків`}
                     </p>
 
                     <div className="absolute flex justify-center items-center top-0 left-[100%] translate-x-[-100%] size-8 p-[3px]">
-                        <div className="block h-[20px] w-[16px] bg-trash bg-center bg-no-repeat"></div>
+                        <div
+                            className="block h-[20px] w-[16px] bg-trash bg-center bg-no-repeat hover:cursor-pointer"
+                            onClick={removeItem}
+                        ></div>
                     </div>
                 </div>
 
@@ -66,7 +81,7 @@ export const CartItem: React.FC<CartItemType> = ({
                 </div>
 
                 <div className="flex justify-end">
-                    <p className="font-literata text-cartPriceText text-[#525A63] italic">
+                    <p className="font-literata min-[744px]:text-cartPriceText text-cartTextPhone text-[#525A63] italic">
                         {price * count} грн
                     </p>
                 </div>
