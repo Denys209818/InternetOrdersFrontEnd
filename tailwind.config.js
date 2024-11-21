@@ -48,6 +48,10 @@ module.exports = {
         'loader': "url('/src/images/Loader.svg')",
         'close': "url('/src/images/closeIcon.svg')",
         'menu': "url('/src/images/Menu.svg')",
+        'trash': "url('/src/images/Trash.svg')",
+        'minus': "url('/src/images/Minus.svg')",
+        'plus': "url('/src/images/Plus.svg')",
+        'close_square': "url('/src/images/Close_square.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -60,6 +64,43 @@ module.exports = {
         '152.5%': '152.5%',
       },
       fontSize: {
+        cartTitle: [
+          '24px', {
+            lineHeight: '26.4px',
+            fontWeight: '700',
+          }
+        ],
+        cartMainTitle: [
+          '32px', {
+            lineHeight: '38.4px',
+            fontWeight: '500',
+            letterSpacing: '-0.48px'
+          }
+        ],
+        cartText: [
+          '16px', {
+            lineHeight: '17.6px',
+            fontWeight: '600',
+          }
+        ],
+        cartPriceText: [
+          '16px', {
+            lineHeight: '17.6px',
+            fontWeight: '700',
+          }
+        ],
+        cartCountText: [
+          '24px', {
+            lineHeight: '32px',
+            fontWeight: '400',
+          }
+        ],
+        cartSumText: [
+          '24px', {
+            lineHeight: '26.4px',
+            fontWeight: '700',
+          }
+        ],
         asideMenu: ['15px', {
           lineHeight: '15px',
           fontWeight: '500',
@@ -312,6 +353,8 @@ module.exports = {
         '-40px': '-40px',
         '72px': '72px',
         '328px': '328px',
+        'cart-height': 'calc(100% - 56px)',
+        'cart-content-height': 'calc(100% - 118px)',
         'aside-height': 'calc(100% - 48px)',
         'negative-top': 'calc(100% - 67px)',
         'negative-notfound': 'calc(-100% - 64px)',
@@ -352,10 +395,19 @@ module.exports = {
         '50%': { transform: 'translate(-50%, -50%) scale(1.5) rotate(180deg)' },
         '100%': { transform: 'translate(-50%, -50%) scale(1) rotate(360deg)' },
       },
-      
+      move: {
+        '0%':  {transform: 'translateX(0)'},
+        '100%':  {transform: 'translateX(-100)'},
+      },     
+      moveDown: {
+        '0%':  {transform: 'translateX(-100%)'},
+        '100%':  {transform: 'translateX(0)'},
+      },     
     },
     animation: {
       scalest: 'scale 2s ease-in-out infinite',
+      moving: 'move 0.5s ease-in-out',
+      closing: 'moveDown 0.5s ease-in-out',
     },
   },
   plugins: []

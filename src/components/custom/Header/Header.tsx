@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import MenuSide from "../MenuSide";
 import { useState } from "react";
+import CartModal from "../CartModal";
 
 export const Header: React.FC = () => {
     const [menuShow, setMenuShow] = useState(false);
+    const [cartShow, setCartShow] = useState(false);
 
     const iconStyle = menuShow ? 'bg-close' : 'bg-menu';
 
@@ -21,8 +23,8 @@ export const Header: React.FC = () => {
 
                     <li>
                         <ul className="flex items-center list-none m-0 p-0 gap-8">
-                            <li className="flex gap-2 items-center">
-                                <Link to='/' className="block text-[20px] font-normal font-lato tracking-tighter">Кошик</Link>  
+                            <li className="flex gap-2 items-center hover:cursor-pointer" onClick={() => setCartShow(true)}>
+                                <p className="block text-[20px] font-normal font-lato tracking-tighter">Кошик</p> 
 
                                 <div className="flex items-center">
                                     <div className="block relative pb-[100%] w-6 h-0">
@@ -47,5 +49,6 @@ export const Header: React.FC = () => {
         </div>
 
         {menuShow && <MenuSide close={() => setMenuShow(false)} />}
+        {cartShow && <CartModal state={cartShow ? 'open' : 'close'} close={() => setCartShow(false)} />}
     </header>);
 }
