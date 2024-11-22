@@ -53,6 +53,8 @@ module.exports = {
         'plus': "url('/src/images/Plus.svg')",
         'close_square': "url('/src/images/Close_square.svg')",
         'plate': "url('/src/images/Plate.svg')",
+        'clock_fill': "url('/src/images/Clock_fill.svg')",
+        'creditCard': "url('/src/images/CreditCard.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -65,6 +67,65 @@ module.exports = {
         '152.5%': '152.5%',
       },
       fontSize: {
+        orderTitle: ['32px', {
+          lineHeight: '38.4px',
+          fontWeight: '500'
+        }],
+        orderTitlePhone: ['24px', {
+          lineHeight: '28.8px',
+          fontWeight: '500',
+          letterSpacing:'-0.48px'
+        }],
+        orderAuthTitle: ['32px', {
+          lineHeight: '38.4px',
+          fontWeight: '600'
+        }],
+        orderAuthDesc: ['16px', {
+          lineHeight: '17.6px',
+          fontWeight: '500'
+        }],
+        orderAuthDescPhone: ['14px', {
+          lineHeight: '15.4px',
+          fontWeight: '500'
+        }],
+        orderAuthLine: ['24px', {
+          lineHeight: '28.8px',
+          fontWeight: '400'
+        }],
+        orderAuthLinePhone: ['18px', {
+          lineHeight: '21.6px',
+          fontWeight: '400'
+        }],
+        orderAuthFormTitle: ['32px', {
+          lineHeight: '38.4px',
+          fontWeight: '500',
+          letterSpacing: '-0.48px'
+        }],
+        orderAuthFormTitlePhone: ['24px', {
+          lineHeight: '28.8px',
+          fontWeight: '500',
+          letterSpacing: '-0.48px'
+        }],
+        orderListTitle: ['24px', {
+          lineHeight: '26.4px',
+          fontWeight: '700',
+        }],
+        orderListTitlePhone: ['18px', {
+          lineHeight: '19.8px',
+          fontWeight: '700',
+        }],
+        orderListPhone: ['18px', {
+          lineHeight: '19.8px',
+          fontWeight: '700',
+        }],
+        orderListPrice: ['16px', {
+          lineHeight: '17.6px',
+          fontWeight: '700',
+        }],
+        orderListPricePhone: ['16px', {
+          lineHeight: '17.6px',
+          fontWeight: '700',
+        }],
         cartTitle: [
           '24px', {
             lineHeight: '26.4px',

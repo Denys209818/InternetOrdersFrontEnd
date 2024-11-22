@@ -3,11 +3,12 @@ type ButtonType = {
     background?: 'transparent' | 'white' | 'black';
     image?: string;
     sizeBtn?: 'huge' | 'small';
-    additionalImage?: 'google' | 'instagram' | '';
+    additionalImage?: 'google' | 'instagram' | 'clock' | 'card' | '';
     type?: "button" | "submit" | "reset" | undefined;
     onClickHandler?: () => void;
     disabled?: boolean;
     isBackWhite?: boolean; 
+    widthFull?: boolean; 
 }
 
 export const Button:React.FC<ButtonType> = ({ 
@@ -18,7 +19,7 @@ export const Button:React.FC<ButtonType> = ({
     additionalImage = '',
     type = 'button',
     disabled = false,
-    isBackWhite = false,
+    widthFull = false,
     onClickHandler,
 }) => {
 
@@ -44,8 +45,18 @@ export const Button:React.FC<ButtonType> = ({
         instagram: {
             additionalImage: "bg-[url('/src/images/InstagramWhite.svg')]",
             additionalImageBlack: "bg-[url('/src/images/Instagram.svg')]"
+        },
+        clock: {
+            additionalImage: "bg-clock_fill",
+            additionalImageBlack: "bg-clock_fill",
+        },
+        card: {
+            additionalImage: 'bg-creditCard',
+            additionalImageBlack: 'bg-creditCard'
         }
     };
+
+    const widthStyles = widthFull ? 'w-full' : 'max-w-[464px]';
 
     const btnStyle = `
         relative 
@@ -61,8 +72,8 @@ export const Button:React.FC<ButtonType> = ({
         duration-300 
         ease-in-out 
         group
-        max-w-[464px]
         group
+        ${widthStyles}
         ${btnStyles[sizeBtn]}
         ${btnStyles[background].background} 
         ${btnStyles[background].color}
