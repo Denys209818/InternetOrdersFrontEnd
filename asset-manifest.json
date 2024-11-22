@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/InternetOrdersFrontEnd/static/css/main.8c16f556.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.aae49dfa.js",
+    "main.css": "/InternetOrdersFrontEnd/static/css/main.fa1d5f1c.css",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.4a7a10e0.js",
     "static/js/900.f65767fe.chunk.js": "/InternetOrdersFrontEnd/static/js/900.f65767fe.chunk.js",
     "static/js/32.4dfeecf4.chunk.js": "/InternetOrdersFrontEnd/static/js/32.4dfeecf4.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
     "static/js/450.d0ae6e10.chunk.js": "/InternetOrdersFrontEnd/static/js/450.d0ae6e10.chunk.js",
-    "static/js/608.b3fa1094.chunk.js": "/InternetOrdersFrontEnd/static/js/608.b3fa1094.chunk.js",
+    "static/js/401.7a227ff1.chunk.js": "/InternetOrdersFrontEnd/static/js/401.7a227ff1.chunk.js",
+    "static/js/588.97fcdd64.chunk.js": "/InternetOrdersFrontEnd/static/js/588.97fcdd64.chunk.js",
     "static/js/636.d1b1dfd7.chunk.js": "/InternetOrdersFrontEnd/static/js/636.d1b1dfd7.chunk.js",
     "static/js/524.061b1784.chunk.js": "/InternetOrdersFrontEnd/static/js/524.061b1784.chunk.js",
     "static/js/111.97519f88.chunk.js": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js",
@@ -43,6 +44,7 @@
     "static/media/TimeLi.svg": "/InternetOrdersFrontEnd/static/media/TimeLi.66f20c1fcc2635e5d676.svg",
     "static/media/PieChartLi.svg": "/InternetOrdersFrontEnd/static/media/PieChartLi.acfe755e5dae17de941e.svg",
     "static/media/Plate.svg": "/InternetOrdersFrontEnd/static/media/Plate.883e9f01bf5142ef3a64.svg",
+    "static/media/Clock_fill.svg": "/InternetOrdersFrontEnd/static/media/Clock_fill.4aa7a8a996cada60d1e1.svg",
     "static/media/closeIcon.svg": "/InternetOrdersFrontEnd/static/media/closeIcon.2791559aacff61e43e98.svg",
     "static/media/TelegramWhite.svg": "/InternetOrdersFrontEnd/static/media/TelegramWhite.ae96d92d684359274789.svg",
     "static/media/Telegram.svg": "/InternetOrdersFrontEnd/static/media/Telegram.7a18008802e5dbc3707a.svg",
@@ -51,6 +53,7 @@
     "static/media/Basket.svg": "/InternetOrdersFrontEnd/static/media/Basket.45abe2723869aec2145e.svg",
     "static/media/ChatLi.svg": "/InternetOrdersFrontEnd/static/media/ChatLi.342ef713758e511b79bb.svg",
     "static/media/Trash.svg": "/InternetOrdersFrontEnd/static/media/Trash.acb37faf32b37e0963de.svg",
+    "static/media/CreditCard.svg": "/InternetOrdersFrontEnd/static/media/CreditCard.85e4988d95267dd72cb8.svg",
     "static/media/Menu.svg": "/InternetOrdersFrontEnd/static/media/Menu.3ccb3498df9d03bdb1ab.svg",
     "static/media/Close_square.svg": "/InternetOrdersFrontEnd/static/media/Close_square.d0261c0d790063ab2e8d.svg",
     "static/media/Arrow_drop_down.svg": "/InternetOrdersFrontEnd/static/media/Arrow_drop_down.dc6edf7831e56fb361c0.svg",
@@ -60,19 +63,20 @@
     "static/media/Minus.svg": "/InternetOrdersFrontEnd/static/media/Minus.f2a3eac064fb09dc218d.svg",
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
-    "main.8c16f556.css.map": "/InternetOrdersFrontEnd/static/css/main.8c16f556.css.map",
-    "main.aae49dfa.js.map": "/InternetOrdersFrontEnd/static/js/main.aae49dfa.js.map",
+    "main.fa1d5f1c.css.map": "/InternetOrdersFrontEnd/static/css/main.fa1d5f1c.css.map",
+    "main.4a7a10e0.js.map": "/InternetOrdersFrontEnd/static/js/main.4a7a10e0.js.map",
     "900.f65767fe.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.f65767fe.chunk.js.map",
     "32.4dfeecf4.chunk.js.map": "/InternetOrdersFrontEnd/static/js/32.4dfeecf4.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
     "450.d0ae6e10.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.d0ae6e10.chunk.js.map",
-    "608.b3fa1094.chunk.js.map": "/InternetOrdersFrontEnd/static/js/608.b3fa1094.chunk.js.map",
+    "401.7a227ff1.chunk.js.map": "/InternetOrdersFrontEnd/static/js/401.7a227ff1.chunk.js.map",
+    "588.97fcdd64.chunk.js.map": "/InternetOrdersFrontEnd/static/js/588.97fcdd64.chunk.js.map",
     "636.d1b1dfd7.chunk.js.map": "/InternetOrdersFrontEnd/static/js/636.d1b1dfd7.chunk.js.map",
     "524.061b1784.chunk.js.map": "/InternetOrdersFrontEnd/static/js/524.061b1784.chunk.js.map",
     "111.97519f88.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8c16f556.css",
-    "static/js/main.aae49dfa.js"
+    "static/css/main.fa1d5f1c.css",
+    "static/js/main.4a7a10e0.js"
   ]
 }
