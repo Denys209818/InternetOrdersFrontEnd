@@ -28,7 +28,7 @@ export const CatalogPage: React.FC = () => {
     return (
         <main className="relative pt-[90px] bg-[#FFE9DE]">
             <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
-                <Button image="Back.svg" hasGreenBack background="transparent" onClickHandler={() => navigate(-1)} />
+                <Button image="back" background="transparent" onClickHandler={() => navigate(-1)} />
             </section>
 
             <section className={`max-w-[1440px] pt-3 m-auto ${sectionStyles}`}>

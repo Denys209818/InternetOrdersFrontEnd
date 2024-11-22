@@ -35,7 +35,7 @@ export const MaskedInput = IMaskMixin(({ inputRef, ...props }) => {
                     text-input
                     text-[#525A63]
                     pointer-events-none
-                    duration-300
+                    duration-75
                     ${divStyles}
                 `}>
                     {placeholder}
@@ -57,6 +57,7 @@ export const MaskedInput = IMaskMixin(({ inputRef, ...props }) => {
                         "text-input " +
                         "text-[#525A63] " +
                         "outline-none " +
+                        "duration-75 " +
                         "focus:border-2 focus:border-black ",
                         { 'border-2 border-[#E4E7EE]': !isInvalid },
                         { 'border-2 border-[#B20508]': isInvalid }

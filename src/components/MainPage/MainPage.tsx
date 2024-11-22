@@ -3,15 +3,18 @@ import * as Styles from './styles';
 import CardMenu from '../custom/CardMenu';
 import Button from '../custom/Button';
 import LiItem from '../custom/LiItem';
+import { useNavigate } from 'react-router-dom';
 
 export const MainPage: React.FC = () => {
+    const navigate = useNavigate();
+    
     const sectionStyles = `
         ${Styles.sectionLargeStyle}
         ${Styles.sectionPhoneStyle}
         ${Styles.sectionSmallphoneStyle}
         ${Styles.sectionStyle}
         ${Styles.sectionTabletStyle}
-        `;
+    `;
 
     const { 
         forkBlue, 
@@ -86,7 +89,12 @@ export const MainPage: React.FC = () => {
                 <CardMenu title='Млинці' type='cakes' />
 
                 <div className='flex justify-center min-[744px]:col-start-4 min-[744px]:col-end-10 col-span-4 py-16'>
-                    <Button title='Перейти до меню' background='black' sizeBtn='huge'/>
+                    <Button
+                        title='Перейти до меню'
+                        background='black'
+                        sizeBtn='huge'
+                        onClickHandler={() => navigate('/menu')}
+                    />
                 </div>
             </div>
         </section>

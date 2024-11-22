@@ -157,7 +157,7 @@ const AuthPage: React.FC = () => {
     }
     >
         <section>
-            <Button image="Back.svg" background="transparent" onClickHandler={goBack} />
+            <Button image="back" background="transparent" onClickHandler={goBack} hasGreenBack />
         </section>
 
         <section>

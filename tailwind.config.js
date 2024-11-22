@@ -57,6 +57,9 @@ module.exports = {
         'clock_fill': "url('/src/images/Clock_fill.svg')",
         'creditCard': "url('/src/images/CreditCard.svg')",
         'creditCardSilver': "url('/src/images/CreditCardSilver.svg')",
+        'minusDisabled': "url('/src/images/Minus-disabled.svg')",
+        'plusBlack': "url('/src/images/PlusBlack.svg')",
+        'checkPointDisabled': "url('/src/images/CheckPointDisabled.svg')",
       },
       paddingBottom: {
         '40%': '40%',

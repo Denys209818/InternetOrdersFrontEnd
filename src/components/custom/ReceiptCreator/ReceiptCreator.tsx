@@ -101,7 +101,7 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
                                         text-cardPropPC
                                         font-literata
                                     `}>
-                                        +{item.price}грн
+                                        +{item.price} грн
                                     </span>
                                 </p> 
                             </li>
@@ -132,7 +132,7 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
                 <div className="block">
                     <p className="flex justify-end items-end gap-2 w-full text-right">
                         <span className="block text-cook text-[#1F2933] font-lato">Разом: </span>
-                        <span className="block text-cardPrice text-[#1F2933] font-literata italic">{sum}грн</span>
+                        <span className="block text-cardPrice text-[#1F2933] font-literata italic">{sum} грн</span>
                     </p>
                 </div>
 

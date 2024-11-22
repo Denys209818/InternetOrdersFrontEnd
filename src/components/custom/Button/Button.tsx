@@ -1,7 +1,7 @@
 type ButtonType = {
     title?: string;
     background?: 'transparent' | 'white' | 'black';
-    image?: string;
+    image?: 'back' | 'plus' | 'minus' | '';
     sizeBtn?: 'huge' | 'small';
     additionalImage?: 'google' | 'instagram' | 'clock' | 'card' | '';
     type?: "button" | "submit" | "reset" | undefined;
@@ -10,6 +10,7 @@ type ButtonType = {
     isBackWhite?: boolean; 
     widthFull?: boolean; 
     hasGreenBack?:boolean;
+    hasSmallerSize?:boolean;
 }
 
 export const Button:React.FC<ButtonType> = ({ 
@@ -22,6 +23,7 @@ export const Button:React.FC<ButtonType> = ({
     disabled = false,
     widthFull = false,
     hasGreenBack = false,
+    hasSmallerSize = false,
     onClickHandler,
 }) => {
 
@@ -39,7 +41,7 @@ export const Button:React.FC<ButtonType> = ({
             color: 'text-black',
         },
         huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} w-full hover:bg-[#BBEE85]`,
-        small: `size-10 ${hasGreenBack ? 'hover:border-[#BBEE85]' : 'hover:border-white'}`,
+        small: `${hasSmallerSize ? 'size-8' : 'size-10'} hover:bg-[#BBEE85] ${hasGreenBack ? 'hover:border-white' : ''}`,
         google: {
             additionalImage: "bg-[url('/src/images/EnterIcon.svg')]",
             additionalImageBlack: "bg-[url('/src/images/EnterIcon.svg')]",
@@ -59,7 +61,22 @@ export const Button:React.FC<ButtonType> = ({
             additionalImage: 'bg-creditCard',
             additionalImageBlack: 'bg-creditCard',
             additionalImageDisabled: "bg-creditCardSilver",
-        }
+        },
+        plus: {
+            additionalImage: 'bg-plus',
+            additionalImageBlack: 'bg-plusBlack',
+            additionalImageDisabled: "bg-plus",
+        },
+        back: {
+            additionalImage: "bg-[url('/src/images/Back.svg')]",
+            additionalImageBlack: hasGreenBack ? "bg-[url('/src/images/Back-hover.svg')]" : "bg-[url('/src/images/Back.svg')]",
+            additionalImageDisabled: "bg-[url('/src/images/Back.svg')]",
+        },
+        minus: {
+            additionalImage: 'bg-minus',
+            additionalImageBlack: 'bg-minus',
+            additionalImageDisabled: "bg-minusDisabled",
+        },
     };
 
     const widthStyles = widthFull ? 'w-full' : 'max-w-[464px]';
@@ -96,10 +113,6 @@ export const Button:React.FC<ButtonType> = ({
         ${btnStyles[background].background} 
         ${btnStyles[background].color}
     `;
-
-    const hoverStyleBtnSmall = hasGreenBack ? 
-        "bg-[url('/src/images/Back-hover-green.svg')]" : 
-        "bg-[url('/src/images/Back-hover.svg')]";
 
     return (<button
         type={type}
@@ -154,7 +167,7 @@ export const Button:React.FC<ButtonType> = ({
             </div>
         )}
 
-        {image && (<>
+        {image && !disabled && (<>
             <div className={`
                 absolute 
                 top-[50%]
@@ -164,7 +177,7 @@ export const Button:React.FC<ButtonType> = ({
                 -translate-y-1/2
                 block 
                 size-6 
-                bg-[url('/src/images/Back.svg')] 
+                ${btnStyles[image].additionalImage}
                 bg-cover
                 transition duration-300 ease-in-out
                 opacity-100
@@ -179,9 +192,9 @@ export const Button:React.FC<ButtonType> = ({
                 transform 
                 -translate-x-1/2 
                 -translate-y-1/2
-                block 
+                block
                 size-6 
-                ${hoverStyleBtnSmall}
+                ${btnStyles[image].additionalImageBlack}
                 bg-cover
                 transition duration-300 ease-in-out
                 opacity-0
@@ -189,5 +202,21 @@ export const Button:React.FC<ButtonType> = ({
                 `}>
             </div>
         </>)}
+
+        {image && disabled && (
+            <div className={`
+                absolute 
+                top-[50%]
+                left-[50%]
+                transform 
+                -translate-x-1/2 
+                -translate-y-1/2
+                block 
+                size-6 
+                ${btnStyles[image].additionalImageDisabled}
+                bg-cover
+                `}>
+            </div>
+        )}
     </button>);
 }

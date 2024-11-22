@@ -76,10 +76,9 @@ export const OrderPage = () => {
     return (<main className="relative pt-[90px] bg-[#FFE9DE]">
         <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
             <Button
-                image="Back.svg"
+                image="back"
                 background="transparent"
                 onClickHandler={() => navigate(-1)}
-                hasGreenBack
             />
         </section>
 

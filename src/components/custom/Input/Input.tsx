@@ -39,7 +39,7 @@ export const Input: React.FC<InputType> = ({ type, placeholder, name, value, set
                 text-input
                 text-[#525A63]
                 pointer-events-none
-                duration-300
+                duration-75
                 ${divStyles}
             `}>
                 {placeholder}
@@ -62,7 +62,7 @@ export const Input: React.FC<InputType> = ({ type, placeholder, name, value, set
                     "text-input " +
                     "text-[#525A63] " +
                     "outline-none " +
-                    "duration-300 " +
+                    "duration-75 " +
                     "autofill:bg-yellow-200 autofill:text-[#525A63] ",
                     "focus:border-2 focus:border-black ", 
                     { 'border-2 border-[#E4E7EE]' : !isInvalid },

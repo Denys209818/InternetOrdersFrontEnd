@@ -83,6 +83,7 @@ export const IngredientList: React.FC<IngredientListType> = ({ title, options, a
                         </p>
 
                         <CheckBox
+                            disabled={opt.disabled}
                             active={(activeCheck.includes(opt.id.toString()) || opt.disabled === true)}
                             setActive={() => setActiveCheckHandler(opt.id)}
                         />

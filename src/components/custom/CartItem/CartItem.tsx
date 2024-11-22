@@ -1,3 +1,5 @@
+import Button from "../Button";
+
 export type CartItemType = {
     id: number;
     imageUrl: string;
@@ -60,24 +62,26 @@ export const CartItem: React.FC<CartItemType> = ({
                 </div>
 
                 <div className="relative flex gap-4 justify-end">
-                    <button
+                    <Button
+                        sizeBtn="small"
+                        background="white"
                         disabled={count === 1}
-                        className="flex justify-center items-center border size-8 outline-none bg-white"
-                        onClick={decreaseCount}
-                    >
-                        <div className="block bg-center size-6 bg-minus"></div>
-                    </button>
+                        onClickHandler={decreaseCount}
+                        image="minus"
+                        hasSmallerSize
+                    />
 
                     <div className="flex justify-center items-center">
                         <p className="block h-8 text-cartCountText font-lato">{count}</p>
                     </div>
 
-                    <button
-                        className="flex justify-center items-center border size-8 outline-none bg-black"
-                        onClick={increaseCount}
-                    >
-                        <div className="block bg-center size-6 bg-plus"></div>
-                    </button>
+                    <Button
+                        sizeBtn="small"
+                        background="black"
+                        onClickHandler={increaseCount}
+                        image="plus"
+                        hasSmallerSize
+                    />
                 </div>
 
                 <div className="flex justify-end">
