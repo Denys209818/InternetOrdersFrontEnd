@@ -262,6 +262,10 @@ module.exports = {
           lineHeight: '17.6px',
           fontWeight: '400',
         }],
+        inputPlaceholder: ['12px', {
+          lineHeight: '13.2px',
+          fontWeight: '400',
+        }],
         required: ['16px', {
           lineHeight: '17.6px',
           fontWeight: '500',
