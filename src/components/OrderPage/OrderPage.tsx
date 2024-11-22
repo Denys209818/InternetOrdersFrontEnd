@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../custom/Button';
 import * as Styles from '../MainPage/styles';
 import Input from '../custom/Input';
-import { useState } from 'react';
+import { ComponentType, useRef, useState } from 'react';
 import MaskedInput from '../custom/MaskedInput';
 import * as Yup from 'yup';
 import { orderSchema } from './validation/orderValidation';
@@ -12,6 +12,8 @@ import { OrderItemType } from '../custom/OrderItem/OrderItem';
 import { getRandomInt } from '../../tools/randomFunc';
 
 export const OrderPage = () => {
+    const maskRef = useRef(null);
+
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
     const [phone, setPhone] = useState('');
@@ -146,12 +148,25 @@ export const OrderPage = () => {
                                 />
 
                                 <MaskedInput
-                                    value={phone}
+                                    ref={maskRef}
                                     placeholder="Телефон"
                                     type="text"
                                     name="phone"
                                     mask={"+38 000 000 00 00"}
-                                    setValue={(arg: string) => { setPhone(arg); discardErrors('phone'); }}
+                                    onAccept={(value: string, mask: any) => {
+                                        setPhone(value);
+                                        discardErrors('phone');
+
+                                        mask.updateValue();
+                                    }}
+                                    onClickHandler={() => {
+                                        if (maskRef.current && !phone) {
+                                            const maskElement = maskRef.current as any;
+                                            maskElement.maskRef.value = '+38 ';
+                                            maskElement.maskRef.updateValue();
+                                        }
+                                    }}
+                                    isEmpty={phone.length === 0}
                                     errors={authErrors.phone || []}
                                 />
                             </div>

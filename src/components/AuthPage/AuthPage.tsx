@@ -18,24 +18,25 @@ export type ModeType = 'login' | 'register' | 'phone';
 const AuthPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [authErrors, setAuthErrors] = useState<{[key: string]: string[]}>({});
+    const [authErrors, setAuthErrors] = useState<{ [key: string]: string[] }>({});
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
     const [phone, setPhone] = useState('');
 
     const modalRef = useRef<ModalRefType>();
+    const maskRef = useRef(null);
 
     const navigate = useNavigate();
-    
+
     const auth = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
 
     const { modeType } = useParams();
-    
-    const mode: ModeType = 
+
+    const mode: ModeType =
         (modeType !== 'login'
-        && modeType !== 'register'
-        && modeType !== 'phone') ? 'login' : modeType as ModeType;
+            && modeType !== 'register'
+            && modeType !== 'phone') ? 'login' : modeType as ModeType;
 
     const bottomLinkStyles = 'block font-medium font-lato text-xl';
     const bottomLinkStylesTablet = 'min-[375px]:block min-[375px]:font-lato';
@@ -72,17 +73,17 @@ const AuthPage: React.FC = () => {
                     email,
                     password
                 }, { abortEarly: false });
-                
+
                 if (modalRef.current) {
                     modalRef.current.showModal({
                         title: "З поверненням!",
-                        leftBtnText: "Переглянути профіль", 
+                        leftBtnText: "Переглянути профіль",
                         rightBtnText: "Перейти до замовлення"
                     });
                 }
-    
+
                 dispatch(LoginAction(validatedData));
-            } 
+            }
             else if (mode === 'register') {
                 const validatedData = await registerSchema.validate({
                     email,
@@ -94,7 +95,7 @@ const AuthPage: React.FC = () => {
                 navigate('../phone');
 
                 // dispatch(RegisterAction(validatedData));
-            } 
+            }
             else if (mode === 'phone') {
                 const validatedData = await loginSchema.validate({
                     firstName,
@@ -104,19 +105,19 @@ const AuthPage: React.FC = () => {
                 });
 
                 const unmaskedValue = phone.replace(/\D/g, '').slice(2);
-                
+
                 if (unmaskedValue.length === 10 && modalRef.current) {
                     modalRef.current.showModal({
                         title: "Успіх! Картопля фрі в доступі",
                         description: "Ви успішно зареєструвались! Тепер ви можете користуватися усіма перевагами вашого акаунта.",
-                        leftBtnText: "Переглянути профіль", 
+                        leftBtnText: "Переглянути профіль",
                         rightBtnText: "Перейти до замовлення"
                     });
                 }
             }
 
-        } catch(err: any) {
-            const errors: {[key: string]: string[]} = {};
+        } catch (err: any) {
+            const errors: { [key: string]: string[] } = {};
 
             err.inner.forEach((item: Yup.ValidationError) => {
                 if (item.path) {
@@ -153,8 +154,8 @@ const AuthPage: React.FC = () => {
         pt-[72px]
         w-full
         `
-        }
-        >
+    }
+    >
         <section>
             <Button image="Back.svg" background="transparent" onClickHandler={goBack} />
         </section>
@@ -173,7 +174,7 @@ const AuthPage: React.FC = () => {
                     ${Styles.smallphoneGridContainerStyle}
                     ${Styles.phoneGridContainerStyle} 
                     ${Styles.tabletGridContainerStyle}`}
-                    >
+                >
                     <h1 className={`
                         ${Styles.titleStyle}
                         ${Styles.largeTitleStyle}
@@ -203,51 +204,64 @@ const AuthPage: React.FC = () => {
                             ${Styles.smallphoneFormStyle}
                             `}>
                             {mode === 'register' && (<>
-                            <Input
-                                value={firstName}
-                                placeholder="Ім'я"
-                                type="text"
-                                name="firstName"
-                                setValue={(arg) => { setFirstName(arg); discardErrors('firstName'); }}
-                                errors={authErrors.firstName || []}
-                            />
+                                <Input
+                                    value={firstName}
+                                    placeholder="Ім'я"
+                                    type="text"
+                                    name="firstName"
+                                    setValue={(arg) => { setFirstName(arg); discardErrors('firstName'); }}
+                                    errors={authErrors.firstName || []}
+                                />
 
-                            <Input
-                                value={secondName}
-                                placeholder="Прізвище"
-                                type="text"
-                                name="secondName"
-                                setValue={(arg) => { setSecondName(arg); discardErrors('secondName'); }}
-                                errors={authErrors.secondName || []}
-                            /></>)}
+                                <Input
+                                    value={secondName}
+                                    placeholder="Прізвище"
+                                    type="text"
+                                    name="secondName"
+                                    setValue={(arg) => { setSecondName(arg); discardErrors('secondName'); }}
+                                    errors={authErrors.secondName || []}
+                                /></>)}
 
                             {mode !== 'phone' && <>
-                            <Input
-                                value={email}
-                                placeholder="Електронна пошта"
-                                type="text"
-                                name="email"
-                                setValue={(arg) => { setEmail(arg); discardErrors('email'); }}
-                                errors={authErrors.email || []}
-                            />
+                                <Input
+                                    value={email}
+                                    placeholder="Електронна пошта"
+                                    type="text"
+                                    name="email"
+                                    setValue={(arg) => { setEmail(arg); discardErrors('email'); }}
+                                    errors={authErrors.email || []}
+                                />
 
-                            <Input
-                                value={password}
-                                placeholder="Пароль"
-                                type="password"
-                                name="password"
-                                setValue={(arg) => { setPassword(arg); discardErrors('password'); }}
-                                errors={authErrors.password || []}
-                            /></>}
+                                <Input
+                                    value={password}
+                                    placeholder="Пароль"
+                                    type="password"
+                                    name="password"
+                                    setValue={(arg) => { setPassword(arg); discardErrors('password'); }}
+                                    errors={authErrors.password || []}
+                                /></>}
 
                             {mode === 'phone' && (
                                 <MaskedInput
-                                    value={phone}
+                                    ref={maskRef}
                                     placeholder="Телефон"
                                     type="text"
                                     name="phone"
                                     mask={"+38 000 000 00 00"}
-                                    setValue={(arg: string) => { setPhone(arg); discardErrors('phone'); }}
+                                    onAccept={(value: string, mask: any) => {
+                                        setPhone(value);
+                                        discardErrors('phone');
+
+                                        mask.updateValue();
+                                    }}
+                                    onClickHandler={() => {
+                                        if (maskRef.current && !phone) {
+                                            const maskElement = maskRef.current as any;
+                                            maskElement.maskRef.value = '+38 ';
+                                            maskElement.maskRef.updateValue();
+                                        }
+                                    }}
+                                    isEmpty={phone.length === 0}
                                     errors={authErrors.phone || []}
                                 />
                             )}
@@ -273,19 +287,19 @@ const AuthPage: React.FC = () => {
                             ${Styles.smallphoneBtnStyle}
                             `}>
                             {(mode === 'login' || mode === 'register') && <>
-                            <Button
-                                title="Продовжити"
-                                type="submit"
-                                sizeBtn="huge"
-                                background="black"
-                            />
+                                <Button
+                                    title="Продовжити"
+                                    type="submit"
+                                    sizeBtn="huge"
+                                    background="black"
+                                />
 
-                            <Button
-                                title="Увійти з"
-                                sizeBtn="huge"
-                                background="white"
-                                additionalImage="google"
-                            />
+                                <Button
+                                    title="Увійти з"
+                                    sizeBtn="huge"
+                                    background="white"
+                                    additionalImage="google"
+                                />
                             </>}
 
                             {mode === 'phone' && (
