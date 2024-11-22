@@ -129,7 +129,7 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
         close: 'animate-closing',
     };
 
-    const emptyStyles = isEmpty ? 'justify-end pb-[10px]' : 'border-t';
+    const emptyStyles = isEmpty ? 'justify-end pb-[10px]' : 'border-t border-[#CBD2D9]';
 
     return (
         <aside className="fixed z-50 top-0 left-0 size-full bg-[#0000008f]">
@@ -173,7 +173,7 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                         ))}
 
                         <div className="flex flex-col gap-1 border-t border-[#CBD2D9]">
-                            <p className="block pt-1 font-lato text-cartText">Ще щось? З цим часто замовляють:</p>
+                            <p className="block pt-4 font-lato text-cartText">Ще щось? З цим часто замовляють:</p>
 
                             <ul className="flex flex-col gap-2 pt-2">
                                 {options.map(opt => (
@@ -241,11 +241,13 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                             background="black"
                             title={isEmpty ? "Перейти до меню" : "Оформити замовлення"}
                             onClickHandler={() => {
+                                setCurrentState('close');
+                                setTimeout(close, 450);
+                                
                                 if (isEmpty) {
-                                    setCurrentState('close');
-                                    setTimeout(close, 450);
-
                                     navigate('/menu');
+                                } else {
+                                    navigate('/order');
                                 }
                             }}
                         />

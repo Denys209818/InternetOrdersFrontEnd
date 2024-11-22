@@ -73,7 +73,12 @@ export const OrderPage = () => {
 
     return (<main className="relative pt-[90px] bg-[#FFE9DE]">
         <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
-            <Button image="Back.svg" background="transparent" onClickHandler={() => navigate(-1)} />
+            <Button
+                image="Back.svg"
+                background="transparent"
+                onClickHandler={() => navigate(-1)}
+                hasGreenBack
+            />
         </section>
 
         <section className={`max-w-[1440px] pt-3 m-auto ${sectionStyles}`}>
@@ -91,7 +96,7 @@ export const OrderPage = () => {
             <div className='grid grid-cols-12 gap-x-5 gap-y-10'>
                 <div className='flex flex-col gap-10 min-[1000px]:col-span-5 col-span-12'>
                     <div className="block p-6 border-2">
-                        <h2 className='font-lato text-orderAuthTitle'>Зареєструйтесь або увійдіть</h2>
+                        <h2 className='font-lato text-orderAuthLinePhone min-[744px]:text-orderAuthTitle'>Зареєструйтесь або увійдіть</h2>
                         <p className='block pt-2 font-lato text-[#525A63] min-[744px]:text-orderAuthDesc text-orderAuthDescPhone'>
                             Щоб отримати знижки, збереження історії замовлень, швидкий доступ до профілю та відстеження замовлень
                         </p>
@@ -204,7 +209,7 @@ export const OrderPage = () => {
                                         additionalImage='card'
                                     />
 
-                                    <p className='block font-lato text-[#525A63] min-[744px]:text-orderAuthDesc text-orderAuthDescPhone'>
+                                    <p className='block pt-2 font-lato text-[#525A63] min-[744px]:text-orderAuthDesc text-orderAuthDescPhone'>
                                         Вибачте, але оплата онлайн поки що недоступна. Ми працюємо над цим. Дякуємо за розуміння!
                                     </p>
                                 </div>

@@ -15,6 +15,7 @@ module.exports = {
         'back': "url('/src/images/Back.svg')",
         'right': "url('/src/images/Right.svg')",
         'backhover': "url('/src/images/Back-hover.svg')",
+        'backhovergreen': "url('/src/images/Back-hover-green.svg')",
         'patato': "url('/src/images/Patato.svg')",
         'enter': "url('/src/images/EnterIcon.svg')",
         'hend': "url('/src/images/Hendcheese.svg')",
@@ -55,6 +56,7 @@ module.exports = {
         'plate': "url('/src/images/Plate.svg')",
         'clock_fill': "url('/src/images/Clock_fill.svg')",
         'creditCard': "url('/src/images/CreditCard.svg')",
+        'creditCardSilver': "url('/src/images/CreditCardSilver.svg')",
       },
       paddingBottom: {
         '40%': '40%',

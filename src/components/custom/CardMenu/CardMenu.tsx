@@ -73,7 +73,7 @@ export const CardMenu:React.FC<CardMenuType> = ({ title, type, tabletHuge = fals
                     `}></div>
             </div>
 
-            <div className={`flex items-center py-4 ${img[type].pLeft} gap-x-2 border-t-2 border-black ` + img[type].color}>
+            <div className={`flex items-center py-2 min-[744px]:py-4 ${img[type].pLeft} gap-x-2 border-t-2 border-black ` + img[type].color}>
                 <h3 className={`
                     block
                     font-literata

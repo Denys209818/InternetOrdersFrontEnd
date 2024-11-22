@@ -71,7 +71,7 @@ export const Card: React.FC<CardType> = ({ title, options, imageSrc }) => {
                             text-cardPricePC
                             font-literata
                         `}>
-                            {opt.optionPrice}грн
+                            {opt.optionPrice} грн
                         </p>
                     </div>
                 ))}

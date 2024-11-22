@@ -9,6 +9,7 @@ type ButtonType = {
     disabled?: boolean;
     isBackWhite?: boolean; 
     widthFull?: boolean; 
+    hasGreenBack?:boolean;
 }
 
 export const Button:React.FC<ButtonType> = ({ 
@@ -20,6 +21,7 @@ export const Button:React.FC<ButtonType> = ({
     type = 'button',
     disabled = false,
     widthFull = false,
+    hasGreenBack = false,
     onClickHandler,
 }) => {
 
@@ -37,26 +39,44 @@ export const Button:React.FC<ButtonType> = ({
             color: 'text-black',
         },
         huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} w-full hover:bg-[#BBEE85]`,
-        small: "size-10 hover:border-white",
+        small: `size-10 ${hasGreenBack ? 'hover:border-[#BBEE85]' : 'hover:border-white'}`,
         google: {
             additionalImage: "bg-[url('/src/images/EnterIcon.svg')]",
-            additionalImageBlack: "bg-[url('/src/images/EnterIcon.svg')]"
+            additionalImageBlack: "bg-[url('/src/images/EnterIcon.svg')]",
+            additionalImageDisabled: "bg-[url('/src/images/EnterIcon.svg')]",
         },
         instagram: {
             additionalImage: "bg-[url('/src/images/InstagramWhite.svg')]",
-            additionalImageBlack: "bg-[url('/src/images/Instagram.svg')]"
+            additionalImageBlack: "bg-[url('/src/images/Instagram.svg')]",
+            additionalImageDisabled: "bg-[url('/src/images/Instagram.svg')]",
         },
         clock: {
             additionalImage: "bg-clock_fill",
             additionalImageBlack: "bg-clock_fill",
+            additionalImageDisabled: "bg-clock_fill",
         },
         card: {
             additionalImage: 'bg-creditCard',
-            additionalImageBlack: 'bg-creditCard'
+            additionalImageBlack: 'bg-creditCard',
+            additionalImageDisabled: "bg-creditCardSilver",
         }
     };
 
     const widthStyles = widthFull ? 'w-full' : 'max-w-[464px]';
+
+    const disabledStyles = background === 'black' ?
+        `
+            disabled:bg-[#9AA5B1]
+            disabled:border-0
+            disabled:hover:text-white
+        ` :
+        `
+            disabled:bg-transparent
+            disabled:border-2
+            disabled:border-[#9AA5B1]
+            disabled:hover:text-[#9AA5B1]
+            disabled:text-[#9AA5B1]
+        `;
 
     const btnStyle = `
         relative 
@@ -66,18 +86,20 @@ export const Button:React.FC<ButtonType> = ({
         outline-black
         min-[744px]:col-span-1 
         min-[375px]:col-span-2 
-        disabled:border-0
-        disabled:bg-[#9AA5B1] 
         transition 
         duration-300 
         ease-in-out 
         group
-        group
         ${widthStyles}
+        ${disabledStyles} 
         ${btnStyles[sizeBtn]}
         ${btnStyles[background].background} 
         ${btnStyles[background].color}
     `;
+
+    const hoverStyleBtnSmall = hasGreenBack ? 
+        "bg-[url('/src/images/Back-hover-green.svg')]" : 
+        "bg-[url('/src/images/Back-hover.svg')]";
 
     return (<button
         type={type}
@@ -91,7 +113,7 @@ export const Button:React.FC<ButtonType> = ({
                     {title}
                 </p>
 
-                {additionalImage && <div className="relative block size-6">
+                {additionalImage && !disabled && <div className="relative block size-6">
                     <div className={`
                         absolute
                         top-[1px]
@@ -116,6 +138,19 @@ export const Button:React.FC<ButtonType> = ({
                         group-hover:opacity-100
                     `}></div>
                 </div>}
+
+                {additionalImage && disabled && (
+                    <div className="relative block size-6"> 
+                        <div className={`
+                           absolute
+                           top-[1px]
+                           block
+                           size-full
+                           ${btnStyles[additionalImage].additionalImageDisabled}
+                           bg-cover
+                        `}></div>
+                    </div>
+                )}
             </div>
         )}
 
@@ -146,7 +181,7 @@ export const Button:React.FC<ButtonType> = ({
                 -translate-y-1/2
                 block 
                 size-6 
-                bg-[url('/src/images/Back-hover.svg')] 
+                ${hoverStyleBtnSmall}
                 bg-cover
                 transition duration-300 ease-in-out
                 opacity-0
