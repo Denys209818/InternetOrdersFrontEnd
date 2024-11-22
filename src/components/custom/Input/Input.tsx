@@ -19,9 +19,14 @@ export const Input: React.FC<InputType> = ({ type, placeholder, name, value, set
 
     const isEmpty = value.length === 0;
 
-    const divStyles = !isEmpty ? 'text-inputPlaceholder top-2 translate-y-0' : `group-focus-within:text-inputPlaceholder
+    const divStyles = !isEmpty ? 'text-inputPlaceholder top-2 left-6 translate-y-0' : `
+            top-[50%]
+            translate-y-[-50%]
+            left-6
+            group-focus-within:text-inputPlaceholder
             group-focus-within:top-2
-            group-focus-within:translate-y-0`;
+            group-focus-within:translate-y-0
+        `;
     const inputStyles = !isEmpty ? 'pb-2 pt-6' : 'group-focus-within:pb-2 group-focus-within:pt-6';
 
     return (
@@ -29,9 +34,6 @@ export const Input: React.FC<InputType> = ({ type, placeholder, name, value, set
         <div className='relative group'>
             <p className={`
                 absolute
-                top-[50%]
-                translate-y-[-50%]
-                left-6
                 block
                 font-lato
                 text-input
