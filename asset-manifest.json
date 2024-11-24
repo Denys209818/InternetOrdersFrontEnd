@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/InternetOrdersFrontEnd/static/css/main.e1ce4c88.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.6eed6ead.js",
+    "main.css": "/InternetOrdersFrontEnd/static/css/main.b9d4733e.css",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.8f8225fd.js",
     "static/js/900.13e4ca44.chunk.js": "/InternetOrdersFrontEnd/static/js/900.13e4ca44.chunk.js",
-    "static/js/32.cbde4e65.chunk.js": "/InternetOrdersFrontEnd/static/js/32.cbde4e65.chunk.js",
+    "static/js/108.2a1e0d72.chunk.js": "/InternetOrdersFrontEnd/static/js/108.2a1e0d72.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
     "static/js/450.417fc5bf.chunk.js": "/InternetOrdersFrontEnd/static/js/450.417fc5bf.chunk.js",
     "static/js/401.2869d372.chunk.js": "/InternetOrdersFrontEnd/static/js/401.2869d372.chunk.js",
@@ -51,6 +51,8 @@
     "index.html": "/InternetOrdersFrontEnd/index.html",
     "static/media/Eye.svg": "/InternetOrdersFrontEnd/static/media/Eye.2c25f8e2d6c3f2084b27.svg",
     "static/media/Basket.svg": "/InternetOrdersFrontEnd/static/media/Basket.45abe2723869aec2145e.svg",
+    "static/media/Basket_fill-black.svg": "/InternetOrdersFrontEnd/static/media/Basket_fill-black.45abe2723869aec2145e.svg",
+    "static/media/Basket_fill.svg": "/InternetOrdersFrontEnd/static/media/Basket_fill.b35424b1615a06fcd557.svg",
     "static/media/ChatLi.svg": "/InternetOrdersFrontEnd/static/media/ChatLi.342ef713758e511b79bb.svg",
     "static/media/Trash.svg": "/InternetOrdersFrontEnd/static/media/Trash.acb37faf32b37e0963de.svg",
     "static/media/CreditCard.svg": "/InternetOrdersFrontEnd/static/media/CreditCard.85e4988d95267dd72cb8.svg",
@@ -67,10 +69,10 @@
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "static/media/CheckPointDisabled.svg": "/InternetOrdersFrontEnd/static/media/CheckPointDisabled.cbc6107852260bbb6dc4.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
-    "main.e1ce4c88.css.map": "/InternetOrdersFrontEnd/static/css/main.e1ce4c88.css.map",
-    "main.6eed6ead.js.map": "/InternetOrdersFrontEnd/static/js/main.6eed6ead.js.map",
+    "main.b9d4733e.css.map": "/InternetOrdersFrontEnd/static/css/main.b9d4733e.css.map",
+    "main.8f8225fd.js.map": "/InternetOrdersFrontEnd/static/js/main.8f8225fd.js.map",
     "900.13e4ca44.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.13e4ca44.chunk.js.map",
-    "32.cbde4e65.chunk.js.map": "/InternetOrdersFrontEnd/static/js/32.cbde4e65.chunk.js.map",
+    "108.2a1e0d72.chunk.js.map": "/InternetOrdersFrontEnd/static/js/108.2a1e0d72.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
     "450.417fc5bf.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.417fc5bf.chunk.js.map",
     "401.2869d372.chunk.js.map": "/InternetOrdersFrontEnd/static/js/401.2869d372.chunk.js.map",
@@ -80,7 +82,7 @@
     "111.97519f88.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1ce4c88.css",
-    "static/js/main.6eed6ead.js"
+    "static/css/main.b9d4733e.css",
+    "static/js/main.8f8225fd.js"
   ]
 }
