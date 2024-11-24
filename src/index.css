@@ -8,6 +8,17 @@
 
 html {
     height: 100%;
+
+    scrollbar-width: thin;
+    scrollbar-color: #cccccc #f1f1f1;
+}
+
+html:hover {
+  scrollbar-color: #BBEE85 #f1f1f1;
+}
+
+html:active {
+  scrollbar-color: #A8D678 #f1f1f1;
 }
 
 body {
