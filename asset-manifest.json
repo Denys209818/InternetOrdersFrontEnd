@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/InternetOrdersFrontEnd/static/css/main.81ce9602.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.2f5a7967.js",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.da734c1f.js",
     "static/js/900.13e4ca44.chunk.js": "/InternetOrdersFrontEnd/static/js/900.13e4ca44.chunk.js",
-    "static/js/108.50ff1140.chunk.js": "/InternetOrdersFrontEnd/static/js/108.50ff1140.chunk.js",
+    "static/js/108.5d5ca3ee.chunk.js": "/InternetOrdersFrontEnd/static/js/108.5d5ca3ee.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
     "static/js/450.417fc5bf.chunk.js": "/InternetOrdersFrontEnd/static/js/450.417fc5bf.chunk.js",
     "static/js/401.2869d372.chunk.js": "/InternetOrdersFrontEnd/static/js/401.2869d372.chunk.js",
@@ -70,9 +70,9 @@
     "static/media/CheckPointDisabled.svg": "/InternetOrdersFrontEnd/static/media/CheckPointDisabled.cbc6107852260bbb6dc4.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
     "main.81ce9602.css.map": "/InternetOrdersFrontEnd/static/css/main.81ce9602.css.map",
-    "main.2f5a7967.js.map": "/InternetOrdersFrontEnd/static/js/main.2f5a7967.js.map",
+    "main.da734c1f.js.map": "/InternetOrdersFrontEnd/static/js/main.da734c1f.js.map",
     "900.13e4ca44.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.13e4ca44.chunk.js.map",
-    "108.50ff1140.chunk.js.map": "/InternetOrdersFrontEnd/static/js/108.50ff1140.chunk.js.map",
+    "108.5d5ca3ee.chunk.js.map": "/InternetOrdersFrontEnd/static/js/108.5d5ca3ee.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
     "450.417fc5bf.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.417fc5bf.chunk.js.map",
     "401.2869d372.chunk.js.map": "/InternetOrdersFrontEnd/static/js/401.2869d372.chunk.js.map",
@@ -83,6 +83,6 @@
   },
   "entrypoints": [
     "static/css/main.81ce9602.css",
-    "static/js/main.2f5a7967.js"
+    "static/js/main.da734c1f.js"
   ]
 }
