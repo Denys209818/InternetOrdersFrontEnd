@@ -1,7 +1,7 @@
 type ButtonType = {
     title?: string;
     background?: 'transparent' | 'white' | 'black';
-    image?: 'back' | 'plus' | 'minus' | '';
+    image?: 'back' | 'plus' | 'minus' | 'cake' | '';
     sizeBtn?: 'huge' | 'small';
     additionalImage?: 'google' | 'instagram' | 'clock' | 'card' | '';
     type?: "button" | "submit" | "reset" | undefined;
@@ -10,6 +10,7 @@ type ButtonType = {
     isBackWhite?: boolean; 
     widthFull?: boolean; 
     hasGreenBack?:boolean;
+    hasMaxWidth?: boolean;
     hasSmallerSize?:boolean;
 }
 
@@ -24,6 +25,7 @@ export const Button:React.FC<ButtonType> = ({
     widthFull = false,
     hasGreenBack = false,
     hasSmallerSize = false,
+    hasMaxWidth = false,
     onClickHandler,
 }) => {
 
@@ -41,7 +43,11 @@ export const Button:React.FC<ButtonType> = ({
             color: 'text-black',
         },
         huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} w-full hover:bg-[#BBEE85]`,
-        small: `${hasSmallerSize ? 'size-8' : 'size-10'} hover:bg-[#BBEE85] ${hasGreenBack ? 'hover:border-white' : ''}`,
+        small: `
+            ${hasSmallerSize ? 'size-8' : (hasMaxWidth ? 'size-[56px] min-w-[56px]' : 'size-10')}
+            hover:bg-[#BBEE85]
+            ${hasGreenBack ? 'hover:border-white' : ''}
+        `,
         google: {
             additionalImage: "bg-[url('/src/images/EnterIcon.svg')]",
             additionalImageBlack: "bg-[url('/src/images/EnterIcon.svg')]",
@@ -76,6 +82,11 @@ export const Button:React.FC<ButtonType> = ({
             additionalImage: 'bg-minus',
             additionalImageBlack: 'bg-minus',
             additionalImageDisabled: "bg-minusDisabled",
+        },
+        cake: {
+            additionalImage: 'bg-basket',
+            additionalImageBlack: 'bg-basketblack',
+            additionalImageDisabled: "bg-basket",
         },
     };
 

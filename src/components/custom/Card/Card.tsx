@@ -7,9 +7,10 @@ export type CardType = {
     title: string;
     imageSrc: string;
     options: Option[];
+    onClickHandler?: () => void;
 };
 
-export const Card: React.FC<CardType> = ({ title, options, imageSrc }) => {
+export const Card: React.FC<CardType> = ({ title, options, imageSrc, onClickHandler }) => {
     return (
     <div className={`
         block
@@ -19,7 +20,9 @@ export const Card: React.FC<CardType> = ({ title, options, imageSrc }) => {
         border-2
         overflow-hidden
         rounded-t-2xl
-        `}>
+        `}
+        onClick={onClickHandler}
+        >
         <div className="relative w-full pb-[105.6%] overflow-hidden">
             <img
                 src={imageSrc}

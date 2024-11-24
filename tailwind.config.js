@@ -60,6 +60,8 @@ module.exports = {
         'minusDisabled': "url('/src/images/Minus-disabled.svg')",
         'plusBlack': "url('/src/images/PlusBlack.svg')",
         'checkPointDisabled': "url('/src/images/CheckPointDisabled.svg')",
+        'basket': "url('/src/images/Basket_fill.svg')",
+        'basketblack': "url('/src/images/Basket_fill-black.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -131,6 +133,10 @@ module.exports = {
           lineHeight: '17.6px',
           fontWeight: '700',
         }],
+        cardItemInner: ['16px', {
+          lineHeight: '17.6px',
+          fontWeight: '600',
+        }],
         cartTitle: [
           '24px', {
             lineHeight: '26.4px',
@@ -154,6 +160,20 @@ module.exports = {
           '24px', {
             lineHeight: '28.8px',
             fontWeight: '500',
+            letterSpacing: '-0.48px'
+          }
+        ],
+        cardModalMainTitle: [
+          '32px', {
+            lineHeight: '38.4px',
+            fontWeight: '700',
+            letterSpacing: '-0.48px'
+          }
+        ],
+        cardModalMainTitlePhone: [
+          '24px', {
+            lineHeight: '28.8px',
+            fontWeight: '700',
             letterSpacing: '-0.48px'
           }
         ],
@@ -451,6 +471,7 @@ module.exports = {
         '-40px': '-40px',
         '72px': '72px',
         '328px': '328px',
+        'cardModal-height': 'calc(100% - 56px)',
         'cart-height': 'calc(100% - 56px)',
         'cart-content-height': 'calc(100% - 118px)',
         'aside-height': 'calc(100% - 48px)',

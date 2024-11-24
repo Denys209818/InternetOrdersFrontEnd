@@ -4,15 +4,18 @@ import * as Styles from '../MainPage/styles';
 import { Card, CardType } from "../custom/Card/Card";
 import Receipt from "../custom/Receipt";
 import { ReceiptType } from "../custom/Receipt/Receipt";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Loader from "../custom/Loader/Loader";
 import cardData from './data/cardData.json';
+import CardModal from "../custom/CardModal";
 
 type LoaderData = {
     data: Promise<ReceiptType[]>;
 }
 
 export const CatalogPage: React.FC = () => {
+    const [open, setOpen] = useState(false);
+
     const sectionStyles = `
         ${Styles.sectionLargeStyle}
         ${Styles.sectionPhoneStyle}
@@ -27,6 +30,8 @@ export const CatalogPage: React.FC = () => {
 
     return (
         <main className="relative pt-[90px] bg-[#FFE9DE]">
+            {open && <CardModal close={() => setOpen(false)} />}
+
             <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
                 <Button image="back" background="transparent" onClickHandler={() => navigate(-1)} />
             </section>
@@ -49,6 +54,10 @@ export const CatalogPage: React.FC = () => {
                         <Card
                             key={el.imageSrc}
                             {...(el as CardType)}
+                            onClickHandler={() => {
+                                window.scrollTo(0, 0);
+                                setOpen(true);
+                            }}
                         />
                     ))}
                 </div>

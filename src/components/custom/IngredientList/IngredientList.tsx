@@ -14,16 +14,6 @@ export type IngredientListType = {
 export const IngredientList: React.FC<IngredientListType> = ({ title, options, allowMultiple = false, addToWish }) => {
     const [activeCheck, setActiveCheck] = useState<String>('');
 
-    // useEffect(() =>  {
-    //     if (allowMultiple) {
-    //         setActiveCheck('');
-    //     } else {
-    //         if (options[0]) {
-    //            setActiveCheck(options[0].id.toString());
-    //         }
-    //     }
-    // }, [allowMultiple, options]);
-
     const setActiveCheckHandler = (id: number) => {
         const activeOption = options.find(el => el.id === id);
         const prevOption = options.find(el => el.id === parseInt(activeCheck.toString()));
