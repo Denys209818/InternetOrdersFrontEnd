@@ -138,14 +138,12 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
         }
     }, []);
 
-    const topQuality = `${window.scrollY}px`;
-
     return createPortal(
-        <dialog 
-        style={{ top: topQuality }}
+        <dialog
         className={`
-            absolute
+            fixed
             z-50
+            top-0
             left-0
             grid
             grid-cols-12
@@ -174,6 +172,7 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                     size-full
                     min-[1440px]:h-[580px]
                     min-[1440px]:px-8
+                    max-[743px]:overflow-auto
                 `}>
                     <div className={`
                         hidden
@@ -200,9 +199,10 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                         border-l-0
                         min-[1440px]:border-r-2
                         border-r-0
-                        overflow-hidden
+                        h-full
+                        min-[744px]:overflow-hidden
                     `}>
-                        <div className="block size-full bg-white max-[743px]:overflow-auto max-[743px]:max-h-[100%]">
+                        <div className="flex flex-col size-full bg-white">
                             <div className="block h-[56px] w-full bg-[#FFB040] border-b-2">
                                 <div className="flex h-full justify-between items-center pl-4">
                                     <h3 className={`
@@ -244,6 +244,7 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                                 min-[744px]:h-cardModal-height
                                 min-[1440px]:max-h-[524px]
                                 min-[744px]:overflow-auto
+                                min-[744px]:max-h-[100%]
                             `}>
                                 <div>
                                     <h4
