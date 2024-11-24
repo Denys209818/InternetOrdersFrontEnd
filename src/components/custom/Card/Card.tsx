@@ -20,6 +20,8 @@ export const Card: React.FC<CardType> = ({ title, options, imageSrc, onClickHand
         border-2
         overflow-hidden
         rounded-t-2xl
+        hover:cursor-pointer
+        group
         `}
         onClick={onClickHandler}
         >
@@ -34,8 +36,7 @@ export const Card: React.FC<CardType> = ({ title, options, imageSrc, onClickHand
                     size-full 
                     object-cover 
                     duration-150 
-                    hover:scale-125 
-                    cursor-pointer
+                    group-hover:scale-125 
                 `}
             />
         </div>

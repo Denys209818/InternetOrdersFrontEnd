@@ -138,11 +138,14 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
         }
     }, []);
 
+    const topQuality = `${window.scrollY}px`;
+
     return createPortal(
-        <dialog className={`
+        <dialog 
+        style={{ top: topQuality }}
+        className={`
             absolute
             z-50
-            inset-0
             left-0
             grid
             grid-cols-12

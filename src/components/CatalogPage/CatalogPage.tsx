@@ -55,7 +55,7 @@ export const CatalogPage: React.FC = () => {
                             key={el.imageSrc}
                             {...(el as CardType)}
                             onClickHandler={() => {
-                                window.scrollTo(0, 0);
+                                // window.scrollTo(0, 0);
                                 setOpen(true);
                             }}
                         />
