@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/InternetOrdersFrontEnd/static/css/main.b9d4733e.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.8f8225fd.js",
+    "main.css": "/InternetOrdersFrontEnd/static/css/main.f33955ad.css",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.9a7b67b4.js",
     "static/js/900.13e4ca44.chunk.js": "/InternetOrdersFrontEnd/static/js/900.13e4ca44.chunk.js",
-    "static/js/108.2a1e0d72.chunk.js": "/InternetOrdersFrontEnd/static/js/108.2a1e0d72.chunk.js",
+    "static/js/108.bd7e7c6b.chunk.js": "/InternetOrdersFrontEnd/static/js/108.bd7e7c6b.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
     "static/js/450.417fc5bf.chunk.js": "/InternetOrdersFrontEnd/static/js/450.417fc5bf.chunk.js",
     "static/js/401.2869d372.chunk.js": "/InternetOrdersFrontEnd/static/js/401.2869d372.chunk.js",
@@ -69,10 +69,10 @@
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "static/media/CheckPointDisabled.svg": "/InternetOrdersFrontEnd/static/media/CheckPointDisabled.cbc6107852260bbb6dc4.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
-    "main.b9d4733e.css.map": "/InternetOrdersFrontEnd/static/css/main.b9d4733e.css.map",
-    "main.8f8225fd.js.map": "/InternetOrdersFrontEnd/static/js/main.8f8225fd.js.map",
+    "main.f33955ad.css.map": "/InternetOrdersFrontEnd/static/css/main.f33955ad.css.map",
+    "main.9a7b67b4.js.map": "/InternetOrdersFrontEnd/static/js/main.9a7b67b4.js.map",
     "900.13e4ca44.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.13e4ca44.chunk.js.map",
-    "108.2a1e0d72.chunk.js.map": "/InternetOrdersFrontEnd/static/js/108.2a1e0d72.chunk.js.map",
+    "108.bd7e7c6b.chunk.js.map": "/InternetOrdersFrontEnd/static/js/108.bd7e7c6b.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
     "450.417fc5bf.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.417fc5bf.chunk.js.map",
     "401.2869d372.chunk.js.map": "/InternetOrdersFrontEnd/static/js/401.2869d372.chunk.js.map",
@@ -82,7 +82,7 @@
     "111.97519f88.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9d4733e.css",
-    "static/js/main.8f8225fd.js"
+    "static/css/main.f33955ad.css",
+    "static/js/main.9a7b67b4.js"
   ]
 }
