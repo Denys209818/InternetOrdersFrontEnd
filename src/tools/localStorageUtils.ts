@@ -1,7 +1,7 @@
 import { DishCart } from "../redux/types/dishTypes"
 
 export const addCartItem = (dish: DishCart) => {
-    const cart = (JSON.parse(localStorage.getItem('cart') || '') || []) as DishCart[];
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]') as DishCart[];
 
     cart.push(dish);
 
@@ -31,5 +31,7 @@ export const editCartItem = (id: string, payload: number) => {
 }
 
 export const getAllCartItems = () => {
-    return (JSON.parse(localStorage.getItem('cart') || '') || []) as DishCart[]
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+    return cart as DishCart[]
 }
