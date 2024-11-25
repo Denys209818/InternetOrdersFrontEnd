@@ -1,14 +1,23 @@
-import { Provider } from "react-redux";
+import { useEffect } from "react";
 import { Root } from "./Root";
-import { store } from "./redux/store";
 import './index.css';
+import { useAppDispatch } from "./redux/tools/hooks";
+import { getAllCartItems } from "./tools/localStorageUtils";
+import { DishCart } from "./redux/types/dishTypes";
+import { SetCartItemsAction } from "./actions/CartActions";
 
 
 const App = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const cartItems: DishCart[] = getAllCartItems();
+
+    dispatch(SetCartItemsAction(cartItems));
+  }, [dispatch]);
+
   return (
-    <Provider store={store}>
       <Root />
-    </Provider>
   );
 }
 

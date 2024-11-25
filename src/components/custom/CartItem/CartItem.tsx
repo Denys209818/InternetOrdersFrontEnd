@@ -1,7 +1,7 @@
 import Button from "../Button";
 
 export type CartItemType = {
-    id: number;
+    id: string;
     imageUrl: string;
     title: string; 
     price: number;

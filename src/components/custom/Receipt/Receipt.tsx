@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { faker } from '@faker-js/faker';
 import { useCallback, useMemo, useState } from "react";
 import { ReceiptCreator, ReceiptProp } from "../ReceiptCreator/ReceiptCreator";
 import { IngredientList, IngredientListType } from "../IngredientList/IngredientList";
@@ -28,6 +30,18 @@ export const Receipt: React.FC<ReceiptWrapper> = ({ data }) => {
         title: 'Не визначено',
         price: 0,
     });
+    const [catalogRecreate, setCatalogRecreate] = useState(false);
+
+    const resetProps = () => {
+        setSize({
+            id: -1,
+            title: 'Не визначено',
+            price: 0,
+        });
+
+        setChoosenProps([]);
+        setCatalogRecreate(prev => !prev);
+    }
 
     const addShawermaComponent = useCallback((prop: ReceiptProp) => {
         let isEdited = true;
@@ -81,20 +95,10 @@ export const Receipt: React.FC<ReceiptWrapper> = ({ data }) => {
 
     const catalogItems = useMemo(() => catalogCreator.map(catItem => (
         <IngredientList
-            key={catItem.title + getRandomInt(1, 1000)}
+            key={faker.string.uuid() + getRandomInt(1, 1000000)}
             {...catItem}
         />
-    )), [catalogCreator])
-
-    // useEffect(() => {
-    //     for (const catCr of catalogCreator) {
-    //         if (catCr.options.length > 0 && !catCr.allowMultiple) {
-    //             if (catCr.title || (catCr.options.length > 0 && catCr.options[0].isSize)) {
-    //                 addShawermaComponent(catCr.options[0]);
-    //             }
-    //         }
-    //     }
-    // }, [addShawermaComponent, catalogCreator]);
+    )), [catalogCreator, catalogRecreate])
 
 
     return (<div className="grid min-[744px]:grid-cols-12 grid-cols-4 min-[1440px]:gap-x-5 gap-x-4 gap-y-[52px]">
@@ -124,6 +128,7 @@ export const Receipt: React.FC<ReceiptWrapper> = ({ data }) => {
             <ReceiptCreator
                 size={size}
                 items={choosenProps}
+                reset={resetProps}
             />
         </div>
 

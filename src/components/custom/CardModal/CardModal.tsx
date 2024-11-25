@@ -7,60 +7,54 @@ import { getRandomInt } from "../../../tools/randomFunc";
 import { IngredientListType } from "../IngredientList/IngredientList";
 import { ReceiptProp } from "../ReceiptCreator/ReceiptCreator";
 import Button from "../Button";
+import { Dish, DishCart } from "../../../redux/types/dishTypes";
+import { AddToCartAction, ChangeCartItemAction } from "../../../actions/CartActions";
+import { useAppDispatch, useAppSelector } from "../../../redux/tools/hooks";
+import { faker } from "@faker-js/faker";
 
 export type CardModalType = {
+    dish: Dish;
     close: () => void;
 };
 
-export const CardModal: React.FC<CardModalType> = ({ close }) => {
+export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
+    const {
+        title,
+        addIngredientPriceOptions,
+        sizePriceOptions,
+        ingredientPriceOptions,
+        imageSrc
+    } = dish;
+
+    const dispatch = useAppDispatch();
+    const cartItems = useAppSelector(state => state.cart);
+
+    const [error, setError] = useState('');
+
     const data: Omit<IngredientListType, 'addToWish'>[] = useMemo(() => [
         {
             title: "",
             allowMultiple: false,
-            options: [
-            {
-                id: 1,
-                title: "Велика",
-                price: 50,
+            options: sizePriceOptions.map(item => ({
+                id: item.id,
+                title: item.title,
+                price: item.price,
                 isSize: true,
                 disabled: false
-            },
-            {
-                id: 2,
-                title: "Маленька",
-                price: 40,
-                isSize: true,
-                disabled: false
-            }
-            ]
+            })) as unknown as ReceiptProp[],
         },
         {
             title: "Ще щось?",
             allowMultiple: true,
-            options: [
-                {
-                    id: 11,
-                    title: "Кукурудза",
-                    price: 10,
-                    isSize: false,
-                    disabled: false
-                },
-                {
-                    id: 12,
-                    title: "Сир",
-                    price: 15,
-                    isSize: false,
-                    disabled: false
-                },
-                {
-                    id: 13,
-                    title: "Картопля фрі",
-                    price: 15,
-                    isSize: false,
-                    disabled: false
-                }]
+            options: addIngredientPriceOptions.map(item => ({
+                id: item.id,
+                title: item.title,
+                price: item.price,
+                isSize: false,
+                disabled: false
+            })) as unknown as ReceiptProp[],
         }
-    ], []);
+    ], [addIngredientPriceOptions, sizePriceOptions]);
 
     const [choosenProps, setChoosenProps] = useState<ReceiptProp[]>([]);
     const [size, setSize] = useState<ReceiptProp>({
@@ -110,6 +104,8 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
         return isEdited;
     }, []);
 
+    const totalPrice = size.price + choosenProps.reduce((prev, curr) => prev + curr.price, 0);
+
     const catalogCreator: IngredientListType[] = useMemo(() => {
         const catalogData:IngredientListType[] = [];
 
@@ -120,15 +116,43 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
             });
         }
 
-        return  catalogData;
+        return catalogData;
     }, [addShawermaComponent, data]);
 
     const catalogItems = useMemo(() => catalogCreator.map(catItem => (
         <IngredientList
-            key={catItem.title + getRandomInt(1, 1000)}
+            key={faker.string.uuid() + getRandomInt(1, 1000)}
             {...catItem}
         />
-    )), [catalogCreator])
+    )), [catalogCreator]);
+
+    const addToCart = () => {
+        if(size.id < 0) {
+            setError('Оберіть розмір!');
+
+            return;
+        }
+
+        const formedId = dish.title + dish.imageSrc + (dish.id * totalPrice);
+
+        const newItem: DishCart = {
+            id: formedId,
+            hashId: dish.id,
+            title: dish.title,
+            price: totalPrice,
+            count: 1,
+            additionalCount: choosenProps.length,
+            imageSrc: dish.imageSrc,
+        };
+
+        if (cartItems.find(el => el.id === formedId)) {
+            dispatch(ChangeCartItemAction({ id: formedId, payload: 1 }));
+        } else {
+            dispatch(AddToCartAction(newItem));
+        }
+
+        close();
+    }
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -183,8 +207,8 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                     `}>
                         <div className="relative size-full">
                             <img
-                                src="images/beaf.jpg"
-                                alt="beaf"
+                                src={imageSrc}
+                                alt={imageSrc}
                                 className="absolute top-0 left-0 size-full object-cover"
                             />
                         </div>
@@ -210,7 +234,7 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                                         min-[744px]:text-cardModalMainTitle
                                         text-cardModalMainTitlePhone
                                         font-literata
-                                    `}>Класична</h3>
+                                    `}>{title}</h3>
 
                                     <div className="relative size-14 flex justify-center items-center p-4">
                                         <div
@@ -228,8 +252,8 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                             `}>
                                 <div className="relative w-full h-[351px]">
                                     <img
-                                        src="images/beaf.jpg"
-                                        alt="beaf"
+                                        src={imageSrc}
+                                        alt={imageSrc}
                                         className="absolute top-0 left-0 size-full object-cover"
                                     />
                                 </div> 
@@ -259,31 +283,13 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                                     </h4>
 
                                     <ul className="flex flex-col pt-3 gap-2 list-none p-0">
-                                        <li>
-                                            <p className="font-lato text-[#525A63] text-cardItemInner">
-                                                Капуста, огірок, помідор
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p className="font-lato text-[#525A63] text-cardItemInner">
-                                                Класичний лаваш
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p className="font-lato text-[#525A63] text-cardItemInner">
-                                                Курка
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p className="font-lato text-[#525A63] text-cardItemInner">
-                                                Часниковий соус
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p className="font-lato text-[#525A63] text-cardItemInner">
-                                                Сир
-                                            </p>
-                                        </li>
+                                        {ingredientPriceOptions.map(ing => (
+                                            <li key={ing.id}>
+                                                <p className="font-lato text-[#525A63] text-cardItemInner">
+                                                    {ing.title}
+                                                </p>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
 
@@ -302,7 +308,7 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                                 <div>
                                     <p className="flex gap-2 justify-end items-center">
                                         <span className="font-lato text-cardItemInner text-[#1F2933]">Ціна</span>
-                                        <span className="font-literata text-cardPrice text-[#1F2933]">100 грн</span>
+                                        <span className="font-literata text-cardPrice text-[#1F2933]">{totalPrice} грн</span>
                                     </p>
 
                                     <div className="flex gap-2 pt-3">
@@ -319,8 +325,13 @@ export const CardModal: React.FC<CardModalType> = ({ close }) => {
                                             image="cake"
                                             sizeBtn="small"
                                             background="black"
+                                            onClickHandler={addToCart}
                                         />
                                     </div>
+
+                                    {error && <p className="pt-1 text-[#B20508] font-lato text-orderAuthDescPhone">
+                                        {error}
+                                    </p>}
                                 </div>
                             </div>
                         </div>

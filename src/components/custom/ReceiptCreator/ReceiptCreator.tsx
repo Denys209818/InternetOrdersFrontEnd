@@ -1,6 +1,10 @@
 import { useLayoutEffect, useState } from "react";
 import { getRandomInt } from "../../../tools/randomFunc";
 import Button from "../Button";
+import { useAppDispatch, useAppSelector } from "../../../redux/tools/hooks";
+import { ChangeCartItemAction, AddToCartAction } from "../../../actions/CartActions";
+import { DishCart } from "../../../redux/types/dishTypes";
+import { faker } from "@faker-js/faker";
 
 export type ReceiptProp = {
     id: number;
@@ -13,14 +17,49 @@ export type ReceiptProp = {
 export type ReceiptType = {
     size: ReceiptProp;
     items: ReceiptProp[];
+    reset: () => void;
 };
 
-export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
+export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items, reset }) => {
     const [sum, setSum] = useState(0);
+
+    const dispatch = useAppDispatch();
+    const cartItems = useAppSelector(state => state.cart);
 
     useLayoutEffect(() => {
         setSum(items.reduce((prev, curr) => prev + curr.price, 0) + size.price);
     }, [items, size]);
+
+    const handleClick = () => {
+        if(size.id < 0 || items.length === 0) {
+            return;
+        }
+
+        reset();
+
+        const formedId = faker.string.uuid();
+
+        const newItem: DishCart = {
+            id: formedId,
+            hashId: 0,
+            title: 'Мій рецепт',
+            price: sum,
+            count: 1,
+            additionalCount: items.length,
+            imageSrc: 'images/self-receipt.png',
+            components: items.map(el => ({
+                id: el.id,
+                title: el.title,
+                price: el.price
+            })),
+        };
+
+        if (cartItems.find(el => el.id === formedId)) {
+            dispatch(ChangeCartItemAction({ id: formedId, payload: 1 }));
+        } else {
+            dispatch(AddToCartAction(newItem));
+        }
+    }
 
     return (
     <div className="border-2 rounded-t-2xl">
@@ -143,6 +182,7 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items }) => {
                         sizeBtn="huge"
                         background="black"
                         isBackWhite
+                        onClickHandler={handleClick}
                     />
 
                     <p className="block pt-3 text-cook text-[#525A63] font-lato">

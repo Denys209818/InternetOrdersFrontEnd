@@ -3,6 +3,7 @@ import { reducer as authReducer } from "./reducers/AuthReducer";
 import { reducer as dishReducer } from "./reducers/DishReducer";
 import { reducer as ingredientReducer } from "./reducers/IngredientReducer";
 import { reducer as orderReducer } from "./reducers/OrderReducer";
+import { cartReducer } from "./reducers/CartReducer";
 
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
         dish: dishReducer,
         ingredient: ingredientReducer,
         order: orderReducer,
+        cart: cartReducer,
     }
 });
 

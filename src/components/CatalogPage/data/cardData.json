@@ -1,58 +1,262 @@
 [
     {
-    "title":"Класична",
-    "imageSrc":"images/classicial.jpg",
-    "options": [
-        {
-            "optionTitle": "Велика",
-            "optionPrice": 100
-        },
-        {
-            "optionTitle": "Маленька",
-            "optionPrice": 75
-        }
-    ]
+        "title": "Класична",
+        "imageSrc": "images/classicial.jpg",
+        "options": [
+            {
+                "id": 1,
+                "optionTitle": "Велика",
+                "optionPrice": 100
+            },
+            {
+                "id": 2,
+                "optionTitle": "Маленька",
+                "optionPrice": 75
+            }
+        ],
+        "defaultOptions": [
+            {
+                "id": 1,
+                "title": "Капуста, огірок, помідор",
+                "price": 15
+            },
+            {
+                "id": 2,
+                "title": "Класичний лаваш",
+                "price": 20
+            },
+            {
+                "id": 3,
+                "title": "Курка",
+                "price": 35
+            },
+            {
+                "id": 4,
+                "title": "Часниковий соус",
+                "price": 15
+            },
+            {
+                "id": 5,
+                "title": "Сир",
+                "price": 10
+            }
+        ],
+        "ingredOptions": [
+            {
+                "id": 20,
+                "title": "Подвійна курка",
+                "price": 15
+            },
+            {
+                "id": 21,
+                "title": "Кукурудза",
+                "price": 10
+            },
+            {
+                "id": 22,
+                "title": "Картопля фрі",
+                "price": 10
+            },
+            {
+                "id": 23,
+                "title": "Сир",
+                "price": 10
+            }
+        ]
     },
     {
-    "title":"З яловичиною",
-    "imageSrc":"images/beaf.jpg",
-    "options": [
-        {
-            "optionTitle": "Велика",
-            "optionPrice": 100
-        },
-        {
-            "optionTitle": "Маленька",
-            "optionPrice": 75
-        }
-    ]
+        "title": "З яловичиною",
+        "imageSrc": "images/beaf.jpg",
+        "options": [
+            {
+                "id": 1,
+                "optionTitle": "Велика",
+                "optionPrice": 100
+            },
+            {
+                "id": 2,
+                "optionTitle": "Маленька",
+                "optionPrice": 75
+            }
+        ],
+        "defaultOptions": [
+            {
+                "id": 19,
+                "title": "Капуста, огірок, помідор",
+                "price": 15
+            },
+            {
+                "id": 20,
+                "title": "Подвійна курка",
+                "price": 15
+            },
+            {
+                "id": 21,
+                "title": "Кукурудза",
+                "price": 10
+            },
+            {
+                "id": 22,
+                "title": "Картопля фрі",
+                "price": 10
+            },
+            {
+                "id": 23,
+                "title": "Сир",
+                "price": 10
+            }
+        ],
+        "ingredOptions": [
+            {
+                "id": 20,
+                "title": "Подвійна курка",
+                "price": 15
+            },
+            {
+                "id": 21,
+                "title": "Кукурудза",
+                "price": 10
+            },
+            {
+                "id": 22,
+                "title": "Картопля фрі",
+                "price": 10
+            },
+            {
+                "id": 23,
+                "title": "Сир",
+                "price": 10
+            }
+        ]
     },
     {
-    "title":"З ковбасками",
-    "imageSrc":"images/sausage.jpg",
-    "options": [
-        {
-            "optionTitle": "Велика",
-            "optionPrice": 100
-        },
-        {
-            "optionTitle": "Маленька",
-            "optionPrice": 75
-        }
-    ]
+        "title": "З ковбасками",
+        "imageSrc": "images/sausage.jpg",
+        "options": [
+            {
+                "id": 1,
+                "optionTitle": "Велика",
+                "optionPrice": 100
+            },
+            {
+                "id": 2,
+                "optionTitle": "Маленька",
+                "optionPrice": 75
+            }
+        ],
+        "defaultOptions": [
+            {
+                "id": 19,
+                "title": "Капуста, огірок, помідор",
+                "price": 15
+            },
+            {
+                "id": 20,
+                "title": "Подвійна курка",
+                "price": 15
+            },
+            {
+                "id": 21,
+                "title": "Кукурудза",
+                "price": 10
+            },
+            {
+                "id": 22,
+                "title": "Картопля фрі",
+                "price": 10
+            },
+            {
+                "id": 23,
+                "title": "Сир",
+                "price": 10
+            }
+        ],
+        "ingredOptions": [
+            {
+                "id": 20,
+                "title": "Подвійна курка",
+                "price": 15
+            },
+            {
+                "id": 21,
+                "title": "Кукурудза",
+                "price": 10
+            },
+            {
+                "id": 22,
+                "title": "Картопля фрі",
+                "price": 10
+            },
+            {
+                "id": 23,
+                "title": "Сир",
+                "price": 10
+            }
+        ]
     },
     {
-    "title":"З криветками",
-    "imageSrc":"images/shrimp.jpg",
-    "options": [
-        {
-            "optionTitle": "Велика",
-            "optionPrice": 100
-        },
-        {
-            "optionTitle": "Маленька",
-            "optionPrice": 75
-        }
-    ]
+        "title": "З криветками",
+        "imageSrc": "images/shrimp.jpg",
+        "options": [
+            {
+                "id": 1,
+                "optionTitle": "Велика",
+                "optionPrice": 100
+            },
+            {
+                "id": 2,
+                "optionTitle": "Маленька",
+                "optionPrice": 75
+            }
+        ],
+        "defaultOptions": [
+            {
+                "id": 19,
+                "title": "Капуста, огірок, помідор",
+                "price": 15
+            },
+            {
+                "id": 20,
+                "title": "Подвійна курка",
+                "price": 15
+            },
+            {
+                "id": 21,
+                "title": "Кукурудза",
+                "price": 10
+            },
+            {
+                "id": 22,
+                "title": "Картопля фрі",
+                "price": 10
+            },
+            {
+                "id": 23,
+                "title": "Сир",
+                "price": 10
+            }
+        ],
+        "ingredOptions": [
+            {
+                "id": 20,
+                "title": "Подвійна курка",
+                "price": 15
+            },
+            {
+                "id": 21,
+                "title": "Кукурудза",
+                "price": 10
+            },
+            {
+                "id": 22,
+                "title": "Картопля фрі",
+                "price": 10
+            },
+            {
+                "id": 23,
+                "title": "Сир",
+                "price": 10
+            }
+        ]
     }
 ]

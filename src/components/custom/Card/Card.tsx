@@ -1,12 +1,18 @@
+import { DishIngredient } from "../../../redux/types/dishTypes";
+
 type Option = {
+    id: number;
     optionTitle: string;
     optionPrice: string;
 };
 
 export type CardType = {
+    id: number;
     title: string;
     imageSrc: string;
     options: Option[];
+    defaultOptions: DishIngredient[];
+    ingredOptions: DishIngredient[];
     onClickHandler?: () => void;
 };
 

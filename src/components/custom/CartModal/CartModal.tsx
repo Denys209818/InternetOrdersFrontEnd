@@ -4,8 +4,9 @@ import { getRandomInt } from "../../../tools/randomFunc";
 import CheckBox from "../CheckBox";
 import { ReceiptProp } from "../ReceiptCreator/ReceiptCreator";
 import Button from "../Button";
-import { CartItemType } from "../CartItem/CartItem";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../redux/tools/hooks";
+import { ChangeCartItemAction, RemoveCartItemAction } from "../../../actions/CartActions";
 
 export type CartModalType = {
     close: () => void;
@@ -13,79 +14,34 @@ export type CartModalType = {
 };
 
 export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
+    const cartDishes = useAppSelector(state => state.cart);
+    const dispatch = useAppDispatch();
+
     const [activeCheck, setActiveCheck] = useState<String>('');
     const [currentState, setCurrentState] = useState(state);
-    const [cartItems, setCartItems] = useState<CartItemType[]>(
-        [
-            {
-                id: 1,
-                imageUrl:"images/classicial.jpg",
-                price: 100,
-                title:"Шаурма класична",
-                count: 1,
-                additionalsCount: 0,
-                increaseCount: () => increaseCount(1),
-                decreaseCount: () => decreaseCount(1),
-                removeItem: () => removeItem(1),
-            },
-            {
-                id: 2,
-                imageUrl:"images/self-receipt.png",
-                price: 100,
-                title:"Мій рецепт",
-                count: 1,
-                additionalsCount: 5,
-                increaseCount: () => increaseCount(2),
-                decreaseCount: () => decreaseCount(2),
-                removeItem: () => removeItem(2),
-            },
-        ]
-    );
     const [additionsPrice, setAdditionsPrice] = useState(0);
 
-    const isEmpty = cartItems.length === 0;
+    const isEmpty = cartDishes.length === 0;
 
     const navigate = useNavigate();
 
-    const increaseCount = (id: number) => {
-        setCartItems(prev => {
-            return prev.map(el => {
-                if (el.id === id) {
-                    return {
-                        ...el,
-                        count: el.count + 1
-                    };
-                }
-
-                return el;
-            });
-        });
+    const increaseCount = (id: string) => {
+        dispatch(ChangeCartItemAction({ id, payload: 1}));
     }
 
-    const decreaseCount = (id: number) => {
-        setCartItems(prev => {
-            return prev.map(el => {
-                if (el.id === id) {
-                    return {
-                        ...el,
-                        count: el.count - 1
-                    };
-                }
-
-                return el;
-            });
-        });
+    const decreaseCount = (id: string) => {
+        dispatch(ChangeCartItemAction({ id, payload: -1}));
     }
 
-    const removeItem = (id: number) => {
-        setCartItems(prev => prev.filter(el => el.id !== id));
+    const removeItem = (id: string) => {
+        dispatch(RemoveCartItemAction(id));
     }
 
     const totalPrice = useMemo(() => {
-        const productPrice = cartItems.reduce((prev, curr) => prev + curr.count * curr.price, 0);
+        const productPrice = cartDishes.reduce((prev, curr) => prev + curr.count * curr.price, 0);
 
         return productPrice + additionsPrice;
-    }, [cartItems, additionsPrice]);
+    }, [additionsPrice, cartDishes]);
 
     const options: Omit<Omit<ReceiptProp, "disabled">, "isSize">[] = [
         {
@@ -165,10 +121,18 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                 
                 <div className="flex flex-col justify-between w-full h-cart-height border-t bg-white">
                     {!isEmpty && <div className="flex flex-col max-h-cart-content-height overflow-y-auto gap-8 size-full py-6 px-4">
-                        {cartItems.map(item => (
+                        {cartDishes.map(item => (
                             <CartItem
                                 key={item.id}
-                                {...item}
+                                id={item.id}
+                                imageUrl={item.imageSrc}
+                                title={item.title}
+                                price={item.price}
+                                count={item.count}
+                                additionalsCount={item.additionalCount}
+                                increaseCount={() => increaseCount(item.id)}
+                                decreaseCount={() => decreaseCount(item.id)}
+                                removeItem={() => removeItem(item.id)}
                             />
                         ))}
 

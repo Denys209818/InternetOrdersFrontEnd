@@ -8,6 +8,7 @@ import { Suspense, useState } from "react";
 import Loader from "../custom/Loader/Loader";
 import cardData from './data/cardData.json';
 import CardModal from "../custom/CardModal";
+import { AdditionalDishIngredient, Dish, DishIngredient, DishSize } from "../../redux/types/dishTypes";
 
 type LoaderData = {
     data: Promise<ReceiptType[]>;
@@ -15,6 +16,7 @@ type LoaderData = {
 
 export const CatalogPage: React.FC = () => {
     const [open, setOpen] = useState(false);
+    const [currentDish, setCurrentDish] = useState<Dish|null>(null);
 
     const sectionStyles = `
         ${Styles.sectionLargeStyle}
@@ -25,12 +27,43 @@ export const CatalogPage: React.FC = () => {
     `;
 
     const { data } = useLoaderData() as LoaderData;
+    const cardItems = cardData;
 
     const navigate = useNavigate();
 
+    const onCardClickHandler = (el: CardType) => {
+        setOpen(true);
+        const dishSizes: DishSize[] = el.options.map(el => ({
+            id: el.id,
+            title: el.optionTitle,
+            price: el.optionPrice
+        } as unknown as DishSize));
+
+        const additionalItems = el.ingredOptions.map(item => ({
+            id: item.id,
+            title: item.title,
+            price: item.price
+        } as unknown as AdditionalDishIngredient));
+
+        const ingreds: DishIngredient[] = el.defaultOptions.map(item => ({
+            id: item.id,
+            title: item.title,
+            price: item.price
+        }));
+
+        setCurrentDish({
+            id: 1,
+            title: el.title,
+            sizePriceOptions: dishSizes,
+            ingredientPriceOptions: ingreds,
+            addIngredientPriceOptions: additionalItems,
+            imageSrc: el.imageSrc,
+        })
+    };
+
     return (
         <main className="relative pt-[90px] bg-[#FFE9DE]">
-            {open && <CardModal close={() => setOpen(false)} />}
+            {open && currentDish && <CardModal dish={currentDish} close={() => setOpen(false)} />}
 
             <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
                 <Button image="back" background="transparent" onClickHandler={() => navigate(-1)} />
@@ -50,14 +83,11 @@ export const CatalogPage: React.FC = () => {
                 <h3 className="text-headerLessTablet font-oswald uppercase font-medium">Обирай наші смаки</h3>
 
                 <div className="grid min-[744px]:grid-cols-12 grid-cols-4 gap-x-4 gap-y-6 pt-3">
-                    {(cardData as unknown as CardType[]).map(el => (
+                    {(cardItems as unknown as CardType[]).map(el => (
                         <Card
                             key={el.imageSrc}
                             {...(el as CardType)}
-                            onClickHandler={() => {
-                                // window.scrollTo(0, 0);
-                                setOpen(true);
-                            }}
+                            onClickHandler={() => onCardClickHandler(el)}
                         />
                     ))}
                 </div>
