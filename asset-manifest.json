@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/InternetOrdersFrontEnd/static/css/main.7fa51c1b.css",
-    "main.js": "/InternetOrdersFrontEnd/static/js/main.da734c1f.js",
+    "main.css": "/InternetOrdersFrontEnd/static/css/main.6290a516.css",
+    "main.js": "/InternetOrdersFrontEnd/static/js/main.3494d357.js",
     "static/js/900.13e4ca44.chunk.js": "/InternetOrdersFrontEnd/static/js/900.13e4ca44.chunk.js",
-    "static/js/108.5d5ca3ee.chunk.js": "/InternetOrdersFrontEnd/static/js/108.5d5ca3ee.chunk.js",
+    "static/js/108.272e3c32.chunk.js": "/InternetOrdersFrontEnd/static/js/108.272e3c32.chunk.js",
     "static/js/595.e01fa962.chunk.js": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js",
     "static/js/450.417fc5bf.chunk.js": "/InternetOrdersFrontEnd/static/js/450.417fc5bf.chunk.js",
-    "static/js/401.2869d372.chunk.js": "/InternetOrdersFrontEnd/static/js/401.2869d372.chunk.js",
+    "static/js/66.c90d754e.chunk.js": "/InternetOrdersFrontEnd/static/js/66.c90d754e.chunk.js",
     "static/js/588.dacf1759.chunk.js": "/InternetOrdersFrontEnd/static/js/588.dacf1759.chunk.js",
     "static/js/636.d1b1dfd7.chunk.js": "/InternetOrdersFrontEnd/static/js/636.d1b1dfd7.chunk.js",
     "static/js/524.061b1784.chunk.js": "/InternetOrdersFrontEnd/static/js/524.061b1784.chunk.js",
     "static/js/111.97519f88.chunk.js": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js",
+    "static/js/703.d75ed415.chunk.js": "/InternetOrdersFrontEnd/static/js/703.d75ed415.chunk.js",
     "static/media/new1.png": "/InternetOrdersFrontEnd/static/media/new1.7525d8b7118aed860c71.png",
     "static/media/Literata-Italic-VariableFont_opsz,wght.ttf": "/InternetOrdersFrontEnd/static/media/Literata-Italic-VariableFont_opsz,wght.1294ba5fe4da55d08142.ttf",
     "static/media/new3.png": "/InternetOrdersFrontEnd/static/media/new3.2973c3fca53c75b22505.png",
@@ -69,20 +70,21 @@
     "static/media/Back.svg": "/InternetOrdersFrontEnd/static/media/Back.c35345b00efda1cd56da.svg",
     "static/media/CheckPointDisabled.svg": "/InternetOrdersFrontEnd/static/media/CheckPointDisabled.cbc6107852260bbb6dc4.svg",
     "static/media/CheckPoint.svg": "/InternetOrdersFrontEnd/static/media/CheckPoint.7894dfc7da138156ec4c.svg",
-    "main.7fa51c1b.css.map": "/InternetOrdersFrontEnd/static/css/main.7fa51c1b.css.map",
-    "main.da734c1f.js.map": "/InternetOrdersFrontEnd/static/js/main.da734c1f.js.map",
+    "main.6290a516.css.map": "/InternetOrdersFrontEnd/static/css/main.6290a516.css.map",
+    "main.3494d357.js.map": "/InternetOrdersFrontEnd/static/js/main.3494d357.js.map",
     "900.13e4ca44.chunk.js.map": "/InternetOrdersFrontEnd/static/js/900.13e4ca44.chunk.js.map",
-    "108.5d5ca3ee.chunk.js.map": "/InternetOrdersFrontEnd/static/js/108.5d5ca3ee.chunk.js.map",
+    "108.272e3c32.chunk.js.map": "/InternetOrdersFrontEnd/static/js/108.272e3c32.chunk.js.map",
     "595.e01fa962.chunk.js.map": "/InternetOrdersFrontEnd/static/js/595.e01fa962.chunk.js.map",
     "450.417fc5bf.chunk.js.map": "/InternetOrdersFrontEnd/static/js/450.417fc5bf.chunk.js.map",
-    "401.2869d372.chunk.js.map": "/InternetOrdersFrontEnd/static/js/401.2869d372.chunk.js.map",
+    "66.c90d754e.chunk.js.map": "/InternetOrdersFrontEnd/static/js/66.c90d754e.chunk.js.map",
     "588.dacf1759.chunk.js.map": "/InternetOrdersFrontEnd/static/js/588.dacf1759.chunk.js.map",
     "636.d1b1dfd7.chunk.js.map": "/InternetOrdersFrontEnd/static/js/636.d1b1dfd7.chunk.js.map",
     "524.061b1784.chunk.js.map": "/InternetOrdersFrontEnd/static/js/524.061b1784.chunk.js.map",
-    "111.97519f88.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js.map"
+    "111.97519f88.chunk.js.map": "/InternetOrdersFrontEnd/static/js/111.97519f88.chunk.js.map",
+    "703.d75ed415.chunk.js.map": "/InternetOrdersFrontEnd/static/js/703.d75ed415.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fa51c1b.css",
-    "static/js/main.da734c1f.js"
+    "static/css/main.6290a516.css",
+    "static/js/main.3494d357.js"
   ]
 }
