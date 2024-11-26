@@ -12,6 +12,7 @@ type ButtonType = {
     hasGreenBack?:boolean;
     hasMaxWidth?: boolean;
     hasSmallerSize?:boolean;
+    isSelected?: boolean;
 }
 
 export const Button:React.FC<ButtonType> = ({ 
@@ -26,6 +27,7 @@ export const Button:React.FC<ButtonType> = ({
     hasGreenBack = false,
     hasSmallerSize = false,
     hasMaxWidth = false,
+    isSelected = false,
     onClickHandler,
 }) => {
 
@@ -39,7 +41,7 @@ export const Button:React.FC<ButtonType> = ({
             color: 'text-white hover:text-black',
         },
         white: {
-            background: 'bg-white',
+            background: `${isSelected ? 'bg-[#BBEE85]' : 'bg-white'}`,
             color: 'text-black',
         },
         huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} w-full hover:bg-[#BBEE85]`,
@@ -109,7 +111,7 @@ export const Button:React.FC<ButtonType> = ({
     const btnStyle = `
         relative 
         block 
-        border
+        border-2
         border-black
         outline-black
         min-[744px]:col-span-1 

@@ -7,6 +7,7 @@ import Button from "../Button";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../redux/tools/hooks";
 import { ChangeCartItemAction, RemoveCartItemAction } from "../../../actions/CartActions";
+import { addAdditionalsList, removeAdditionalsList } from "../../../actions/OrderActions";
 
 export type CartModalType = {
     close: () => void;
@@ -56,7 +57,7 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
         },
     ];
 
-    const setActiveCheckHandler = (id: number, price: number) => {
+    const setActiveCheckHandler = (id: number, price: number, title: string) => {
         const idString = id.toString();
 
         if (activeCheck.includes(idString)) {
@@ -65,12 +66,18 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
             setAdditionsPrice(prev => prev - price);
 
             setActiveCheck(prev => prev.slice(0, ind) + prev.slice(ind + 4));
+
+            dispatch(removeAdditionalsList(id));
         } else {
             setAdditionsPrice(prev => prev + price);
-
+            
             setActiveCheck(prev => prev + `[${idString}]`);
+            
+            dispatch(addAdditionalsList(id, price, title));
         }
     };
+
+    const order = useAppSelector(state => state.order);
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -79,6 +86,14 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
             document.body.style.overflow = "";
         }
     }, []);
+
+    useEffect(() => {
+        const check = order.additionalsList.reduce((prev, curr) => prev + `[${curr.id}]`, '');
+        setActiveCheck(check);
+
+        const price = order.additionalsList.reduce((prev, curr) => prev + curr.price, 0);
+        setAdditionsPrice(price);
+    }, [order]);
 
     const animationStep = {
         open: 'animate-moving',
@@ -157,7 +172,9 @@ export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
                                 
                                             <CheckBox
                                                 active={activeCheck.includes(opt.id.toString())}
-                                                setActive={() => setActiveCheckHandler(opt.id, opt.price)}
+                                                setActive={() => {
+                                                    setActiveCheckHandler(opt.id, opt.price, opt.title);
+                                                }}
                                             />
                                         </div>
                                     </li>

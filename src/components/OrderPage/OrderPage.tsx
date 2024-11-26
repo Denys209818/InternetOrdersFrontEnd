@@ -1,23 +1,31 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import Button from '../custom/Button';
 import * as Styles from '../MainPage/styles';
-import Input from '../custom/Input';
-import { ComponentType, useRef, useState } from 'react';
-import MaskedInput from '../custom/MaskedInput';
-import * as Yup from 'yup';
-import { orderSchema } from './validation/orderValidation';
 import OrderItem from '../custom/OrderItem';
 import { OrderItemType } from '../custom/OrderItem/OrderItem';
 import { getRandomInt } from '../../tools/randomFunc';
+import { useAppDispatch, useAppSelector } from '../../redux/tools/hooks';
+import ButtonGroup from '../custom/ButtonGroup';
+import TimeModal from '../custom/TimeModal';
+import { orderSchema } from "./validation/orderValidation";
+import Input from "../custom/Input";
+import MaskedInput from "../custom/MaskedInput";
+import { changeExpectationTime, clearOrder, setPaymentType } from "../../actions/OrderActions";
+import OrderModal from "../custom/OrderModal";
+import { ModalRefType } from "../custom/AuthModal/AuthModal";
 
 export const OrderPage = () => {
+    const modalRef = useRef<ModalRefType>();
     const maskRef = useRef(null);
+    const dispatch = useAppDispatch();
 
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
     const [phone, setPhone] = useState('');
-    const [authErrors, setAuthErrors] = useState<{[key: string]: string[]}>({});
+    const [authErrors, setAuthErrors] = useState<{ [key: string]: string[] }>({});
 
     const discardErrors = (type: string) => {
         setAuthErrors(prev => ({
@@ -26,33 +34,6 @@ export const OrderPage = () => {
         }));
     }
 
-    const orderItems: OrderItemType[] = [
-        {
-            title:'Шаурма класична',
-            price:100,
-            count: 1,
-            additionals: 0
-        },
-        {
-            title:'Шаурма “Мій рецепт”',
-            price: 110,
-            count: 1,
-            additionals: 5
-        },
-    ];
-
-    const totalPrice = orderItems.reduce((prev, curr) => prev + curr.count * curr.price, 0);
-
-    const sectionStyles = `
-    ${Styles.sectionLargeStyle}
-    ${Styles.sectionPhoneStyle}
-    ${Styles.sectionSmallphoneStyle}
-    ${Styles.sectionStyle}
-    ${Styles.sectionTabletStyle}
-    `;
-
-    const navigate = useNavigate();
-
     const formOrder = async () => {
         try {
             const validatedData = await orderSchema.validate({
@@ -60,8 +41,8 @@ export const OrderPage = () => {
                 secondName,
                 phone
             }, { abortEarly: false });
-        } catch(err: any) {
-            const errors: {[key: string]: string[]} = {};
+        } catch (err: any) {
+            const errors: { [key: string]: string[] } = {};
 
             err.inner.forEach((item: Yup.ValidationError) => {
                 if (item.path) {
@@ -73,7 +54,62 @@ export const OrderPage = () => {
         }
     }
 
+    const cartItems = useAppSelector(state => state.cart);
+    const order = useAppSelector(state => state.order);
+
+    const getValidExpectationTime = useCallback((timeType: string) => {
+        if (timeType === 'clear') {
+            return order.day && order.expectMinute && order.expectHour;
+        }
+
+        return true;
+    }, [order]);
+
+    const isValid = useMemo(() => {
+        return (firstName &&
+        secondName &&
+        phone.length === 17 && 
+        order.paymentType && 
+        order.expectationTimeType &&
+        getValidExpectationTime(order.expectationTimeType));
+    }, [firstName, secondName, phone.length, order.paymentType, order.expectationTimeType, getValidExpectationTime]);    
+
+    const orderItems: OrderItemType[] = cartItems.map(item => ({
+        title: item.title,
+        price: item.price,
+        count: item.count,
+        additionals: item.additionalCount
+    }));
+
+    const additionalItems: OrderItemType[] = order.additionalsList.map(item => ({
+        title: item.title,
+        price: item.price,
+        count: 1,
+        additionals: 0
+    }));
+
+    const totalPrice = orderItems.reduce((prev, curr) => prev + curr.count * curr.price, 0)
+        + additionalItems.reduce((prev, curr) => prev + curr.price, 0);
+
+    const sectionStyles = `
+    ${Styles.sectionLargeStyle}
+    ${Styles.sectionPhoneStyle}
+    ${Styles.sectionSmallphoneStyle}
+    ${Styles.sectionStyle}
+    ${Styles.sectionTabletStyle}
+    `;
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        return () => {
+            dispatch(clearOrder());
+        }
+    }, [dispatch]);
+
     return (<main className="relative pt-[90px] bg-[#FFE9DE]">
+        <OrderModal ref={modalRef} />
+
         <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
             <Button
                 image="back"
@@ -136,7 +172,7 @@ export const OrderPage = () => {
                                     setValue={(arg) => { setFirstName(arg); discardErrors('firstName'); }}
                                     errors={authErrors.firstName || []}
                                 />
-    
+
                                 <Input
                                     value={secondName}
                                     placeholder="Прізвище"
@@ -180,25 +216,27 @@ export const OrderPage = () => {
                                 Вкажіть час, на який бажаєте отримати замовлення
                             </p>
 
-                            <div className='flex flex-col pt-3 gap-3'>
-                                <div>
-                                    <Button title='По готовності' widthFull background='white' sizeBtn='huge' />
-
-                                    <p className='block font-lato pt-2 min-[744px]:text-orderAuthDesc text-orderAuthDescPhone text-[#1F2933]'>
-                                        Приблизно через 20-30 хвилин
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <Button
-                                        title='На конкретний час'
-                                        widthFull
-                                        background='white'
-                                        sizeBtn='huge'
-                                        additionalImage='clock'
-                                    />
-                                </div>
-                            </div>
+                            <ButtonGroup
+                                buttons={[
+                                    {
+                                        title: 'По готовності',
+                                        btnGroupName: 'free',
+                                        additionalText: 'Приблизно через 20-30 хвилин',
+                                        onClickHandler(arg: string) {
+                                            dispatch(changeExpectationTime(arg))
+                                        },
+                                    },
+                                    {
+                                        title: 'На конкретний час',
+                                        btnGroupName: 'clear',
+                                        additionalImage: 'clock',
+                                        hasModal: TimeModal,
+                                        onClickHandler(arg: string) {
+                                            dispatch(changeExpectationTime(arg))
+                                        },
+                                    },
+                                ]}
+                            />
                         </div>
 
                         <div className="block min-[744px]:col-span-7 col-span-12 min-[1000px]:col-span-12">
@@ -211,22 +249,24 @@ export const OrderPage = () => {
                             </p>
 
                             <div className='flex flex-col pt-3 gap-3'>
-                                <Button title='При отриманні' widthFull background='white' sizeBtn='huge' />
-                                
-                                <div>
-                                    <Button
-                                        title='Передоплата онлайн'
-                                        widthFull
-                                        background='white'
-                                        sizeBtn='huge'
-                                        disabled
-                                        additionalImage='card'
-                                    />
-
-                                    <p className='block pt-2 font-lato text-[#525A63] min-[744px]:text-orderAuthDesc text-orderAuthDescPhone'>
-                                        Вибачте, але оплата онлайн поки що недоступна. Ми працюємо над цим. Дякуємо за розуміння!
-                                    </p>
-                                </div>
+                                <ButtonGroup
+                                    buttons={[
+                                        {
+                                            title: 'При отриманні',
+                                            btnGroupName: 'giving',
+                                            onClickHandler(arg) {
+                                                dispatch(setPaymentType(arg))
+                                            }
+                                        },
+                                        {
+                                            title: 'Передоплата онлайн',
+                                            btnGroupName: 'online',
+                                            disabled: true,
+                                            additionalImage: 'card',
+                                            additionalText: 'Вибачте, але оплата онлайн поки що недоступна. Ми працюємо над цим. Дякуємо за розуміння!'
+                                        },
+                                    ]}
+                                />
                             </div>
                         </div>
                     </div>
@@ -244,12 +284,35 @@ export const OrderPage = () => {
                             <div className="flex flex-col pb-3 gap-[45px]">
                                 {orderItems.map(el => (
                                     <OrderItem
-                                        key={getRandomInt(1, 1000) + el.title} 
+                                        key={getRandomInt(1, 1000) + el.title}
                                         {...el}
                                     />
                                 ))}
 
-                                <Button sizeBtn='huge' widthFull disabled title='Підтвердити' background='black' />
+                                {additionalItems.map(el => (
+                                    <OrderItem
+                                        key={getRandomInt(1, 1000) + el.title}
+                                        {...el}
+                                    />
+                                ))}
+
+                                <Button
+                                    sizeBtn='huge'
+                                    widthFull
+                                    disabled={!isValid}
+                                    title='Підтвердити'
+                                    background='black'
+                                    onClickHandler={() => {
+                                        if (modalRef.current) {
+                                            modalRef.current.showModal({
+                                                title: `прийнято!\nЗамовлення #1024`,
+                                                leftBtnText: 'Повернутись до меню',
+                                                description: 'Готуйтеся до смачного перекусу о [вказаний час]',
+                                                rightBtnText: '',
+                                            });
+                                        }
+                                    }}
+                                />
                             </div>
 
                             <div className='flex justify-end items-center gap-2 border-t border-[#CBD2D9]'>

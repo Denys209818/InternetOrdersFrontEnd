@@ -1,25 +1,16 @@
-import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
+import { ModalType } from "../AuthModal/AuthModal";
 import { createPortal } from "react-dom";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
-export type ModalType = {
-    title: string;
-    description?: string;
-    leftBtnText: string;
-    rightBtnText: string;
-}
-
-export type ModalRefType = {
-    showModal: (props: ModalType) => void;
-    hideModal: () => void;
-};
-
-export const AuthModal: React.ForwardRefExoticComponent<React.RefAttributes<unknown>> = forwardRef(
+export const OrderModal: React.ForwardRefExoticComponent<React.RefAttributes<unknown>> = forwardRef(
     (props, ref) => {
+    const navigate = useNavigate();
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [leftBtnText, setLeftBtnText] = useState('');
-    const [rightBtnText, setRightBtnText] = useState('');
+    const [btnText, setBtnText] = useState('');
 
     const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -27,14 +18,16 @@ export const AuthModal: React.ForwardRefExoticComponent<React.RefAttributes<unkn
     " border border-2 bg-white p-10 backdrop:bg-black/40 w-max";
 
     useImperativeHandle(ref, () => ({
-        showModal: ({ title, description, leftBtnText, rightBtnText }: ModalType) => {
+        showModal: ({ title, description, leftBtnText: btnText }: ModalType) => {
             if (dialogRef.current) {
                 setTitle(title);
                 setDescription(description || '');
-                setLeftBtnText(leftBtnText);
-                setRightBtnText(rightBtnText);
+                setBtnText(btnText);
 
                 dialogRef.current.showModal();
+
+                document.body.style.overflow = 'hidden';
+                window.scrollTo(0, 0);
             }
         },
 
@@ -50,6 +43,12 @@ export const AuthModal: React.ForwardRefExoticComponent<React.RefAttributes<unkn
             dialogRef.current.close();
         }
     }
+
+    useEffect(() => {
+        return () => {
+            document.body.style.overflow = '';
+        }
+    }, []);
 
     return (createPortal(<dialog
             ref={dialogRef}
@@ -69,19 +68,16 @@ export const AuthModal: React.ForwardRefExoticComponent<React.RefAttributes<unkn
                     )}
                 </div>
 
-                <div className="grid grid-cols-2 gap-x-3 min-[375px]:gap-y-3">
+                <div className="grid grid-cols-1 gap-x-3 min-[375px]:gap-y-3">
                     <Button
                         sizeBtn="huge"
-                        title={leftBtnText}
-                        background="white"
-                        onClickHandler={onClose}
-                    />
-
-                    <Button
-                        sizeBtn="huge"
-                        title={rightBtnText}
+                        title={btnText}
                         background="black"
-                        onClickHandler={onClose}
+                        onClickHandler={() => {
+                            onClose();
+                            
+                            navigate('/menu');
+                        }}
                     />
                 </div>
             </div>
