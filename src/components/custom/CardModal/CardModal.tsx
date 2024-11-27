@@ -11,6 +11,7 @@ import { Dish, DishCart } from "../../../redux/types/dishTypes";
 import { AddToCartAction, ChangeCartItemAction } from "../../../actions/CartActions";
 import { useAppDispatch, useAppSelector } from "../../../redux/tools/hooks";
 import { faker } from "@faker-js/faker";
+import { useNavigate } from "react-router-dom";
 
 export type CardModalType = {
     dish: Dish;
@@ -25,6 +26,8 @@ export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
         ingredientPriceOptions,
         imageSrc
     } = dish;
+
+    const navigate = useNavigate();
 
     const dispatch = useAppDispatch();
     const cartItems = useAppSelector(state => state.cart);
@@ -128,9 +131,9 @@ export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
 
     const addToCart = () => {
         if(size.id < 0) {
-            setError('Оберіть розмір!');
+            setError('Оберіть розмір');
 
-            return;
+            return false;
         }
 
         const formedId = dish.title + dish.imageSrc + (dish.id * totalPrice);
@@ -152,6 +155,8 @@ export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
         }
 
         close();
+
+        return true;
     }
 
     useEffect(() => {
@@ -317,6 +322,13 @@ export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
                                             title="Замовити"
                                             sizeBtn="huge"
                                             background="white"
+                                            onClickHandler={() => {
+                                                const res = addToCart();
+                                                
+                                                if (res) {
+                                                    navigate('/order');
+                                                }
+                                            }}
                                         />
                                         
                                         <Button

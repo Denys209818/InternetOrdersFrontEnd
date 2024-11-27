@@ -65,15 +65,6 @@ export const OrderPage = () => {
         return true;
     }, [order]);
 
-    const isValid = useMemo(() => {
-        return (firstName &&
-        secondName &&
-        phone.length === 17 && 
-        order.paymentType && 
-        order.expectationTimeType &&
-        getValidExpectationTime(order.expectationTimeType));
-    }, [firstName, secondName, phone.length, order.paymentType, order.expectationTimeType, getValidExpectationTime]);    
-
     const orderItems: OrderItemType[] = cartItems.map(item => ({
         title: item.title,
         price: item.price,
@@ -90,6 +81,16 @@ export const OrderPage = () => {
 
     const totalPrice = orderItems.reduce((prev, curr) => prev + curr.count * curr.price, 0)
         + additionalItems.reduce((prev, curr) => prev + curr.price, 0);
+
+    const isValid = useMemo(() => {
+        return (firstName &&
+        secondName &&
+        phone.length === 17 &&
+        totalPrice > 0 && 
+        order.paymentType && 
+        order.expectationTimeType &&
+        getValidExpectationTime(order.expectationTimeType));
+    }, [firstName, secondName, phone.length, totalPrice, order.paymentType, order.expectationTimeType, getValidExpectationTime]);    
 
     const sectionStyles = `
     ${Styles.sectionLargeStyle}
