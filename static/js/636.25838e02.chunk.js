@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkinternetordersfrondend=self.webpackChunkinternetordersfrondend||[]).push([[636],{1636:(e,n,r)=>{r.r(n),r.d(n,{default:()=>s});var d=r(579);const s=()=>(0,d.jsx)(d.Fragment,{children:"Login Page Admin"})}}]);
+//# sourceMappingURL=636.25838e02.chunk.js.map

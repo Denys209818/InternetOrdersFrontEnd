@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkinternetordersfrondend=self.webpackChunkinternetordersfrondend||[]).push([[524],{524:(e,n,r)=>{r.r(n),r.d(n,{default:()=>s});var d=r(579);const s=()=>(0,d.jsx)(d.Fragment,{children:"Admin Main Page"})}}]);
-//# sourceMappingURL=524.061b1784.chunk.js.map
