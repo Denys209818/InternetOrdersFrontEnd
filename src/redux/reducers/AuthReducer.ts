@@ -6,6 +6,8 @@ export interface UserType {
     firstName: string;
     secondName: string;
     email: string;
+    phone: string;
+    password: string;
     token: string;
     isLoading: boolean;
     error: string;
@@ -25,9 +27,11 @@ export interface UserRegister {
 
 const initialUser: UserType = {
     id: 0,
-    firstName: '',
-    secondName: '',
-    email: '',
+    firstName: 'Albert',
+    secondName: 'Gnativ',
+    email: 'albertgnativ@ukr.net',
+    phone: '+38 093 411 90 99',
+    password: 'qwertyuiop',
     token: '',
     isLoading: false,
     error: '',

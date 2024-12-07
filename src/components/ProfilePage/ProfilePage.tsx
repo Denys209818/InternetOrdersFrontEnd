@@ -3,11 +3,9 @@ import * as Styles from '../MainPage/styles';
 import ReadyState from '../custom/ReadyState';
 import RangeSlider from '../custom/RangeSlider';
 import OrderRow from '../custom/OrderRow';
-import Input from '../custom/Input';
-import MaskedInput from '../custom/MaskedInput';
 import { useLayoutEffect, useRef, useState } from 'react';
-import Button from '../custom/Button';
 import { DishIngredient } from '../../redux/types/dishTypes';
+import PorfileForm from '../custom/ProfileForm';
 
 export interface ProfileDish {
     id: number;
@@ -27,17 +25,9 @@ export type OrderProfileType = {
 };
 
 export const ProfilePage: React.FC = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [authErrors, setAuthErrors] = useState<{ [key: string]: string[] }>({});
-    const [firstName, setFirstName] = useState('');
-    const [secondName, setSecondName] = useState('');
-    const [phone, setPhone] = useState('');
-
     const [heightStage, setHeightStage] = useState(0);
 
     const stageRef = useRef<HTMLDivElement>(null);
-    const maskRef = useRef(null);
 
     useLayoutEffect(() => {
         if (stageRef.current) {
@@ -195,13 +185,6 @@ export const ProfilePage: React.FC = () => {
             ],
         },
     ];
-
-    const discardErrors = (type: string) => {
-        setAuthErrors(prev => ({
-            ...prev,
-            [type]: []
-        }));
-    }
 
     return (
         <main className={`
@@ -400,93 +383,7 @@ export const ProfilePage: React.FC = () => {
                 min-[744px]:col-span-6
                 col-span-4
             `}>
-                <h2 className={`
-                    min-[1440px]:text-headerLessMain
-                    min-[744px]:text-headerLessTablet
-                    text-orderTitlePhone
-                    font-oswald
-                    uppercase   
-                `}>
-                    Персональні дані
-                </h2>
-
-                <div className="flex flex-col gap-3">
-                    <Input
-                        value={firstName}
-                        placeholder="Ім'я"
-                        type="text"
-                        name="firstName"
-                        setValue={(arg) => { setFirstName(arg); discardErrors('firstName'); }}
-                        errors={authErrors.firstName || []}
-                    />
-
-                    <Input
-                        value={secondName}
-                        placeholder="Прізвище"
-                        type="text"
-                        name="secondName"
-                        setValue={(arg) => { setSecondName(arg); discardErrors('secondName'); }}
-                        errors={authErrors.secondName || []}
-                    />
-
-                    <MaskedInput
-                        ref={maskRef}
-                        placeholder="Телефон"
-                        type="text"
-                        name="phone"
-                        mask={"+38 000 000 00 00"}
-                        onAccept={(value: string, mask: any) => {
-                            setPhone(value);
-                            discardErrors('phone');
-
-                            mask.updateValue();
-                        }}
-                        onClickHandler={() => {
-                            if (maskRef.current && !phone) {
-                                const maskElement = maskRef.current as any;
-                                maskElement.maskRef.value = '+38 ';
-                                maskElement.maskRef.updateValue();
-                            }
-                        }}
-                        isEmpty={phone.length === 0}
-                        errors={authErrors.phone || []}
-                    />
-
-                    <Input
-                        value={email}
-                        placeholder="Електронна пошта"
-                        type="text"
-                        name="email"
-                        setValue={(arg) => { setEmail(arg); discardErrors('email'); }}
-                        errors={authErrors.email || []}
-                    />
-
-                    <Input
-                        value={password}
-                        placeholder="Пароль"
-                        type="password"
-                        name="password"
-                        setValue={(arg) => { setPassword(arg); discardErrors('password'); }}
-                        errors={authErrors.password || []}
-                    />
-
-                    <Input
-                        value={password}
-                        placeholder="Змінити пароль"
-                        type="password"
-                        name="changepassword"
-                        setValue={(arg) => { setPassword(arg); discardErrors('password'); }}
-                        errors={authErrors.password || []}
-                    />
-                </div>
-
-                <Button
-                    title='Зберегти'
-                    sizeBtn='huge'
-                    background='black'
-                    disabled
-                    widthFull
-                />
+                <PorfileForm />
 
                 <Link to={''} className='block p-2 font-lato text-btn text-[#B20508]'>
                     Вийти

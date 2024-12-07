@@ -49,7 +49,7 @@ export const Input: React.FC<InputType> = ({ type, placeholder, name, value, set
                 type={isPassword && showPassword ? 'text' : type} 
                 name={name} 
                 id={name} 
-                value={value} 
+                value={value}
                 onChange={e => setValue(e.target.value)}
                 className={classNames(
                     "block " +

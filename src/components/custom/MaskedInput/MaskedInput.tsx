@@ -12,7 +12,7 @@ type InputType = {
 };
 
 export const MaskedInput = IMaskMixin(({ inputRef, ...props }) => {
-    const { type, placeholder, isEmpty, name, errors, onClickHandler } = props as InputType;
+    const { type, placeholder, isEmpty, name, errors,  onClickHandler } = props as InputType;
     const isInvalid = errors.length > 0;
 
     const divStyles = !isEmpty ? 'text-inputPlaceholder top-2 left-6 translate-y-0' : `
