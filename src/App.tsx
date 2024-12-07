@@ -5,6 +5,8 @@ import { useAppDispatch } from "./redux/tools/hooks";
 import { getAllCartItems } from "./tools/localStorageUtils";
 import { DishCart } from "./redux/types/dishTypes";
 import { SetCartItemsAction } from "./actions/CartActions";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./tools/reactQuery";
 
 
 const App = () => {
@@ -17,7 +19,9 @@ const App = () => {
   }, [dispatch]);
 
   return (
+    <QueryClientProvider client={queryClient}>
       <Root />
+    </QueryClientProvider>
   );
 }
 

@@ -13,6 +13,7 @@ const CardPage = React.lazy(() => import("../components/CardPage"));
 const MenuPage = React.lazy(() => import("../components/MenuPage"));
 const AuthPage = React.lazy(() => import("../components/AuthPage"));
 const OrderPage = React.lazy(() => import("../components/OrderPage"));
+const ProfilePage = React.lazy(() => import("../components/ProfilePage"));
 
 const LoginPageAdmin = React.lazy(() => import("../components/admin/LoginPage"));
 const MainPageAdmin = React.lazy(() => import("../components/admin/MainPage"));
@@ -20,6 +21,7 @@ const MainPageAdmin = React.lazy(() => import("../components/admin/MainPage"));
 export const mainRoutes: RouteType[] = [
     { path: '/catalog', component: CatalogPage, loader: сatalogLoader },
     { path: '/product', component: CardPage },
+    { path: '/profile', component: ProfilePage },
     { path: '/order', component: OrderPage },
     { path: '/', component: MainPage },
 ];

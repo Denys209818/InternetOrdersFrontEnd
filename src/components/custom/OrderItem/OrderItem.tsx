@@ -17,7 +17,7 @@ export const OrderItem: React.FC<OrderItemType> = ({ title, additionals, count, 
 
                 <div className='flex gap-1'>
                     <span className='block text-[#1F2933] font-lato min-[744px]:text-orderAuthDesc text-orderAuthDescPhone'>{count} шт.</span>
-                    <span className='block text-[#1F2933] font-literata min-[744px]:text-orderListPrice text-orderListPricePhone italic'>{price} грн</span>
+                    <span className='block text-[#1F2933] font-literata min-[744px]:text-orderListPrice text-orderListPricePhone italic'>{price * count} грн</span>
                 </div>
             </div>
         </div>

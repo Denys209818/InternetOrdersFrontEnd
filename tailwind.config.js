@@ -62,6 +62,9 @@ module.exports = {
         'checkPointDisabled': "url('/src/images/CheckPointDisabled.svg')",
         'basket': "url('/src/images/Basket_fill.svg')",
         'basketblack': "url('/src/images/Basket_fill-black.svg')",
+        'profileorder': "url('/src/images/ProfileOrder.svg')",
+        'profilecooker': "url('/src/images/ProfileCooker.svg')",
+        'profilebag': "url('/src/images/ProfileBag.svg')",
       },
       paddingBottom: {
         '40%': '40%',
@@ -177,6 +180,13 @@ module.exports = {
             letterSpacing: '-0.48px'
           }
         ],
+        profileTitleSmall: [
+          '21px', {
+            lineHeight: '23.1px',
+            fontWeight: '700',
+            letterSpacing: '-0.48px'
+          }
+        ],
         cartText: [
           '16px', {
             lineHeight: '17.6px',
@@ -281,9 +291,30 @@ module.exports = {
           letterSpacing: '0.8px',
           fontWeight: '600',
         }],
+        orderId: ['15px', {
+          lineHeight: '15px',
+          letterSpacing: '0.8px',
+          fontWeight: '600',
+        }],
         input: ['16px', {
           lineHeight: '17.6px',
           fontWeight: '400',
+        }],
+        tdText: ['16px', {
+          lineHeight: '25px',
+          fontWeight: '400',
+        }],
+        tdTextSmall: ['14px', {
+          lineHeight: '15.4px',
+          fontWeight: '400',
+        }],
+        orderComponentSmall: ['14px', {
+          lineHeight: '15.4px',
+          fontWeight: '500',
+        }],
+        orderComponentSmallBolder: ['14px', {
+          lineHeight: '15.4px',
+          fontWeight: '700',
         }],
         inputPlaceholder: ['12px', {
           lineHeight: '13.2px',

@@ -24,3 +24,9 @@ export const RemoveCartItemAction = (id: string) => (dispatch: AppDispatch) => {
 
     dispatch(cartActions.removeCartItem(id));
 }
+
+export const OpenCartAction = (isOpen: boolean) => (dispatch: AppDispatch) => {
+    dispatch(cartActions.changeVisibilityCart(isOpen));
+}
+
+

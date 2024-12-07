@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import MenuSide from "../MenuSide";
 import { useState } from "react";
 import CartModal from "../CartModal";
+import { useAppDispatch, useAppSelector } from "../../../redux/tools/hooks";
+import { OpenCartAction } from "../../../actions/CartActions";
 
 export const Header: React.FC = () => {
+    const dispatch = useAppDispatch();
+    const isCartOpen = useAppSelector(state => state.cart.isOpen);
+
     const [menuShow, setMenuShow] = useState(false);
-    const [cartShow, setCartShow] = useState(false);
 
     const iconStyle = menuShow ? 'bg-close' : 'bg-menu';
 
@@ -23,7 +27,7 @@ export const Header: React.FC = () => {
 
                     <li>
                         <ul className="flex items-center list-none m-0 p-0 gap-8">
-                            <li className="flex gap-2 items-center hover:cursor-pointer" onClick={() => setCartShow(true)}>
+                            <li className="flex gap-2 items-center hover:cursor-pointer" onClick={() => dispatch(OpenCartAction(true))}>
                                 <p className="block text-[20px] font-normal font-lato tracking-tighter">Кошик</p> 
 
                                 <div className="flex items-center">
@@ -49,6 +53,6 @@ export const Header: React.FC = () => {
         </div>
 
         {menuShow && <MenuSide close={() => setMenuShow(false)} />}
-        {cartShow && <CartModal state={cartShow ? 'open' : 'close'} close={() => setCartShow(false)} />}
+        {isCartOpen && <CartModal state={isCartOpen ? 'open' : 'close'} close={() => dispatch(OpenCartAction(false))} />}
     </header>);
 }

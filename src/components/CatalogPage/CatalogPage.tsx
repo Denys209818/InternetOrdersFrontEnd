@@ -6,17 +6,18 @@ import Receipt from "../custom/Receipt";
 import { ReceiptType } from "../custom/Receipt/Receipt";
 import { Suspense, useState } from "react";
 import Loader from "../custom/Loader/Loader";
-import cardData from './data/cardData.json';
 import CardModal from "../custom/CardModal";
 import { AdditionalDishIngredient, Dish, DishIngredient, DishSize } from "../../redux/types/dishTypes";
+import { FetchCategoryResult } from "../../http/types";
 
 type LoaderData = {
     data: Promise<ReceiptType[]>;
+    cards: Promise<FetchCategoryResult>
 }
 
 export const CatalogPage: React.FC = () => {
     const [open, setOpen] = useState(false);
-    const [currentDish, setCurrentDish] = useState<Dish|null>(null);
+    const [currentDish, setCurrentDish] = useState<Dish | null>(null);
 
     const sectionStyles = `
         ${Styles.sectionLargeStyle}
@@ -26,8 +27,7 @@ export const CatalogPage: React.FC = () => {
         ${Styles.sectionTabletStyle}
     `;
 
-    const { data } = useLoaderData() as LoaderData;
-    const cardItems = cardData;
+    const { data, cards } = useLoaderData() as LoaderData;
 
     const navigate = useNavigate();
 
@@ -63,7 +63,12 @@ export const CatalogPage: React.FC = () => {
 
     return (
         <main className="relative pt-[90px] bg-[#FFE9DE]">
-            {open && currentDish && <CardModal dish={currentDish} close={() => setOpen(false)} />}
+            {open && currentDish && 
+                <CardModal
+                    dish={currentDish}
+                    close={() => setOpen(false)}
+                />
+            }
 
             <section className={`max-w-[1440px] m-auto ${sectionStyles}`}>
                 <Button image="back" background="transparent" onClickHandler={() => navigate(-1)} />
@@ -83,13 +88,49 @@ export const CatalogPage: React.FC = () => {
                 <h3 className="text-headerLessTablet font-oswald uppercase font-medium">Обирай наші смаки</h3>
 
                 <div className="grid min-[744px]:grid-cols-12 grid-cols-4 gap-x-4 gap-y-6 pt-3">
-                    {(cardItems as unknown as CardType[]).map(el => (
-                        <Card
-                            key={el.imageSrc}
-                            {...(el as CardType)}
-                            onClickHandler={() => onCardClickHandler(el)}
-                        />
-                    ))}
+                    <Suspense fallback={<Loader />}>
+                        <Await resolve={cards}>
+                            {(resolvedData) => (<>
+                                {(resolvedData as unknown as CardType[]).map(el => {
+                                    // const ingredOptions = el.ingredOptions[0] ? [...el.ingredOptions[0].options.map(opt => ({
+                                    //     id: opt.id,
+                                    //     title: opt.title,
+                                    //     price: opt.price,
+                                    // }))] : [];
+
+                                    // const newObj = {
+                                    //     id:el.id,
+                                    //     title:el.title,
+                                    //     imageSrc:el.imageSrc,
+                                    //     options:[...el.sizePriceOptions.map(opt => ({
+                                    //         id: opt.id,
+                                    //         optionTitle: opt.title,
+                                    //         optionPrice: opt.price.toString(),
+                                    //         sizeId: opt.sizeId,
+                                    //     }))] as Option[],
+                                    //     defaultOptions: el.defaultOptions.map(opt => ({
+                                    //         id: opt.id,
+                                    //         title: opt.title,
+                                    //         price: opt.price,
+                                    //     })),
+                                    //     ingredOptions: ingredOptions,
+                                    // } as Omit<CardType, 'onClickHandler'>;
+
+                                    const newObj = {
+                                        ...el,
+                                    };
+
+                                    return (
+                                        <Card
+                                            key={el.imageSrc}
+                                            {...newObj}
+                                            onClickHandler={() => onCardClickHandler(newObj)}
+                                        />
+                                    )
+                                })}
+                            </>)}
+                        </Await>
+                    </Suspense>
                 </div>
             </section>
 

@@ -54,7 +54,7 @@ export const OrderPage = () => {
         }
     }
 
-    const cartItems = useAppSelector(state => state.cart);
+    const cartItems = useAppSelector(state => state.cart.dishes);
     const order = useAppSelector(state => state.order);
 
     const getValidExpectationTime = useCallback((timeType: string) => {

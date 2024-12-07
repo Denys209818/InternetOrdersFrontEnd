@@ -8,7 +8,7 @@ import { IngredientListType } from "../IngredientList/IngredientList";
 import { ReceiptProp } from "../ReceiptCreator/ReceiptCreator";
 import Button from "../Button";
 import { Dish, DishCart } from "../../../redux/types/dishTypes";
-import { AddToCartAction, ChangeCartItemAction } from "../../../actions/CartActions";
+import { AddToCartAction, ChangeCartItemAction, OpenCartAction } from "../../../actions/CartActions";
 import { useAppDispatch, useAppSelector } from "../../../redux/tools/hooks";
 import { faker } from "@faker-js/faker";
 import { useNavigate } from "react-router-dom";
@@ -27,10 +27,9 @@ export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
         imageSrc
     } = dish;
 
-    const navigate = useNavigate();
-
     const dispatch = useAppDispatch();
-    const cartItems = useAppSelector(state => state.cart);
+    const cartItems = useAppSelector(state => state.cart.dishes);
+    const cartOpen = useAppSelector(state => state.cart.isOpen);
 
     const [error, setError] = useState('');
 
@@ -107,7 +106,7 @@ export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
         return isEdited;
     }, []);
 
-    const totalPrice = size.price + choosenProps.reduce((prev, curr) => prev + curr.price, 0);
+    const totalPrice = +size.price + choosenProps.reduce((prev, curr) => +prev + curr.price, 0);
 
     const catalogCreator: IngredientListType[] = useMemo(() => {
         const catalogData:IngredientListType[] = [];
@@ -138,12 +137,16 @@ export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
 
         const formedId = dish.title + dish.imageSrc + (dish.id * totalPrice);
 
+        const ids = choosenProps.map(el => el.id) as number[];
+
         const newItem: DishCart = {
             id: formedId,
             hashId: dish.id,
             title: dish.title,
             price: totalPrice,
             count: 1,
+            sizeId: size.id,
+            additionalIds: ids,
             additionalCount: choosenProps.length,
             imageSrc: dish.imageSrc,
         };
@@ -326,7 +329,7 @@ export const CardModal: React.FC<CardModalType> = ({ dish, close }) => {
                                                 const res = addToCart();
                                                 
                                                 if (res) {
-                                                    navigate('/order');
+                                                    dispatch(OpenCartAction(true));
                                                 }
                                             }}
                                         />

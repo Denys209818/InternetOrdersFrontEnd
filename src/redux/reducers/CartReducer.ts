@@ -1,31 +1,51 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ChangeItemType, DishCart } from "../types/dishTypes";
 
-const initialState: DishCart[] = [];
+export type CartType = {
+    dishes: DishCart[];
+    isOpen: boolean;
+};
+
+const initialState: CartType = {
+    isOpen: false,
+    dishes: [],
+};
 
 const cartSlice = createSlice({
     initialState: initialState,
     reducers: {
-        setCartItems(state: DishCart[], action: PayloadAction<DishCart[]>) {
-            return action.payload;
+        setCartItems(state: CartType, action: PayloadAction<DishCart[]>) {
+            return {
+                ...state,
+                dishes: action.payload
+            };
         },
-        addToCart(state: DishCart[], action: PayloadAction<DishCart>) {
-            state.push(action.payload);
+        addToCart(state: CartType, action: PayloadAction<DishCart>) {
+            state.dishes.push(action.payload);
         },
-        changeCartItem(state: DishCart[], action: PayloadAction<ChangeItemType>) {
-            return state.map(el => {
-                if (el.id === action.payload.id) {
-                    return {
-                        ...el,
-                        count: el.count + action.payload.payload
-                    };
-                }
+        changeCartItem(state: CartType, action: PayloadAction<ChangeItemType>) {
+            return {
+                ...state,
+                dishes: state.dishes.map(el => {
+                    if (el.id === action.payload.id) {
+                        return {
+                            ...el,
+                            count: el.count + action.payload.payload
+                        };
+                    }
 
-                return el;
-            });
+                    return el;
+                })
+            };
         },
-        removeCartItem(state: DishCart[], action: PayloadAction<string>) {
-            return state.filter(el => el.id !== action.payload);
+        removeCartItem(state: CartType, action: PayloadAction<string>) {
+            return {
+                ...state, 
+                dishes: state.dishes.filter(el => el.id !== action.payload),
+            };
+        },
+        changeVisibilityCart(state: CartType, action: PayloadAction<boolean>) {
+            state.isOpen = action.payload;
         },
     },
     name: 'cart'

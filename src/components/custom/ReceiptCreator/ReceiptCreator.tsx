@@ -24,7 +24,7 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items, reset }) =>
     const [sum, setSum] = useState(0);
 
     const dispatch = useAppDispatch();
-    const cartItems = useAppSelector(state => state.cart);
+    const cartItems = useAppSelector(state => state.cart.dishes);
 
     useLayoutEffect(() => {
         setSum(items.reduce((prev, curr) => prev + curr.price, 0) + size.price);
@@ -45,6 +45,7 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items, reset }) =>
             title: 'Мій рецепт',
             price: sum,
             count: 1,
+            sizeId: size.id,
             additionalCount: items.length,
             imageSrc: 'images/self-receipt.png',
             components: items.map(el => ({

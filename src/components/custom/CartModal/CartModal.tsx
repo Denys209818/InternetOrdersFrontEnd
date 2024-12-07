@@ -15,7 +15,7 @@ export type CartModalType = {
 };
 
 export const CartModal: React.FC<CartModalType> = ({ state, close }) => {
-    const cartDishes = useAppSelector(state => state.cart);
+    const cartDishes = useAppSelector(state => state.cart.dishes);
     const dispatch = useAppDispatch();
 
     const [activeCheck, setActiveCheck] = useState<String>('');

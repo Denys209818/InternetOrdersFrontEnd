@@ -1,7 +1,8 @@
 import { DishIngredient } from "../../../redux/types/dishTypes";
 
-type Option = {
+export type Option = {
     id: number;
+    sizeId: number;
     optionTitle: string;
     optionPrice: string;
 };
@@ -19,7 +20,8 @@ export type CardType = {
 export const Card: React.FC<CardType> = ({ title, options, imageSrc, onClickHandler }) => {
     return (
     <div className={`
-        block
+        flex
+        flex-col
         min-[1000px]:col-span-3
         min-[744px]:col-span-4
         col-span-2
@@ -33,7 +35,7 @@ export const Card: React.FC<CardType> = ({ title, options, imageSrc, onClickHand
         >
         <div className="relative w-full pb-[105.6%] overflow-hidden">
             <img
-                src={imageSrc}
+                src={imageSrc || 'images/no-image.jpg'}
                 alt="Product"
                 className={`
                     absolute
@@ -50,6 +52,8 @@ export const Card: React.FC<CardType> = ({ title, options, imageSrc, onClickHand
         <div className={`
             flex
             flex-col
+            h-full
+            justify-between
             min-[1440px]:p-4
             p-3
             gap-4

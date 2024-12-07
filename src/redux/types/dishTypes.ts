@@ -29,8 +29,10 @@ export interface DishCart {
     title: string;
     price: number;
     count: number;
+    sizeId: number;
     additionalCount: number;
     imageSrc: string;
+    additionalIds?: number[];
     components?: DishIngredient[];
 }
 
