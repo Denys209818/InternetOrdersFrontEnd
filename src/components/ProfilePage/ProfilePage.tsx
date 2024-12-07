@@ -7,12 +7,23 @@ import Input from '../custom/Input';
 import MaskedInput from '../custom/MaskedInput';
 import { useLayoutEffect, useRef, useState } from 'react';
 import Button from '../custom/Button';
+import { DishIngredient } from '../../redux/types/dishTypes';
+
+export interface ProfileDish {
+    id: number;
+    title: string;
+    price: number;
+    count: number;
+    additionalCount: number;
+    components?: DishIngredient[];
+}
 
 export type OrderProfileType = {
     id: number;
     date: string;
     status: 'completed' | 'canceled';
     price: number;
+    dishes: ProfileDish[];
 };
 
 export const ProfilePage: React.FC = () => {
@@ -48,24 +59,140 @@ export const ProfilePage: React.FC = () => {
             status: 'canceled',
             date: '03.10.2024',
             price: 400,
+            dishes: [
+                {
+                    id: 1,
+                    title: 'Шаурма класична',
+                    price: 100,
+                    count: 1,
+                    additionalCount: 0,
+                },
+                {
+                    id: 2,
+                    title: 'Шаурма “Мій рецепт”',
+                    price: 100,
+                    count: 1,
+                    additionalCount: 5,
+                    components: [
+                        {
+                            id: 1, 
+                            title: 'Капуста, огірок, помідор',
+                            price: 0,
+                        },
+                        {
+                            id: 2, 
+                            title: 'Класичний лаваш',
+                            price: 0,
+                        },
+                        {
+                            id: 3, 
+                            title: 'Курка',
+                            price: 0,
+                        },
+                        {
+                            id: 4, 
+                            title: 'Сир',
+                            price: 0,
+                        }
+                    ],
+                },
+            ],
         },
         {
             id: 1043,
             status: 'completed',
             date: '03.10.2024',
             price: 325,
+            dishes: [
+                {
+                    id: 2,
+                    title: 'Шаурма “Мій рецепт”',
+                    price: 100,
+                    count: 1,
+                    additionalCount: 5,
+                    components: [
+                        {
+                            id: 1, 
+                            title: 'Капуста, огірок, помідор',
+                            price: 0,
+                        },
+                        {
+                            id: 2, 
+                            title: 'Класичний лаваш',
+                            price: 0,
+                        },
+                        {
+                            id: 3, 
+                            title: 'Курка',
+                            price: 0,
+                        },
+                        {
+                            id: 4, 
+                            title: 'Сир',
+                            price: 0,
+                        }
+                    ],
+                },
+            ],
         },
         {
             id: 1042,
             status: 'canceled',
             date: '03.10.2024',
             price: 250,
+            dishes: [
+                {
+                    id: 1,
+                    title: 'Шаурма класична',
+                    price: 100,
+                    count: 1,
+                    additionalCount: 0,
+                },
+            ],
         },
         {
             id: 1041,
             status: 'canceled',
             date: '03.10.2024',
             price: 250,
+            dishes: [
+                {
+                    id: 1,
+                    title: 'Шаурма класична',
+                    price: 100,
+                    count: 1,
+                    additionalCount: 0,
+                },
+                {
+                    id: 2,
+                    title: 'Шаурма “Мій рецепт”',
+                    price: 100,
+                    count: 1,
+                    additionalCount: 5,
+                    components: [
+                        {
+                            id: 1, 
+                            title: 'Капуста, огірок, помідор',
+                            price: 0,
+                        },
+                        {
+                            id: 2, 
+                            title: 'Класичний лаваш',
+                            price: 0,
+                        },
+                        {
+                            id: 3, 
+                            title: 'Курка',
+                            price: 0,
+                        },
+                        {
+                            id: 4, 
+                            title: 'Сир',
+                            price: 0,
+                        }
+                    ],
+                },
+            ],
         },
     ];
 
