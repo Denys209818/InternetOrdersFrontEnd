@@ -184,6 +184,7 @@ export const ReceiptCreator: React.FC<ReceiptType> = ({ size, items, reset }) =>
                         background="black"
                         isBackWhite
                         onClickHandler={handleClick}
+                        widthFull
                     />
 
                     <p className="block pt-3 text-cook text-[#525A63] font-lato">

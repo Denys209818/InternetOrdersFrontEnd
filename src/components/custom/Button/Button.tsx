@@ -44,7 +44,7 @@ export const Button:React.FC<ButtonType> = ({
             background: `${isSelected ? 'bg-[#BBEE85]' : 'bg-white'}`,
             color: 'text-black',
         },
-        huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} w-full hover:bg-[#BBEE85]`,
+        huge: `px-6 ${additionalImage ? 'py-3.5': 'py-4'} hover:bg-[#BBEE85]`,
         small: `
             ${hasSmallerSize ? 'size-8' : (hasMaxWidth ? 'size-[56px] min-w-[56px]' : 'size-10')}
             hover:bg-[#BBEE85]

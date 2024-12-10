@@ -292,6 +292,7 @@ const AuthPage: React.FC = () => {
                                     type="submit"
                                     sizeBtn="huge"
                                     background="black"
+                                    widthFull
                                 />
 
                                 <Button
@@ -299,6 +300,7 @@ const AuthPage: React.FC = () => {
                                     sizeBtn="huge"
                                     background="white"
                                     additionalImage="google"
+                                    widthFull
                                 />
                             </>}
 
@@ -309,6 +311,7 @@ const AuthPage: React.FC = () => {
                                     sizeBtn="huge"
                                     background="black"
                                     disabled={!phone}
+                                    widthFull
                                 />
                             )}
                         </div>

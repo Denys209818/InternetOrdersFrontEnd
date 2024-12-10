@@ -270,11 +270,13 @@ export const ProfilePage: React.FC = () => {
                             ref={stageRef}
                             className={`
                                 grid
+                                min-[744px]:justify-items-center
                                 min-[744px]:grid-cols-9
                                 min-[744px]:grid-rows-1
                                 grid-cols-3
                                 grid-rows-3
                                 gap-8
+                                w-full
                             `}>
                             <ReadyState
                                 title='Обробка'
